@@ -99,7 +99,7 @@
 <hr />
 <h3>2회기(11월 14일) 전까지</h3>
 <h4>6. Gemini API 키 발급</h4>
-<p>문서 파싱과 음성 변환 실습에 씁니다. 무료로 쓸 수 있는 범위 안에서 진행하므로 요금은 들지 않습니다.</p>
+<p>문서 파싱과 음성 변환 실습에 씁니다. 결제 정보를 등록하지 않은 키는 무료 범위 안에서만 쓰이므로 요금이 나가지 않습니다.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">https://aistudio.google.com/apikey</a>
 </code></pre>
 <p>Google 계정으로 로그인한 뒤 API 키를 만들고, 발급된 키를 메모장 등에 복사해 두세요. 2회기 실습 때 입력하게 됩니다.</p>
@@ -339,7 +339,7 @@
 <p><strong>필요한 경우 환경 변수 설정하기</strong>: Git이 설치되어 있어도 Claude가 <code>bash.exe</code> 경로를 찾지 못하면 <code>CLAUDE_CODE_GIT_BASH_PATH</code> 환경 변수 설정 안내가 뜸. PowerShell로 설정하는 방법과 Windows 설정 창에서 직접 넣는 방법을 함께 제시하면 Code 탭 입력창에 다음을 보냄.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>PowerShell로 환경 변수를 영구 설정하는 방법으로 네가 바로 해 줘.
 </code></pre>
-<p>Claude가 PowerShell 명령으로 환경 변수를 설정함. 안내에 붙은 번호는 그때그때 다르므로 번호 대신 방법을 말함.</p>
+<p>Claude가 PowerShell 명령으로 환경 변수를 설정함. 안내에 붙은 번호는 그때그때 다르므로 지시문에 번호 대신 방법 이름을 적음.</p>
 <ul>
 <li>환경 변수 안내가 뜨지 않고 Git을 정상적으로 인식하면 추가 설정 없이 진행함.</li>
 <li>「현재 세션의 PATH에는 아직 반영되지 않았다」는 안내가 나오면 앱을 완전히 종료하고 다시 실행한 뒤 설치 상태를 다시 확인함.</li>
@@ -417,13 +417,14 @@
 </code></pre>
 <ul>
 <li><strong>Windows 터미널이 없는 경우</strong>: Microsoft Store에서 설치함.</li>
-<li><strong>PowerShell 7과 Claude Code CLI</strong>: Claude의 답변에서 두 프로그램의 설치 결과를 확인함. CLI는 command line interface, 명령 줄 인터페이스의 약자임.</li>
+<li><strong>PowerShell 7과 Claude Code CLI</strong>: Claude의 답변에서 두 프로그램의 설치 결과를 확인함.</li>
 <li><strong>답이 「진행 중」에서 멈춘 경우</strong>: 응답을 다시 훑고 Claude 입력창에 설치가 완료됐는지 물어 결과를 확인함.</li>
 </ul>
 <h4>터미널과 셸</h4>
 <ul>
 <li><strong>터미널</strong>: 텍스트를 입력하고 프로그램의 출력을 확인하는 앱임. 예: Windows의 Windows 터미널, macOS의 터미널.</li>
 <li><strong>셸</strong>: 입력한 명령을 해석하고 프로그램을 실행하는 도구임. 예: PowerShell, zsh.</li>
+<li><strong>CLI</strong>: command line interface(명령 줄 인터페이스)의 약자임. 터미널에서 명령으로 실행하는 프로그램을 가리킴.</li>
 </ul>
 <p>하나의 터미널 앱에서 여러 셸을 골라 실행할 수 있음. PowerShell 프롬프트 앞머리의 <code>PS</code>는 PowerShell의 약자임.</p>
 <p><strong>「Windows PowerShell」과 「PowerShell 7」은 별도로 설치되는 프로그램임.</strong> Windows PowerShell은 Windows에 기본으로 들어 있는 이전 버전임. PowerShell 7을 설치했어도 터미널의 기본 셸은 Windows PowerShell로 남아 있을 수 있음. 기본 셸을 바꾸려면 Claude Desktop 앱 Code 탭 입력창에 다음을 보냄.</p>
@@ -447,17 +448,13 @@
 <li><strong>동작 확인하기</strong>: Claude Code 입력창이 나타나면 간단한 지시를 보내 응답이 출력되는지 확인함.</li>
 </ol>
 <ul>
-<li>
-<p><strong><code>claude</code>를 찾을 수 없다고 나오는 경우</strong>: 설치 직후라 터미널이 새 경로를 아직 모르는 것임. 터미널을 닫고 3번부터 다시 엶.</p>
-</li>
-<li>
-<p><strong>탐색 방법</strong>: 터미널의 출력 내용은 센스리더 키패드 리뷰로 훑음. 방향키는 입력 편집이나 선택 목록 조작에 쓰임.</p>
-</li>
+<li><strong><code>claude</code>를 찾을 수 없다고 나오는 경우</strong>: 설치 직후라 터미널이 새 경로를 아직 모르는 것임. 터미널을 닫고 3번부터 다시 엶.</li>
+<li><strong>탐색 방법</strong>: 터미널의 출력 내용은 센스리더 키패드 리뷰로 훑음. 방향키는 입력 편집이나 선택 목록 조작에 쓰임.</li>
 <li><strong>화면 언어</strong>: 첫 설정과 인증 화면은 영어로 나옴. 이 단계만 넘기면 이후는 한국어로 대화함.</li>
-<li><strong>기본 위치</strong>: Windows 검색창에서 <code>wt</code>를 입력해 터미널을 열면 홈 디렉터리에서 시작함. 폴더에서 바로 여는 방법과 목적지가 다름.</li>
 </ul>
-<p>터미널을 연 바로 그 폴더가 자동으로 작업 범위가 되므로, 앱처럼 폴더를 별도로 지정하지 않음.</p>
+<p>터미널을 연 폴더가 자동으로 작업 범위가 되므로, 앱처럼 폴더를 별도로 지정하지 않음.</p>
 <ul>
+<li><strong>기본 위치</strong>: Windows 검색창에서 <code>wt</code>를 입력해 터미널을 열면 홈 디렉터리에서 시작함. 파일 탐색기에서 연 터미널과 시작 폴더가 다름.</li>
 <li><strong>셸에서 폴더 이동하기</strong>: Claude Code를 실행하기 전 PowerShell 프롬프트에서 <code>cd ~</code>를 입력하면 홈 디렉터리로 이동하고, <code>dir</code>를 입력하면 현재 폴더의 목록을 봄.</li>
 </ul>
 <hr />
@@ -491,7 +488,7 @@
 </ul>
 <h4>선택지 입력 후 Enter 누르기</h4>
 <ul>
-<li>숫자든 <code>y</code>든 <code>n</code>이든 누르고 Enter를 쳐야 넘어감. 스크린 리더 모드에서는 이것이 기본값임.</li>
+<li>숫자든 <code>y</code>든 <code>n</code>이든 누르고 Enter를 쳐야 넘어감. 스크린 리더 모드에서는 Enter로 확정하는 방식이 기본임.</li>
 <li>입력 후 화면이 바뀌지 않으면 Enter를 눌렀는지 확인함.</li>
 </ul>
 <h4>Shift+Tab으로 권한 모드 바꾸기</h4>
@@ -503,7 +500,7 @@
 <p>작업 시간이 갱신되면서 같은 줄이 반복 낭독될 수 있음. 다음 방법 중 하나로 줄임.</p>
 <ul>
 <li>지시를 보낸 뒤 다른 창으로 포커스를 옮기고 끝나기를 기다림.</li>
-<li>점자 디스플레이를 연결함. 스크린 리더 낭독 개입 없이 내용 확인 가능.</li>
+<li>점자 디스플레이를 연결함. 음성 낭독과 별개로 점자로 내용을 확인할 수 있음.</li>
 <li>음성만 잠시 끔.</li>
 </ul>
 <h4>영어로 표시되는 작업 과정 읽기</h4>
@@ -714,7 +711,7 @@
 <ul>
 <li><strong>문제</strong>: 에이전트가 작업을 마치면 긴 결과 텍스트가 화면에 남음. 매번 키패드로 훑어야 무엇을 했는지 알 수 있음.</li>
 <li><strong>해결</strong>: 응답이 끝날 때마다 핵심 요약을 음성으로 들려주는 <code>agent-cli-tts-summary</code> 스킬을 설치함.</li>
-<li><strong>비용</strong>: 기본 음성은 Windows 내장 음성 엔진을 쓰므로 API 키도 비용도 들지 않음. 오늘은 기본값으로 둠.</li>
+<li><strong>비용</strong>: 기본 음성은 Windows 내장 음성 엔진을 쓰므로 API 키가 필요 없고 비용도 들지 않음. 오늘은 기본값으로 둠.</li>
 </ul>
 <ol>
 <li>
@@ -830,7 +827,7 @@
 </ol>
 <p>슬래시 명령 <code>/init</code>을 입력하고 Enter를 눌러도 만들어짐. 슬래시 명령은 <code>/</code>로 시작하며 정해진 기능을 실행하는 입력 방식임. 이 경우 영어로 작성될 수 있음.</p>
 <ul>
-<li>「코드 프로젝트 폴더는 아니지만」이라는 문구가 답변에 붙는 경우가 있음. Claude Code가 코딩 도구로 설정되어 있어 코드 파일이 없는 폴더에 이렇게 적는 것임. 문서 작업용 폴더라고 <code>CLAUDE.md</code>에 기록되므로 그대로 두면 됨.</li>
+<li>「코드 프로젝트 폴더는 아니지만」이라는 문구가 답변에 붙는 경우가 있음. Claude Code가 코딩 도구로 만들어져 있어 코드 파일이 없는 폴더에 이렇게 적는 것임. 문서 작업용 폴더라고 <code>CLAUDE.md</code>에 기록되므로 그대로 두면 됨.</li>
 </ul>
 <p><strong>확인 방법</strong>: 파일 탐색기에서 연습 폴더에 <code>CLAUDE.md</code>가 생겼는지 확인함. 메모장으로 열어 폴더의 용도와 파일 설명이 맞는지 읽음. 읽기 설정은 아래 「메모장에서 구문 보기로 바꾸기」 참조.</p>
 <h4>규칙 한 줄 더하기</h4>
@@ -1029,7 +1026,7 @@
 <p><code>skills-for-the-blind</code>는 공개 저장소라 소스 전체를 읽을 수 있음. 다른 스킬도 설치 전에 저장소의 <code>SKILL.md</code>를 읽고 어떤 작업을 지시하는지 확인해야 함.</p>
 <hr />
 <h3>Gemini API 키 등록하기</h3>
-<p><code>docparse</code>의 Gemini 파서와 <code>speech-toolkit</code>의 Gemini 음성은 <code>GEMINI_API_KEY</code>라는 환경 변수에서 키를 읽음. 환경 변수는 프로그램이 함께 읽는 설정값을 Windows에 저장해 두는 장치임.</p>
+<p><code>docparse</code>의 Gemini 파서와 <code>speech-toolkit</code>의 Gemini 음성은 <code>GEMINI_API_KEY</code>라는 환경 변수에서 키를 읽음. 환경 변수는 여러 프로그램이 읽을 수 있도록 설정값을 Windows에 저장해 두는 장치임.</p>
 <p><strong>키는 비밀번호와 같음.</strong> 다음 두 가지를 지킴.</p>
 <ul>
 <li><strong>키를 Claude 입력창에 붙여넣지 않음.</strong> 대화 내용은 Claude 서비스로 전송되고 이 컴퓨터의 대화 기록 파일에도 남음. 키 값은 아래 창에 직접 입력함.</li>
@@ -1054,7 +1051,9 @@
 <button type="button" class="copy" data-copy>복사</button><pre><code>GEMINI_API_KEY 환경 변수가 등록돼 있는지 확인해 줘. 키 값은 화면에 출력하지 말고 있는지 없는지만 알려 줘.
 </code></pre>
 <ul>
-<li><strong>무료 티어의 조건</strong>: 무료 사용 한도와 데이터 처리 조건은 Google AI Studio에서 확인해야 함. 키를 만든 프로젝트에 결제 설정이 연결돼 있으면 요금이 나갈 수 있음. 결제 설정이 없는 프로젝트의 키를 씀. 개인정보나 대외비가 담긴 문서는 실습에 쓰지 않음.</li>
+<li><strong>무료 티어의 조건</strong>: 무료 사용 한도와 데이터 처리 조건은 Google AI Studio에서 확인해야 함.</li>
+<li><strong>결제 설정</strong>: 키를 만든 프로젝트에 결제 설정이 연결돼 있으면 요금이 나갈 수 있음. 결제 설정이 없는 프로젝트의 키를 씀.</li>
+<li><strong>실습 자료</strong>: 개인정보나 대외비가 담긴 문서는 실습에 쓰지 않음.</li>
 <li><strong>키를 메모장에 남겨 둔 경우</strong>: 등록을 마쳤으면 메모장의 키를 지우고 저장하지 않고 닫음.</li>
 </ul>
 <hr />
@@ -1215,10 +1214,13 @@
 <p><strong>음성 파일 재생하기</strong>: 알려 준 경로의 파일을 탐색기에서 찾아 Enter를 누름. Gemini 음성은 파일 이름 끝에 <code>_gemini_tts.wav</code>가 붙음.</p>
 </li>
 </ol>
-<p><strong>확인 방법</strong>: 축약본과 들어 보며 문장이 빠지거나 같은 내용이 되풀이되지 않는지 확인함. 한 번에 만들 수 있는 음성 길이에 한도가 있어 긴 글은 끝부분이 반복될 수 있음. 긴 글은 나눠서 만든 뒤 합치도록 요청함.</p>
+<p><strong>확인 방법</strong>: 축약본과 들어 보며 문장이 빠지거나 같은 내용이 되풀이되지 않는지 확인함.</p>
+<ul>
+<li>
+<p><strong>끝부분이 반복되는 경우</strong>: 한 번에 만들 수 있는 음성 길이에 한도가 있어 긴 글은 끝부분이 반복될 수 있음. 나눠서 만든 뒤 합치도록 요청함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>글이 길면 나눠서 음성으로 만든 뒤 하나의 파일로 합쳐 줘.
 </code></pre>
-<ul>
+</li>
 <li>
 <p><strong>목소리 바꾸기</strong>: 목록을 확인한 뒤 음성 이름을 지정함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>Gemini 음성 목록을 보여 줘.
