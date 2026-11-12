@@ -183,68 +183,19 @@
 <ul>
 <li><strong>강의</strong>: AI 에이전트 실습 - Claude로 업무 자동화하기</li>
 <li><strong>과정명</strong>: 시각장애인 재직자 AI 활용 직무향상 과정</li>
-<li><strong>일시</strong>: 2026. 11. 11.(수) 18:30~20:30 (2시간)</li>
-<li><strong>진행</strong>: 비대면 Zoom</li>
+<li><strong>일자</strong>: 2026. 11. 11.(수)</li>
 <li><strong>강사</strong>: 김헌용 (서울 신명중학교 영어 교사, 함께하는장애인교원노동조합 위원장)</li>
-<li><strong>실습 도구</strong>: Claude Desktop 앱(Code 탭), Claude Code CLI(터미널)</li>
+<li><strong>실습 도구</strong>: Windows 터미널, PowerShell 7, Claude Code CLI, 파일 탐색기, 메모장</li>
 </ul>
 <hr />
 <h3>이번 시간의 목표</h3>
 <ul>
-<li>Claude Desktop 앱의 Code 탭 환경 셋업하기</li>
-<li>터미널의 Claude Code CLI 환경 셋업하기</li>
-<li>작업 폴더를 지정하고 첫 업무 지시 내리기</li>
-<li>터미널에서 Claude를 다루는 기본 조작 익히기</li>
-<li>내 업무에서 AI에게 맡길 일 찾기</li>
+<li>터미널에서 Claude Code를 실행하고 스크린 리더 모드 켜기</li>
+<li>파일 탐색기에서 자주 쓰는 폴더를 고정하고 그 위치에서 터미널 열기</li>
+<li>홈 디렉터리와 Claude Code의 설정 폴더 확인하기</li>
+<li>시각장애인을 위한 스킬 번들을 설치하고 설치 결과 확인하기</li>
+<li>메모장에서 <code>SKILL.md</code>를 열어 스킬의 기능과 절차 읽기</li>
 </ul>
-<hr />
-<h3>진행 순서</h3>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>시각</th>
-<th>내용</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>18:30~18:40</td>
-<td>들어가며, 사전 준비 점검, 두 도구를 함께 쓰는 이유</td>
-</tr>
-<tr>
-<td>18:40~19:05</td>
-<td>따라 하기 1. Desktop 앱 Code 탭 셋업</td>
-</tr>
-<tr>
-<td>19:05~19:15</td>
-<td>따라 하기 2. 폴더 지정과 첫 지시</td>
-</tr>
-<tr>
-<td>19:15~19:25</td>
-<td>휴식</td>
-</tr>
-<tr>
-<td>19:25~19:45</td>
-<td>따라 하기 3. 터미널 CLI 환경 셋업</td>
-</tr>
-<tr>
-<td>19:45~19:50</td>
-<td>따라 하기 4. 스크린 리더 모드 켜기</td>
-</tr>
-<tr>
-<td>19:50~20:00</td>
-<td>터미널에서 Claude 다루기</td>
-</tr>
-<tr>
-<td>20:00~20:25</td>
-<td>따라 하기 5. 내 업무 정리 파일 만들기</td>
-</tr>
-<tr>
-<td>20:25~20:30</td>
-<td>파일 탐색기 빠르게 쓰기, 과제 및 2회기 안내</td>
-</tr>
-</tbody>
-</table></div>
 <hr />
 <h3>들어가며</h3>
 <h4>챗봇에서 에이전트로</h4>
@@ -261,204 +212,70 @@
 </ul>
 <h4>4회기 커리큘럼의 흐름</h4>
 <ul>
-<li><strong>1회기, 작업 환경 셋업</strong>: Claude Desktop 앱(Code 탭)과 Claude Code CLI 환경을 구축하고, 터미널에서 Claude를 다루는 조작을 익힘.</li>
-<li><strong>2회기, 스킬로 문서 읽고 쓰고 듣기</strong>: 시각장애인 사용자를 위한 스킬 번들 <code>skills-for-the-blind</code>를 설치하고, PDF·한글 문서를 읽고, 만들고, 줄이고, 음성으로 들음.</li>
+<li><strong>1회기, 작업 환경 셋업</strong>: 터미널에서 Claude Code를 실행하고, 파일 탐색기로 작업 폴더와 스킬을 확인함.</li>
+<li><strong>2회기, 스킬로 문서 읽고 쓰고 듣기</strong>: 설치한 스킬로 PDF·한글 문서를 읽고, 만들고, 줄이고, 음성으로 들음.</li>
 <li><strong>3·4회기, 직무 맞춤형 AI 활용</strong>: 각자의 업무에서 고른 반복 업무를 자동화하는 지침과 스킬을 만듦.</li>
 </ul>
 <p>환경 구축, 문서 업무 도구, 내 업무 적용의 세 단계임.</p>
+<h4>폴더와 파일을 중심으로 작업하기</h4>
+<p>에이전트가 읽는 자료와 만든 결과물은 컴퓨터의 폴더에 남음. 파일 탐색기로 같은 폴더를 열면 결과를 확인할 수 있고, 다른 에이전트에도 그 파일을 읽고 이어서 작업하도록 요청할 수 있음. 대화 내용이나 설정까지 자동으로 공유되는 것은 아니므로, 이어 할 일은 파일과 지시로 전달함.</p>
+<p>Claude Desktop 앱의 <strong>Code 탭</strong>과 <strong>Claude Code CLI</strong>는 같은 작업 폴더를 다룰 수 있음. 터미널은 입력과 키패드 리뷰 중심으로 조작하고, Desktop 앱은 편집창·버튼·응답 영역을 오가며 조작함. 화면을 확대해서 읽는 편이 익숙하면 Code 탭을 사용해도 됨. 앱으로 진행할 때는 채팅이 아니라 <strong>코드</strong>를 선택함.</p>
 <hr />
 <h3>사전 준비 점검</h3>
-<p>절차와 확인 방법은 사전 준비 안내문 1~5번 참조.</p>
 <ol>
-<li>Claude 계정 로그인</li>
-<li>Claude Desktop 앱 설치</li>
-<li>Git 설치</li>
-<li>Node.js와 Python 설치</li>
-<li>홈 디렉터리에 연습 폴더 만들기</li>
+<li>Claude 구독 계정으로 로그인할 수 있어야 함.</li>
+<li>설치를 맡길 에이전트가 있어야 함. Claude Desktop 앱 Code 탭이나 이미 쓰는 Codex에서 지시할 수 있음. Desktop 앱을 처음 설정하는 경우 원고 끝의 「참고: Desktop 앱 Code 탭 셋업」 참조.</li>
+<li>스킬 설치에 쓸 Node.js와 Python을 준비함. 설치 절차는 사전 준비 안내문 4번 참조.</li>
+<li>홈 디렉터리의 「연습」 폴더에 PDF 한 개와 한글 문서 또는 워드 문서 한 개를 준비함. 폴더 만드는 법은 사전 준비 안내문 5번 참조.</li>
 </ol>
-<p>Git을 설치하지 않은 경우: 따라 하기 1 참조.</p>
 <hr />
-<h3>두 도구를 함께 쓰는 이유</h3>
-<p><strong>Claude Desktop 앱(Code 탭)</strong>과 <strong>Claude Code CLI(터미널)</strong>는 같은 에이전트를 서로 다른 화면에서 쓰는 도구임. 이 과정은 <strong>터미널을 기본으로</strong> 씀. Desktop 앱은 Git과 CLI를 설치하는 첫 셋업에 씀.</p>
+<h3>따라 하기 1: 터미널과 Claude Code 셋업하기</h3>
+<h4>터미널, 셸, CLI 구분하기</h4>
 <ul>
-<li><strong>터미널을 기본으로 쓰는 이유</strong>: 화면 구성이 입력창과 응답 텍스트뿐이라 스크린 리더 조작 체계가 단순함. 파일 탐색기에서 작업할 폴더로 이동해 바로 실행할 수 있음.</li>
-<li><strong>Desktop 앱을 먼저 쓰는 이유</strong>: 터미널 셋업에 필요한 프로그램 설치를 자연어 지시로 맡길 수 있음.</li>
+<li><strong>터미널</strong>: 텍스트를 입력하고 프로그램의 출력을 확인하는 앱임. 여기서는 Windows 터미널을 씀.</li>
+<li><strong>셸</strong>: 입력한 명령을 해석하고 프로그램을 실행하는 도구임. 여기서는 PowerShell 7을 씀.</li>
+<li><strong>CLI</strong>: command line interface(명령 줄 인터페이스)의 약자임. Claude Code CLI는 터미널에서 명령으로 실행하는 에이전트임.</li>
 </ul>
-<p>'Code'라는 이름 때문에 프로그래밍 전용 도구로 생각하기 쉽지만, 문서 작성, 파일 변환, 웹 검색, 시스템 설정 변경에도 쓸 수 있음. 코딩 지식 없이 자연어로 작업을 지시함.</p>
-<h4>채팅, 코워크, 코드</h4>
-<p>Desktop 앱에는 세 가지 작업 방식이 있음.</p>
+<p>Windows 터미널을 열면 먼저 PowerShell이 실행되고, 거기에 <code>claude</code>를 입력하면 Claude Code가 실행됨. <strong>PowerShell에 명령을 입력하는 상태</strong>와 <strong>Claude에게 자연어로 지시하는 상태</strong>를 구분해야 함.</p>
+<h4>설치와 기본 설정 요청하기</h4>
+<p>Claude Desktop 앱 Code 탭이나 이미 실행할 수 있는 에이전트의 입력창에 다음을 보냄.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 컴퓨터에 Windows 터미널과 PowerShell 7이 설치돼 있는지 확인해 줘. 없으면 설치하고, Windows 터미널을 기본 터미널 앱으로 설정해 줘. Windows 터미널의 기본 프로필은 PowerShell 7로 바꿔 줘.
+</code></pre>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Claude Code CLI를 공식 네이티브 설치 방식으로 설치해 줘. 이미 설치돼 있으면 설치 방식과 실제 실행되는 경로를 확인해 줘.
+</code></pre>
 <ul>
-<li><strong>코드</strong>: 지정한 로컬 폴더의 파일을 직접 읽고 쓰고, 프로그램을 설치하고, 명령을 실행함.</li>
-<li><strong>코워크</strong>: 접근을 허용한 파일을 활용해 문서 작성과 정리 같은 업무를 처리함.</li>
-<li><strong>채팅</strong>: 질문에 답하거나, 올린 자료를 바탕으로 내용을 분석하고 작성함.</li>
+<li><strong>네이티브 설치</strong>: Claude Code 실행 파일을 직접 설치하는 방식임. 공식 네이티브 설치는 자동 업데이트를 지원함.</li>
+<li><strong>기본 터미널 앱</strong>과 <strong>기본 프로필</strong>은 서로 다름. 기본 터미널 앱은 명령 창을 어느 앱으로 열지, 기본 프로필은 그 안에서 어느 셸을 실행할지 정하는 설정임.</li>
+<li><strong>Windows PowerShell</strong>과 <strong>PowerShell 7</strong>은 별도 프로그램임. PowerShell 7을 설치했어도 기본 프로필은 Windows PowerShell로 남아 있을 수 있음.</li>
+<li><strong>중복 설치 안내가 나온 경우</strong>: 어느 방식으로 설치한 Claude가 실행되는지 먼저 확인하도록 요청함. 설치됐다는 답만으로 끝내지 않고 새 터미널에서 직접 실행해 봄.</li>
 </ul>
-<p>프로그램 설치와 명령 실행을 포함한 업무 자동화에는 <strong>코드</strong>를 씀. Code 탭과 CLI의 로컬 설정·스킬은 채팅·코워크의 설정·스킬과 구분해서 관리해야 함.</p>
-<h4>Desktop 앱 화면 구조</h4>
-<p>좌측 사이드바를 위에서 아래로 훑으면 검색, 모드, 채팅 및 코워크, 코드, 새로 생성, 아티팩트, 사용자 지정, 더 많은 탐색 순으로 낭독됨. 메뉴 구성은 자주 바뀜. 이름이 다르게 읽히면 사이드바 전체를 한 번 훑어 확인함.</p>
+<h4>터미널에서 직접 실행하기</h4>
 <ol>
-<li><strong>코드로 이동하기</strong>: 사이드바에서 <code>코드</code>를 고르고 <code>Enter</code>를 누름. 라벨이 「코드 현재 페이지」로 바뀌면 진입한 것임.</li>
-<li><strong>프롬프트 편집창으로 이동하기</strong>: <code>F2</code>를 누름.</li>
-</ol>
-<p>프롬프트 편집창 주변 항목:</p>
-<ul>
-<li><strong>위쪽</strong>: 다른 폴더 추가, 로컬 폴더.</li>
-<li><strong>아래쪽</strong>: 작업을 설명하세요, 보내기, 편집 수락(권한 설정), 추가, 음성 입력, 모델, 노력, 컨텍스트 비율, 빠른 모드.</li>
-</ul>
-<hr />
-<h3>따라 하기 1: Desktop 앱 Code 탭 셋업</h3>
-<ol>
-<li><strong>Code 탭으로 이동하기</strong>: Claude Desktop 앱을 실행하고, 사이드바에서 <code>코드</code>를 누름.</li>
+<li><strong>Windows 터미널 열기</strong>: Windows 키를 누르고 <code>wt</code>를 입력한 뒤 <code>Enter</code>를 누름. 검색되지 않으면 <code>Windows Terminal</code>을 검색함.</li>
+<li><strong>셸 확인하기</strong>: 키패드로 시작 화면을 읽어 PowerShell 7인지 확인함. Windows PowerShell로 뜨면 설치를 맡긴 에이전트에서 기본 프로필을 PowerShell 7로 바꾸도록 요청한 뒤 터미널을 닫았다 다시 엶.</li>
 <li>
-<p><strong>Git 설치 안내 확인하기</strong>: 처음 진입하면 Git 설치 안내가 뜸. <strong>Git 다운로드</strong> 버튼을 누름.</p>
-<ul>
-<li><strong>나중에</strong>를 선택하면 Git 연동이 되지 않아 다음 단계가 막힘. 반드시 <strong>Git 다운로드</strong>를 선택함.</li>
-<li>아무 안내도 뜨지 않으면 먼저 폴더를 선택함(따라 하기 2의 1~3번). 폴더를 고른 뒤에 안내가 뜨는 경우가 있음.</li>
-<li>
-<p>다른 에이전트(Codex 등)로 Git을 이미 설치했더라도 안내가 다시 뜰 수 있음. 그 에이전트를 켜 두었다면 해당 에이전트의 입력창에 다음을 보냄.</p>
-<p>Claude를 쓰려는데 Git을 설치하라고 나와. Git이 전역으로 설치되어 있는지 확인해 줘.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Git 설치하기</strong>: 내려받은 설치 파일(<code>Git-x.x.x-64-bit.exe</code>)을 실행하고, 설치 마법사의 모든 화면에서 기본 설정 그대로 <strong>Next</strong> 또는 <strong>Install</strong>을 눌러 설치를 마침.</p>
-<ul>
-<li>Git 설치 안내에서 진행되지 않는 경우: <strong>다운로드 페이지 열기</strong>를 누름. 브라우저 창이 열리지 않으면 파일 탐색기에서 다운로드 폴더를 열어 설치 파일이 있는지 확인함. 내려받은 exe 파일이 있으면 실행함.</li>
-<li>Git 설치를 마치기 전에는 프롬프트 입력창이 비활성이라 메시지를 보낼 수 없음. 입력창이 잠겨 있어도 정상임.</li>
-</ul>
-</li>
-<li><strong>앱 완전 종료 후 다시 실행하기</strong>: Git 설치가 끝나면 앱을 완전히 닫고 다시 실행해야 함. 종료 방법은 「조작이 먹히지 않을 때」의 「앱 완전 종료 방법」 참조.</li>
-<li>
-<p><strong>설치 확인 요청하기</strong>: Code 탭으로 돌아와 하단 프롬프트 입력창에 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>Git 설치를 마쳤는데 제대로 설치된 것인지 확인해 줘.
+<p><strong>홈 디렉터리로 이동하기</strong>: 아직 Claude를 실행하지 않은 PowerShell 프롬프트에서 다음을 입력함. 터미널의 시작 폴더 설정이 달라도 같은 위치에서 실습할 수 있음.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>cd ~
 </code></pre>
 </li>
 <li>
-<p><strong>PowerShell 실행 권한 허용하기</strong>: Claude가 설치 상태를 확인하려고 PowerShell 명령 실행 권한을 요청하면 명령 내용을 확인함. <strong>거부</strong>, <strong>한 번만 허용</strong>, <strong>항상 허용</strong> 중 <strong>항상 허용</strong>을 선택하면 해당 허용 규칙에 맞는 명령에는 다시 묻지 않음.</p>
-</li>
-<li>
-<p><strong>필요한 경우 환경 변수 설정하기</strong>: Git이 설치되어 있어도 Claude가 <code>bash.exe</code> 경로를 찾지 못하면 <code>CLAUDE_CODE_GIT_BASH_PATH</code> 환경 변수 설정 안내가 뜸. PowerShell로 설정하는 방법과 Windows 설정 창에서 직접 넣는 방법을 함께 제시하면 Code 탭 입력창에 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>PowerShell로 환경 변수를 영구 설정하는 방법으로 네가 바로 해 줘.
-</code></pre>
-<p>Claude가 PowerShell 명령으로 환경 변수를 설정함. 안내에 붙은 번호는 그때그때 다르므로 지시문에 번호 대신 방법 이름을 적음.</p>
-<ul>
-<li>환경 변수 안내가 뜨지 않고 Git을 정상적으로 인식하면 추가 설정 없이 진행함.</li>
-<li>「현재 세션의 PATH에는 아직 반영되지 않았다」는 안내가 나오면 앱을 완전히 종료하고 다시 실행한 뒤 설치 상태를 다시 확인함.</li>
-</ul>
-</li>
-</ol>
-<p><strong>확인 방법</strong>: 5번 지시에 Git이 설치됐다는 답이 돌아오면 이 단계를 마친 것임.</p>
-<h4>앱을 최신으로 유지하기</h4>
-<p>Desktop 앱은 자주 업데이트됨. 구버전에서는 메뉴가 다르게 보이거나 권한 설정이 나타나지 않을 수 있음. 처음 설치했다면 업데이트를 몇 번 반복해야 정상 화면이 나오기도 함.</p>
-<ul>
-<li>앱 안에서 검색으로 「업데이트」를 찾아 실행함.</li>
-</ul>
-<h4>조작이 먹히지 않을 때</h4>
-<p>엉뚱한 라벨이 읽히거나, 가상 커서를 해제해도 방향키가 듣지 않는 경우가 있음. 아래 순서로 복구함.</p>
-<ol>
-<li><code>Esc</code>를 여러 번 눌러 열려 있는 목록 닫기</li>
-<li><code>F2</code>로 프롬프트 편집창으로 돌아가기</li>
-<li><code>F5</code>로 화면을 새로 읽고 다시 탐색하기</li>
-<li>그래도 라벨이 어긋나면 앱을 완전히 종료하고 다시 실행하기</li>
-</ol>
-<p><strong>앱 완전 종료 방법</strong></p>
-<p><code>Alt+F4</code>로 Claude Desktop 앱 창을 닫아도 백그라운드에 남을 수 있음. 완전히 종료하려면 작업 관리자에서 끝냄.</p>
-<ol>
-<li><code>Ctrl+Shift+Esc</code>로 작업 관리자 열기</li>
-<li>가상 커서를 해제하고 목록에서 <code>Claude</code> 찾기</li>
-<li>팝업 키를 누르고 <code>Alt+E</code>(작업 끝내기) 누르기</li>
-<li>Windows 키를 눌러 검색창에 「클로드」를 입력하고 실행하기</li>
-</ol>
-<p>컴퓨터를 껐다 켜도 결과는 같음. 설치나 설정을 반영하려고 앱을 다시 켜야 할 때도 이 방법을 씀.</p>
-<hr />
-<h3>따라 하기 2: 폴더 지정과 첫 지시</h3>
-<p>에이전트는 지정한 폴더를 작업 범위로 삼음. 폴더를 지정해야 결과 파일이 정확한 위치에 생성됨.</p>
-<ol>
-<li><strong>작업 폴더 선택하기</strong>: Code 탭의 프롬프트 편집창에서 위로 올라가 <strong>로컬 폴더</strong>를 고르고 <code>Enter</code>를 누름. 폴더 선택 대화상자가 열림.</li>
-<li><strong>연습 폴더 지정하기</strong>: 홈 디렉터리에 미리 만들어 둔 연습 폴더로 이동한 뒤 <strong>폴더 선택</strong> 버튼을 누름. 입력창 상단에 폴더 이름이 표시되면 지정 완료.</li>
-<li><strong>폴더 신뢰하기</strong>: 처음 여는 폴더면 신뢰를 묻는 화면이 뜸. 본인이 준비한 연습 폴더가 맞는지 확인하고 <strong>신뢰</strong> 버튼을 누름.</li>
-<li>
-<p><strong>첫 지시 보내기</strong>: Code 탭 하단 입력창에 다음을 입력하고 전송함.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>이 폴더에 어떤 파일이 있는지 읽고 정리해 줘.
-</code></pre>
-</li>
-<li>
-<p><strong>결과 확인하기</strong>: 연습 폴더에 넣어 둔 PDF와 한글 문서의 파일 이름·형식이 답변과 일치하는지 확인함.</p>
-</li>
-</ol>
-<h4>작업 범위와 권한 관리</h4>
-<ul>
-<li><strong>작업 범위</strong>: 선택한 폴더를 기준으로 파일을 읽고 작업함. 폴더 지정만으로 그 밖의 접근이 모두 차단되는 것은 아님. 실제 접근·실행 권한은 별도 설정으로 관리함.</li>
-<li><strong>승인 요청이 뜬 경우</strong>: 대상 파일과 실행할 명령을 확인하고 허용 여부를 결정함. 폴더 밖 접근이나 프로그램 설치도 현재 권한 설정에 따라 승인 요청이 뜰 수 있음.</li>
-<li><strong>자동 모드</strong>: 실행하려는 작업을 자동으로 검토해 승인 요청을 줄이는 설정임. 프롬프트 편집창 아래의 <strong>편집 수락</strong> 풀다운 메뉴에서 <strong>자동</strong>을 선택하고, 확인 창에서 <strong>자동 모드 활성화</strong>를 누름.</li>
-<li><strong>수동 승인</strong>: 파일 편집이나 명령 실행 때 승인 요청이 뜨면 내용을 확인하고 응답해야 작업이 계속됨.</li>
-</ul>
-<blockquote>
-<p><strong>자동 모드가 보이지 않는 경우</strong>: 앱 업데이트 상태와 계정·조직의 설정을 확인해야 함.</p>
-</blockquote>
-<h4>워크스페이스</h4>
-<p>관련 자료와 작업을 묶어 관리하는 상위 폴더를 <strong>워크스페이스</strong>라고 부름. 실제 작업 범위는 그 폴더 전체나 하위 폴더 중에서 선택할 수 있음.</p>
-<ul>
-<li><strong>분류 예시</strong>: 회사 업무 폴더, 개인 프로젝트 폴더, 업무용 구글 드라이브, 개인 구글 드라이브.</li>
-<li>업무용과 개인용 정도로 큰 갈래를 먼저 나누고, 그 안을 하위 폴더로 정리함.</li>
-<li><strong>홈 디렉터리</strong>: Windows의 홈 디렉터리는 <code>C:\Users\&lt;본인 계정 이름&gt;</code>임. 사용자별 설정과 전역 스킬을 저장하는 기준 폴더로 쓰임.</li>
-<li><strong>구글 드라이브</strong>: 데스크톱용 구글 드라이브를 설치했다면 파일 탐색기에서 열 수 있는 드라이브 폴더를 작업 범위로 지정할 수 있음.</li>
-</ul>
-<h4>파일 경로를 정확히 전달하는 요령</h4>
-<ul>
-<li>파일 탐색기에서 대상 파일을 선택하고 <code>Ctrl+Shift+C</code>를 누르면 전체 경로가 클립보드에 복사됨. 이를 Claude 입력창에 붙여넣고 작업을 지시함.</li>
-<li>폴더에 비슷한 이름의 파일이 여러 개일 때도 작업할 파일을 정확히 지정할 수 있음.</li>
-</ul>
-<hr />
-<h3>따라 하기 3: 터미널 CLI 환경 셋업</h3>
-<p>같은 Claude 에이전트를 터미널에서 가볍게 구동하는 절차임.</p>
-<h4>필요한 프로그램 설치하기</h4>
-<p>Windows 터미널, PowerShell 7, Claude Code CLI가 설치되어 있어야 함. Claude Desktop 앱 Code 탭 입력창에 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>이 컴퓨터에 Windows 터미널이 설치돼 있는지 확인하고, PowerShell 7과 Claude Code CLI를 설치해 줘.
-</code></pre>
-<ul>
-<li><strong>Windows 터미널이 없는 경우</strong>: Microsoft Store에서 설치함.</li>
-<li><strong>PowerShell 7과 Claude Code CLI</strong>: Claude의 답변에서 두 프로그램의 설치 결과를 확인함.</li>
-<li><strong>답이 「진행 중」에서 멈춘 경우</strong>: 응답을 다시 훑고 Claude 입력창에 설치가 완료됐는지 물어 결과를 확인함.</li>
-</ul>
-<h4>터미널과 셸</h4>
-<ul>
-<li><strong>터미널</strong>: 텍스트를 입력하고 프로그램의 출력을 확인하는 앱임. 예: Windows의 Windows 터미널, macOS의 터미널.</li>
-<li><strong>셸</strong>: 입력한 명령을 해석하고 프로그램을 실행하는 도구임. 예: PowerShell, zsh.</li>
-<li><strong>CLI</strong>: command line interface(명령 줄 인터페이스)의 약자임. 터미널에서 명령으로 실행하는 프로그램을 가리킴.</li>
-</ul>
-<p>하나의 터미널 앱에서 여러 셸을 골라 실행할 수 있음. PowerShell 프롬프트 앞머리의 <code>PS</code>는 PowerShell의 약자임.</p>
-<p><strong>「Windows PowerShell」과 「PowerShell 7」은 별도로 설치되는 프로그램임.</strong> Windows PowerShell은 Windows에 기본으로 들어 있는 이전 버전임. PowerShell 7을 설치했어도 터미널의 기본 셸은 Windows PowerShell로 남아 있을 수 있음. 기본 셸을 바꾸려면 Claude Desktop 앱 Code 탭 입력창에 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>Windows 터미널을 열었을 때 PowerShell 7이 뜨도록 기본 설정을 바꿔 줘.
-</code></pre>
-<h4>Claude Code 실행하기</h4>
-<ol>
-<li><strong>작업 폴더 열기</strong>: 파일 탐색기에서 홈 디렉터리의 연습 폴더로 들어감.</li>
-<li><strong>파일 선택 해제하기</strong>: 파일이 선택돼 있으면 <code>Ctrl+Space</code>로 선택을 해제함. 선택된 상태에서는 해당 파일의 메뉴가 열릴 수 있음.</li>
-<li><strong>터미널 열기</strong>: 팝업 키(또는 <code>Shift+F10</code>)를 눌러 컨텍스트 메뉴를 열고 <strong>터미널에서 열기</strong>를 선택함. 메뉴 순서와 단축키는 환경에 따라 달라질 수 있으므로 항목 이름을 확인함.</li>
-<li>
-<p><strong>Claude Code 실행하기</strong>: 터미널의 PowerShell 프롬프트에 다음을 입력하고 <code>Enter</code>를 누름.</p>
+<p><strong>Claude Code 실행하기</strong>: 같은 PowerShell 프롬프트에 다음을 입력하고 <code>Enter</code>를 누름.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>claude
 </code></pre>
 </li>
 <li>
-<p><strong>첫 실행 설정하기</strong>: 테마 선택 화면이 나오면 원하는 테마를 고름. 화면 색상 설정임.</p>
+<p><strong>첫 실행 설정과 로그인하기</strong>: 테마 선택이 나오면 원하는 화면 색상을 고름. 로그인 방법에서는 Claude 구독 계정으로 로그인하는 항목을 선택하고, 열린 브라우저에서 인증한 뒤 터미널로 돌아옴. 이미 인증한 환경이면 이 화면이 생략될 수 있음.</p>
 </li>
-<li><strong>구독 계정으로 로그인하기</strong>: 구독 로그인과 API 로그인 중 <strong>구독 로그인</strong>을 고름. 목록의 첫 번째임. 이어서 열린 브라우저에서 Claude 구독 계정으로 인증을 마치고 터미널로 돌아옴.</li>
-<li><strong>폴더 신뢰하기</strong>: 이 폴더를 신뢰하는지 묻는 화면이 나오면 연습 폴더가 맞는지 확인하고 신뢰를 고른 뒤 <code>Enter</code>를 누름.</li>
-<li><strong>동작 확인하기</strong>: Claude Code 입력창이 나타나면 간단한 지시를 보내 응답이 출력되는지 확인함.</li>
+<li><strong>폴더 확인하기</strong>: 폴더를 신뢰할지 묻는 화면이 나오면 현재 위치가 본인의 홈 디렉터리인지 확인함. <code>y/n</code> 형식이면 허용할 때 <code>y</code>를 입력하고 <code>Enter</code>를 누름.</li>
+<li><strong>응답 확인하기</strong>: 모델명과 입력창이 나타나면 간단한 질문을 보내 응답을 확인함. 이때부터 자연어 지시를 입력함.</li>
 </ol>
 <ul>
-<li><strong><code>claude</code>를 찾을 수 없다고 나오는 경우</strong>: 설치 직후라 터미널이 새 경로를 아직 모르는 것임. 터미널을 닫고 3번부터 다시 엶.</li>
-<li><strong>탐색 방법</strong>: 터미널의 출력 내용은 센스리더 키패드 리뷰로 훑음. 방향키는 입력 편집이나 선택 목록 조작에 쓰임.</li>
-<li><strong>화면 언어</strong>: 첫 설정과 인증 화면은 영어로 나옴. 이 단계만 넘기면 이후는 한국어로 대화함.</li>
+<li><strong><code>claude</code>를 찾을 수 없다고 나오는 경우</strong>: 설치 직후에는 새 실행 경로가 반영되지 않을 수 있음. 터미널을 닫았다 다시 열고, 그래도 안 되면 설치를 맡긴 에이전트에 오류 문구를 전달함.</li>
+<li><strong>앱 안에서만 실행된 경우</strong>: Desktop 앱이 연 작업 화면과 별도로 Windows 터미널을 직접 열어 위 절차를 진행함. 터미널에서 Claude가 정상 실행되면 Desktop 앱을 닫아도 됨.</li>
 </ul>
-<p>터미널을 연 폴더가 자동으로 작업 범위가 되므로, 앱처럼 폴더를 별도로 지정하지 않음.</p>
-<ul>
-<li><strong>기본 위치</strong>: Windows 검색창에서 <code>wt</code>를 입력해 터미널을 열면 홈 디렉터리에서 시작함. 파일 탐색기에서 연 터미널과 시작 폴더가 다름.</li>
-<li><strong>셸에서 폴더 이동하기</strong>: Claude Code를 실행하기 전 PowerShell 프롬프트에서 <code>cd ~</code>를 입력하면 홈 디렉터리로 이동하고, <code>dir</code>를 입력하면 현재 폴더의 목록을 봄.</li>
-</ul>
+<p><strong>확인 방법</strong>: Windows 터미널에서 Claude를 실행하고 한국어 질문에 답을 받을 수 있어야 함.</p>
 <hr />
-<h3>따라 하기 4: 스크린 리더 모드 켜기</h3>
+<h3>따라 하기 2: 스크린 리더 모드 켜기</h3>
 <ul>
 <li><strong>문제</strong>: 터미널 화면에는 테두리 선이나 진행 애니메이션 같은 장식 문자가 포함되어 있어, 키패드로 탐색할 때 불필요한 음성이 많이 낭독됨.</li>
 <li><strong>해결</strong>: Claude Code가 이를 평문으로 전환해 주는 전용 <strong>스크린 리더 모드</strong>(<code>axScreenReader</code>)를 기본 제공함.</li>
@@ -471,7 +288,8 @@
 <li>고르라는 목록이 떴으면 목록에서 하나를 고르지 말고 위 문장을 그대로 다시 보냄.</li>
 <li>전역(Global) 설정으로 저장되므로, 한 번 켜 두면 터미널을 다시 열거나 다른 폴더에서 작업할 때도 유지됨.</li>
 </ul>
-<p><strong>확인 방법</strong>: 터미널을 닫고 따라 하기 3의 「Claude Code 실행하기」 1~4번대로 연습 폴더에서 다시 열어 <code>claude</code>를 실행함. 시작 화면에 스크린 리더 모드가 켜져 있다는 안내가 나오면 적용된 것임. 키패드로 훑어 장식 문자가 사라졌는지도 함께 봄.</p>
+<p><strong>확인 방법</strong>: 터미널을 닫고 따라 하기 1의 「터미널에서 직접 실행하기」대로 다시 열어 <code>claude</code>를 실행함. 시작 화면에 스크린 리더 모드가 켜져 있다는 안내가 나오면 적용된 것임. 키패드로 훑어 장식 문자가 사라졌는지도 함께 봄.</p>
+<p>스크린 리더 모드에서는 선택지를 번호로 입력한 뒤 <code>Enter</code>로 확정하는 방식도 사용함. 화면의 번호와 항목을 먼저 읽고 입력함.</p>
 <hr />
 <h3>터미널에서 Claude 다루기</h3>
 <p>터미널은 조작 체계가 단순한 대신 화면을 훑는 방법이 앱과 다름.</p>
@@ -509,95 +327,293 @@
 <ul>
 <li><code>Ctrl</code>+<code>Shift</code>+<code>T</code>로 새 탭을 엶. 안 되면 <code>Ctrl</code>+<code>Shift</code>+숫자 <code>1</code>.</li>
 <li>둘 다 안 되면 처음처럼 <code>wt</code>로 새 창을 엶. 여러 창을 함께 열 수 있음.</li>
-<li>대화를 새로 시작하려면 <code>exit</code>로 나갔다가 <code>claude</code>를 다시 실행함.</li>
+<li>대화를 새로 시작하려면 <code>/exit</code>로 Claude Code를 종료한 뒤, PowerShell 프롬프트에서 <code>claude</code>를 다시 실행함.</li>
 </ul>
-<h4>언제 무엇을 고르는가</h4>
-<p>두 도구에서 같은 폴더를 지정하면 한쪽에서 만든 파일을 다른 쪽에서도 읽고 편집할 수 있음.</p>
+<hr />
+<h3>따라 하기 3: 파일 탐색기에서 작업 폴더 열기</h3>
+<p>파일 탐색기에서 작업할 폴더를 연 뒤 터미널을 실행하면, 그 위치에서 Claude에게 일을 맡길 수 있음.</p>
+<h4>자주 쓰는 폴더 고정하기</h4>
+<ol>
+<li><strong>파일 탐색기 열기</strong>: <code>Windows 키+E</code>를 누름.</li>
+<li><strong>고정할 폴더 선택하기</strong>: 연습 폴더의 상위 폴더로 이동해 목록에서 「연습」 폴더를 선택함.</li>
+<li><strong>고정하기</strong>: 팝업 키 또는 <code>Shift+F10</code>을 누르고 폴더를 즐겨찾기나 빠른 실행에 고정하는 항목을 선택함. 메뉴 이름은 Windows 버전에 따라 다를 수 있음.</li>
+<li><strong>탐색 창으로 이동하기</strong>: 파일 목록에서 <code>Shift+Tab</code>을 눌러 왼쪽의 트리뷰로 이동함. 원하는 영역이 아니면 <code>F6</code>으로 영역을 순환함.</li>
+<li><strong>고정한 폴더 열기</strong>: 방향키나 폴더 이름의 첫 글자로 「연습」을 찾아 <code>Enter</code>를 누름. <code>Tab</code>으로 파일 목록으로 돌아와 내용이 맞는지 확인함.</li>
+</ol>
+<p>업무 폴더, 홈 디렉터리처럼 자주 여는 곳도 같은 방법으로 고정할 수 있음.</p>
+<h4>초점을 잃었을 때와 탭 전환하기</h4>
+<ul>
+<li><strong>영역 이동</strong>: <code>F6</code>을 누르면 탐색 창, 파일 목록 등 주요 영역을 순환함. <code>Tab</code>으로 여러 버튼을 지나가다 현재 위치를 놓쳤을 때 사용함.</li>
+<li><strong>새 탭</strong>: <code>Ctrl+T</code>를 누름. 폴더 여러 개를 한 탐색기 창에 열 수 있음.</li>
+<li><strong>다음·이전 탭</strong>: <code>Ctrl+Tab</code>, <code>Ctrl+Shift+Tab</code>을 누름.</li>
+<li><strong>현재 탭 닫기</strong>: <code>Ctrl+W</code>를 누름. 마지막 탭이면 탐색기 창이 닫힘.</li>
+</ul>
+<h4>연습 폴더에서 터미널 열기</h4>
+<ol>
+<li><strong>연습 폴더로 들어가기</strong>: 파일 목록에 실습에 쓸 PDF·한글 문서가 보이는지 확인함.</li>
+<li><strong>파일 선택 해제하기</strong>: 파일 하나가 선택돼 있으면 <code>Ctrl+Space</code>를 눌러 「선택 안 됨」 상태인지 확인함. 초점은 파일 목록에 남음.</li>
+<li><strong>폴더의 메뉴 열기</strong>: 팝업 키 또는 <code>Shift+F10</code>을 누름. 파일 하나에 대한 메뉴가 아니라 현재 폴더의 메뉴인지 확인함.</li>
+<li><strong>터미널 열기</strong>: <strong>터미널에서 열기</strong>를 선택함. 메뉴에 <code>Alt+T</code>가 안내되면 그 키로 선택할 수도 있음.</li>
+<li><strong>위치 확인 후 실행하기</strong>: PowerShell 프롬프트에 연습 폴더 경로가 표시되는지 확인하고 <code>claude</code>를 입력함.</li>
+<li><strong>첫 파일 지시 보내기</strong>: 폴더 신뢰 확인을 마친 뒤 Claude 입력창에 다음을 보냄.<button type="button" class="copy" data-copy>복사</button><pre><code>이 폴더에 어떤 파일이 있는지 읽고 정리해 줘.
+</code></pre>
+</li>
+</ol>
+<p><strong>확인 방법</strong>: 답변의 파일 이름과 탐색기에 있는 파일 이름이 일치해야 함. 파일 경로를 정확히 지정하려면 탐색기에서 파일을 선택하고 <code>Ctrl+Shift+C</code>로 경로를 복사해 Claude 입력창에 붙여넣음.</p>
+<p>선택한 폴더는 작업의 기준 위치임. 폴더 지정만으로 그 밖의 접근이 모두 차단되는 것은 아니며, 실제 접근·실행 권한은 별도 설정으로 관리함.</p>
+<h4>여러 창을 가상 데스크톱으로 나누기</h4>
+<ul>
+<li><code>Ctrl+Windows 키+D</code>: 가상 데스크톱 추가</li>
+<li><code>Ctrl+Windows 키+좌우 방향키</code>: 데스크톱 사이 이동</li>
+<li><code>Ctrl+Windows 키+F4</code>: 현재 데스크톱 닫기</li>
+</ul>
+<p>브라우저와 메신저는 한쪽에, 파일 탐색기와 터미널은 다른 쪽에 두면 <code>Alt+Tab</code>으로 오갈 창이 줄어듦. 다른 데스크톱으로 이동해도 실행 중인 작업은 계속됨.</p>
+<hr />
+<h3>홈 디렉터리와 Claude 설정 폴더</h3>
+<p><strong>홈 디렉터리</strong>는 현재 Windows 사용자의 기본 폴더임. 경로는 <code>C:\Users\[본인 계정 이름]</code>이며, 탐색기에서는 <code>Users</code>가 「사용자」로 표시될 수 있음. 계정 이름은 컴퓨터마다 다름.</p>
+<ol>
+<li>파일 탐색기를 열고 <strong>내 PC</strong>, <strong>로컬 디스크(C:)</strong>, <strong>사용자</strong>로 차례로 들어감.</li>
+<li><strong>공용</strong>이 아니라 본인 계정 이름의 폴더를 엶.</li>
+<li>그 안에서 <code>.claude</code> 폴더를 찾음. 맨 앞의 점도 폴더 이름의 일부임.</li>
+<li><code>.claude</code> 안의 <code>skills</code> 폴더를 확인함. 전역 스킬을 아직 설치하지 않았다면 없을 수 있음.</li>
+</ol>
+<ul>
+<li><strong><code>.claude</code></strong>: Claude Code의 사용자 설정과 관련 파일이 모이는 폴더임.</li>
+<li><strong><code>.claude\skills</code></strong>: 여러 작업 폴더에서 쓸 개인 스킬의 위치임.</li>
+<li><strong>작업 폴더의 <code>.claude\skills</code></strong>: 해당 프로젝트에서 쓸 스킬을 두는 위치임. 홈 디렉터리에 있는 것과 범위가 다름.</li>
+</ul>
+<p>설정과 스킬을 확인할 때는 홈 디렉터리를, 실제 문서를 다룰 때는 그 문서가 있는 작업 폴더를 엶. 채팅이나 코워크에서 추가한 스킬과 로컬에 설치한 스킬은 저장·로딩 방식이 다르므로, 확인할 때는 <strong>Claude Code에 설치된 스킬</strong>을 지정함.</p>
+<hr />
+<h3>따라 하기 4: 시각장애인을 위한 스킬 번들 설치하기</h3>
+<p><code>skills-for-the-blind</code>는 아래 다섯 스킬을 설치하고 점검하는 역할을 함.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>구분</th>
-<th>Claude Desktop 앱 (Code 탭)</th>
-<th>Claude Code CLI (터미널)</th>
+<th>스킬</th>
+<th>하는 일</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>작업 관리</td>
-<td>앱에서 폴더와 세션 선택</td>
-<td>폴더별로 터미널을 열어 작업</td>
+<td><code>agent-cli-tts-summary</code></td>
+<td>에이전트가 마친 작업의 핵심 요약을 음성으로 들려줌</td>
 </tr>
 <tr>
-<td>실행 방법</td>
-<td>앱의 로컬 폴더에서 작업 폴더를 선택</td>
-<td>파일 탐색기의 [터미널에서 열기]로 연 뒤 <code>claude</code> 입력</td>
+<td><code>docparse</code></td>
+<td>PDF·이미지·스캔 등 문서를 읽어 마크다운으로 정리함</td>
 </tr>
 <tr>
-<td>결과 탐색</td>
-<td>앱의 텍스트 영역과 미리보기</td>
-<td>터미널 출력과 파일 탐색기</td>
+<td><code>hwpx-automation</code></td>
+<td>한글(HWP/HWPX) 문서를 읽고, 만들고, 편집함</td>
 </tr>
 <tr>
-<td>스크린 리더 조작</td>
-<td>편집창·버튼·텍스트 영역을 오갈 때 가상 커서 전환 필요</td>
-<td>프롬프트 입력과 키패드 리뷰 중심</td>
+<td><code>abridge</code></td>
+<td>원문의 어투를 살려 긴 글을 줄임</td>
+</tr>
+<tr>
+<td><code>speech-toolkit</code></td>
+<td>텍스트를 음성으로, 녹음 파일을 텍스트로 바꿈</td>
 </tr>
 </tbody>
 </table></div>
-<hr />
-<h3>따라 하기 5: 내 업무 정리 파일 만들기</h3>
-<p>터미널의 Claude에게 인터뷰를 맡겨 내 업무를 정리하고, 그 결과를 연습 폴더에 파일로 저장함. 3·4회기 실습 과제를 고르는 재료가 됨.</p>
 <ol>
-<li><strong>터미널에서 Claude 열기</strong>: 따라 하기 3의 「Claude Code 실행하기」 1~4번대로 연습 폴더에서 터미널을 열고 <code>claude</code>를 실행함.</li>
+<li><strong>홈 디렉터리에서 Claude 열기</strong>: 새 터미널의 PowerShell 프롬프트에서 <code>cd ~</code>를 입력한 뒤 <code>claude</code>를 실행함.</li>
 <li>
-<p><strong>인터뷰 요청하기</strong>: 대괄호를 본인 직무로 바꾼 뒤 Claude Code 입력창에 보냄.</p>
+<p><strong>전체 설치 요청하기</strong>: Claude 입력창에 다음을 보냄.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들과 그 안의 다섯 스킬을 모두 설치해 줘. Claude Code에서 어느 작업 폴더를 열어도 쓸 수 있게 전역으로 설치해 줘. 이미 설치된 것은 상태를 확인하고 빠진 것만 설치해 줘.
+</code></pre>
+</li>
+<li>
+<p><strong>진행 상황 확인하기</strong>: 키패드로 마지막 응답을 읽음. 실행 승인을 물으면 내용을 확인하고 응답함. 설치에 필요한 프로그램이 없다는 오류가 나오면 아래 지시문을 보냄.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>스킬 설치에 필요한 무료 프로그램과 패키지를 확인해서 설치해 줘. 유료 서비스 가입이나 결제는 진행하지 마.
+</code></pre>
+</li>
+<li>
+<p><strong>폴더 확인하기</strong>: 파일 탐색기에서 홈 디렉터리의 <code>.claude\skills</code>를 엶. 위 다섯 스킬의 폴더를 확인함. 설치를 관리하는 <code>skills-for-the-blind</code>까지 포함하면 여섯 폴더이며, 기존 스킬이 있으면 전체 개수는 더 많을 수 있음.</p>
+</li>
+<li><strong>새 대화에서 확인하기</strong>: <code>/exit</code>로 Claude를 종료하고 PowerShell에서 <code>claude</code>를 다시 실행한 뒤 다음을 보냄.<button type="button" class="copy" data-copy>복사</button><pre><code>skills-for-the-blind에 포함된 다섯 스킬이 모두 설치돼 있는지 확인하고, 각각 어떤 일을 할 수 있는지 알려 줘.
+</code></pre>
+</li>
+</ol>
+<p><strong>확인 방법</strong>: 폴더가 있는지와 새 대화에서 스킬을 찾는지를 함께 확인함. 폴더만 보인다고 음성 출력이나 문서 변환에 필요한 설정까지 끝난 것은 아님. TTS 요약 설정과 각 도구의 점검은 2회기에서 진행함.</p>
+<ul>
+<li><strong>비용</strong>: 번들과 스킬 파일은 무료 오픈소스임. 에이전트 구독료와 외부 API 사용료는 별도임. 설치 자체에는 API 키가 필요 없음.</li>
+<li><strong>이미 설치한 스킬</strong>: 같은 설치를 반복할 필요는 없음. 예전에 설치한 버전이라면 최신 상태인지 점검하도록 요청함. 직접 수정한 파일이 있으면 재설치 전에 그 사실을 알림.</li>
+</ul>
+<hr />
+<h3>따라 하기 5: SKILL.md를 메모장에서 읽기</h3>
+<p>스킬은 <strong>폴더 안에 <code>SKILL.md</code>가 있는 구조</strong>임. <code>SKILL.md</code>에는 에이전트가 따를 설명과 절차가 들어 있고, 필요한 참고 자료나 실행 프로그램이 같은 폴더에 함께 들어갈 수 있음.</p>
+<ol>
+<li><strong>스킬 폴더 열기</strong>: 홈 디렉터리의 <code>.claude\skills</code>에서 <code>agent-cli-tts-summary</code> 폴더를 엶.</li>
+<li><strong>지침 파일 찾기</strong>: <code>README.md</code>가 아니라 <code>SKILL.md</code>를 선택함. 파일 이름은 복수형 <code>SKILLS.md</code>가 아님.</li>
+<li><strong>메모장으로 열기</strong>: <code>Enter</code>를 누르고 연결 앱을 물으면 메모장을 선택함.</li>
+<li><strong>이름과 설명 읽기</strong>: 파일 앞부분의 <code>name</code>은 스킬 이름, <code>description</code>은 어떤 작업에 쓰는 스킬인지 설명하는 항목임.</li>
+<li><strong>본문 읽기</strong>: 아래로 내려가 설치·설정·사용 절차를 확인함. 에이전트에게 기능을 물을 때도 이 지침과 연결된 자료를 읽고 설명하도록 요청할 수 있음.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>agent-cli-tts-summary의 SKILL.md를 읽고, 이 스킬의 기능과 설치 후 필요한 설정을 쉬운 말로 설명해 줘.
+</code></pre>
+<h4>메모장에서 구문 보기로 바꾸기</h4>
+<p>마크다운(<code>.md</code>)은 텍스트에 기호를 붙여 제목·목록·강조 등을 표시하는 문서 형식임. <code>SKILL.md</code>도 이 형식으로 작성됨.</p>
+<p>파일 탐색기에서 <code>SKILL.md</code>를 찾아 <code>Enter</code>를 누름. 마크다운 파일을 처음 여는 것이면 앱을 고르라는 화면이 뜨므로 <strong>메모장</strong>을 선택함.</p>
+<p>마크다운을 지원하는 메모장에는 <strong>포맷 보기</strong>와 <strong>구문 보기</strong>가 있음. 포맷 보기는 제목과 강조를 서식으로 표시하고, 구문 보기는 원래 기호를 그대로 보여 줌. 센스리더로 내용이 읽히지 않으면 <strong>구문 보기</strong>로 바꿈.</p>
+<ol>
+<li><strong>메뉴 열기</strong>: 메모장에서 <code>Alt</code>를 누름. 파일, 편집, 보기 메뉴가 뜸.</li>
+<li><strong>마크다운 메뉴로 이동하기</strong>: <strong>보기</strong>로 들어가 <strong>마크다운</strong>을 찾고 <code>Enter</code>를 누름.</li>
+<li><strong>구문 보기 선택하기</strong>: 포맷과 구문 중 <strong>구문</strong>을 고름.</li>
+</ol>
+<ul>
+<li>마크다운 메뉴는 <code>.md</code> 파일을 열었을 때 나타남. 메모장 버전에 따라 메뉴가 없으면 일반 텍스트로 읽으면 됨. 구문은 영어로 syntax임.</li>
+<li><strong>방향키를 눌러도 읽히지 않는 경우</strong>: 메모장에서 <code>Ctrl+T</code>로 새 탭을 열고 <code>Ctrl+F4</code>로 그 탭을 닫은 뒤 원래 문서를 다시 탐색함.</li>
+</ul>
+<h4>알아 둘 문법</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>표기</th>
+<th>뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#</code></td>
+<td>제목. 개수가 곧 단계임(<code>#</code>이 하나면 1단계, 둘이면 2단계)</td>
+</tr>
+<tr>
+<td><code>**글자**</code></td>
+<td>굵게. 한글 문서의 <code>Ctrl+B</code>에 해당함</td>
+</tr>
+<tr>
+<td><code>-</code> 또는 <code>*</code> 뒤에 공백</td>
+<td>순서 없는 목록</td>
+</tr>
+<tr>
+<td><code>1.</code> <code>2.</code></td>
+<td>순서 있는 목록</td>
+</tr>
+<tr>
+<td>세로줄과 하이픈</td>
+<td>표</td>
+</tr>
+<tr>
+<td>본문의 <code>---</code></td>
+<td>구분선</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>빠른 탐색</strong>: 메모장의 찾기에서 <code>#</code>을 검색하면 제목 기호가 있는 부분으로 이동할 수 있음.</li>
+<li><strong>목록 기호의 차이</strong>: 에이전트의 출력에 <code>*</code>와 <code>-</code> 중 어느 것이 나오더라도 순서 없는 목록이라는 뜻은 같음.</li>
+<li><strong>텍스트 파일과의 관계</strong>: 마크다운도 텍스트 파일이므로 메모장에서 읽고 수정할 수 있음. 에이전트에게 변환을 지시해 한글 문서나 워드 문서로 만들 수도 있음.</li>
+<li><strong>다른 사람에게 보여 줄 때</strong>: 포맷 보기로 되돌리면 제목과 강조 등이 서식으로 표시됨.</li>
+</ul>
+<p><code>SKILL.md</code> 맨 앞의 두 <code>---</code> 사이에는 이름과 설명 같은 설정 정보가 들어 있음. 본문에서 구분선으로 쓰는 <code>---</code>와 역할이 다름.</p>
+<p><strong>확인 방법</strong>: 메모장에서 스킬 이름과 설명을 읽고, 이 스킬이 무엇을 하는지 확인할 수 있어야 함. 내용을 바꿔 쓰려면 원본과 다른 이름의 스킬로 복사하는 방법을 사용함. 구체적인 절차는 2회기 「고쳐 쓸 스킬은 이름을 바꿔 보관하기」 참조.</p>
+<hr />
+<h3>복습과 2회기 준비</h3>
+<p><strong>2회기: 2026년 11월 14일(토) 12:00~15:00</strong></p>
+<ol>
+<li><strong>터미널 실행 확인하기</strong>: 연습 폴더에서 터미널을 열어 <code>claude</code>를 실행하고, 스크린 리더 모드가 적용되는지 확인함.</li>
+<li><strong>폴더 탐색 연습하기</strong>: 연습 폴더와 홈 디렉터리를 고정하고, 파일 탐색기에서 두 위치를 오감.</li>
+<li><strong>스킬 설치 확인하기</strong>: 다섯 스킬의 폴더가 있고 새 대화에서 인식되는지 확인함. 하나를 골라 <code>SKILL.md</code>를 메모장으로 읽음.</li>
+<li><strong>Gemini API 키 준비하기</strong>: 발급 절차는 사전 준비 안내문 6번 참조.</li>
+<li><strong>연습 파일 준비하기</strong>: PDF 한 개와 한글 문서 또는 워드 문서 한 개를 연습 폴더에 둠.</li>
+</ol>
+<h4>내 업무 정리 파일 만들기</h4>
+<p>3·4회기 실습 과제를 고를 수 있도록 반복 업무를 정리함. 대괄호를 본인 직무로 바꿔 연습 폴더에서 실행한 Claude에게 보냄.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>나는 [직무]로 일하는 시각장애인 재직자야. 내 업무에서 AI 에이전트에게 맡길 만한 일을 찾고 싶어. 질문을 한 번에 하나씩 해서 인터뷰해 줘. 하는 일, 반복 업무, 주로 다루는 파일 형식, 스크린 리더로 다루기 어려운 업무 화면이나 문서, 지금 쓰는 AI 도구를 차례로 물어봐 줘. 인터뷰가 끝나면 내용을 정리해서 이 폴더에 내 업무 정리.md 파일로 저장해 줘.
 </code></pre>
-</li>
-<li>
-<p><strong>질문에 답하기</strong>: 질문이 하나씩 나오면 입력창에 답을 적어 보냄. 보기를 고르는 목록으로 물으면 화살표 대신 번호를 입력하고 Enter를 누름.</p>
-</li>
-<li><strong>파일 확인하기</strong>: 파일 탐색기에서 연습 폴더를 열어 <code>내 업무 정리.md</code>가 생겼는지 확인함. 메모장으로 열어 내용을 읽음.</li>
-</ol>
-<p><strong>확인 방법</strong>: Desktop 앱 Code 탭에서도 따라 하기 2에서 지정한 연습 폴더가 열려 있음. Code 탭 입력창에 다음을 보내 같은 내용이 읽히는지 확인함. 한쪽에서 만든 파일을 다른 쪽에서도 다룸.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>내 업무 정리.md 읽어 줘.
-</code></pre>
-<ul>
-<li><strong>이름·연락처·고객 정보는 적지 않음.</strong> 업무의 종류와 흐름만 적어도 충분함.</li>
-<li>
-<p><strong>질문이 한꺼번에 나온 경우</strong>: 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>질문을 하나씩만 해 줘.
-</code></pre>
-</li>
-<li>
-<p><strong>마크다운 파일이 메모장에서 잘 읽히지 않는 경우</strong>: 메모장 보기 설정은 2회기에서 다룸. 그 전에는 위 확인 방법의 지시문을 터미널의 Claude에 보내 내용을 들음.</p>
-</li>
-</ul>
-<h4>함께 나누기</h4>
-<p>3·4회기는 여기서 정리한 업무 가운데 하나를 골라 실습함. 다음 세 가지를 함께 나눔.</p>
-<ul>
-<li>매주 되풀이하거나 시간이 많이 드는 업무</li>
-<li>스크린 리더로 다루기 가장 어려운 문서나 업무 화면</li>
-<li>AI에게 가장 먼저 맡겨 보고 싶은 일 하나</li>
-</ul>
+<p>이름·연락처·고객 정보는 적지 않고 업무 종류와 흐름만 설명함. 질문에 답한 뒤 파일 탐색기에서 <code>내 업무 정리.md</code>가 생겼는지 확인하고 메모장으로 읽음. 누락된 업무가 있으면 Claude에게 추가를 요청함.</p>
 <hr />
-<h3>파일 탐색기를 빠르게 쓰기</h3>
-<p>파일 탐색기는 <code>Windows 키+E</code>로 엶. Windows에서 파일 시스템을 여는 앱이며 macOS의 Finder에 해당함.</p>
-<ul>
-<li><strong>즐겨찾기 패널</strong>: 파일 목록에서 <code>Shift+Tab</code>을 누르면 최근에 작업한 폴더가 모인 패널로 이동함. 숫자 키로도 고름.</li>
-<li><strong>자주 가는 폴더 고정</strong>: 폴더에서 팝업 키를 눌러 <strong>즐겨찾기에 고정</strong>을 선택함. 단축키는 <code>Alt+Q</code>. 업무 폴더, 개인 폴더처럼 매일 여는 곳을 고정해 두면 <code>Shift+Tab</code> 한 번으로 오감.</li>
-<li><strong>탭으로 관리</strong>: <code>Ctrl+T</code>로 새 탭을 열고 <code>Ctrl+F4</code>로 닫음. 메모장도 같은 단축키를 씀. 창을 여러 개 띄우지 않으므로 <code>Alt+Tab</code>으로 오가야 할 대상이 줄어듦.</li>
-<li><strong>가상 데스크톱</strong>: <code>Ctrl+Windows 키+D</code>로 추가하고 <code>Ctrl+Windows 키+좌우 방향키</code>로 전환함. 브라우저와 메신저를 한쪽에, 파일 탐색기와 터미널을 다른 쪽에 두면 창이 섞이지 않음.</li>
-</ul>
-<hr />
-<h3>과제 및 2회기 안내</h3>
-<p>2회기(11/14) 실습 전에 확인할 항목:</p>
+<h3>참고: Desktop 앱 Code 탭 셋업</h3>
+<p>Desktop 앱으로 설치 작업을 맡기거나 파일 작업을 진행할 때 쓰는 절차임.</p>
+<h4>Code 탭으로 이동하기</h4>
+<p>사이드바에서 <strong>코드</strong>를 선택하고 <code>Enter</code>를 누름. <code>F2</code>로 프롬프트 편집창에 이동함. 화면 구성이 다르면 사이드바 전체를 훑어 항목 이름을 확인함.</p>
+<h4>Git 설치 안내가 뜬 경우</h4>
 <ol>
-<li><strong>터미널 셋업 마치기</strong>: 연습 폴더에서 터미널을 열고 <code>claude</code>를 실행했을 때 스크린 리더 모드 안내가 나오는지 확인함. 오늘 마치지 못한 따라 하기는 이 원고대로 이어서 진행함.</li>
-<li><strong>내 업무 정리 파일 다듬기</strong>: <code>내 업무 정리.md</code>에 빠진 업무가 있으면 Claude에게 덧붙여 달라고 요청함.</li>
-<li><strong>Gemini API 키 발급받기</strong>: Google AI Studio에서 무료 티어용 API 키를 발급받음. 절차는 사전 준비 안내문 6번 참조.</li>
-<li><strong>연습 폴더의 파일 확인하기</strong>: PDF 한 개와 한글 문서(또는 워드 문서) 한 개가 들어 있어야 함. 2회기에 이 두 파일로 읽기·쓰기·줄이기·듣기를 실습함.</li>
+<li><strong>Code 탭으로 이동하기</strong>: Claude Desktop 앱을 실행하고, 사이드바에서 <code>코드</code>를 누름.</li>
+<li><strong>Git 설치 안내 확인하기</strong>: Git 설치 안내가 뜨면 내용을 확인함. <strong>Git 다운로드</strong> 버튼을 누름.<ul>
+<li><strong>나중에</strong>를 선택하면 Git 연동이 되지 않아 다음 단계가 막힘. 반드시 <strong>Git 다운로드</strong>를 선택함.</li>
+<li>아무 안내도 뜨지 않으면 먼저 폴더를 선택함(아래 「작업 폴더 선택과 첫 지시」 1~3번). 폴더를 고른 뒤에 안내가 뜨는 경우가 있음.</li>
+<li>다른 에이전트(Codex 등)로 Git을 이미 설치했다면 아래 「이미 설치한 Git을 인식하지 못할 때」의 지시문으로 확인함.</li>
+</ul>
+</li>
+<li><strong>Git 설치하기</strong>: 내려받은 설치 파일(<code>Git-x.x.x-64-bit.exe</code>)을 실행하고, 설치 마법사의 모든 화면에서 기본 설정 그대로 <strong>Next</strong> 또는 <strong>Install</strong>을 눌러 설치를 마침.<ul>
+<li>Git 설치 안내에서 진행되지 않는 경우: <strong>다운로드 페이지 열기</strong>를 누름. 브라우저 창이 열리지 않으면 파일 탐색기에서 다운로드 폴더를 열어 설치 파일이 있는지 확인함. 내려받은 exe 파일이 있으면 실행함.</li>
+<li>Git 설치를 마치기 전에는 프롬프트 입력창이 비활성이라 메시지를 보낼 수 없음. 입력창이 잠겨 있어도 정상임.</li>
+</ul>
+</li>
+<li><strong>앱 완전 종료 후 다시 실행하기</strong>: Git 설치가 끝나면 앱을 완전히 닫고 다시 실행해야 함. 종료 방법은 「조작이 먹히지 않을 때」의 「앱 완전 종료 방법」 참조.</li>
+<li>
+<p><strong>설치 확인 요청하기</strong>: Code 탭으로 돌아와 하단 프롬프트 입력창에 다음을 보냄.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Git 설치를 마쳤는데 제대로 설치된 것인지 확인해 줘.
+</code></pre>
+</li>
+<li>
+<p><strong>PowerShell 실행 권한 허용하기</strong>: Claude가 설치 상태를 확인하려고 PowerShell 명령 실행 권한을 요청하면 명령 내용을 확인함. <strong>거부</strong>, <strong>한 번만 허용</strong>, <strong>항상 허용</strong> 중 <strong>항상 허용</strong>을 선택하면 해당 허용 규칙에 맞는 명령에는 다시 묻지 않음.</p>
+</li>
+<li>
+<p><strong>필요한 경우 환경 변수 설정하기</strong>: Git이 설치되어 있어도 Claude가 <code>bash.exe</code> 경로를 찾지 못하면 <code>CLAUDE_CODE_GIT_BASH_PATH</code> 환경 변수 설정 안내가 뜸. PowerShell로 설정하는 방법과 Windows 설정 창에서 직접 넣는 방법을 함께 제시하면 Code 탭 입력창에 다음을 보냄.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>PowerShell로 환경 변수를 영구 설정하는 방법으로 네가 바로 해 줘.
+</code></pre>
+<p>Claude가 PowerShell 명령으로 환경 변수를 설정함. 안내에 붙은 번호는 그때그때 다르므로 지시문에 번호 대신 방법 이름을 적음.</p>
+<ul>
+<li>환경 변수 안내가 뜨지 않고 Git을 정상적으로 인식하면 추가 설정 없이 진행함.</li>
+<li>「현재 세션의 PATH에는 아직 반영되지 않았다」는 안내가 나오면 앱을 완전히 종료하고 다시 실행한 뒤 설치 상태를 다시 확인함.</li>
+</ul>
+</li>
 </ol>
+<p><strong>확인 방법</strong>: 5번 지시에 Git이 설치됐다는 답이 돌아오면 이 단계를 마친 것임.</p>
+<h4>이미 설치한 Git을 인식하지 못할 때</h4>
+<p>설치를 맡긴 에이전트의 입력창에 다음을 보냄.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Claude를 쓰려는데 Git을 설치하라고 나와. Git이 전역으로 설치되어 있는지 확인해 줘.
+</code></pre>
+<h4>앱을 최신으로 유지하기</h4>
+<p>Desktop 앱은 자주 업데이트됨. 구버전에서는 메뉴가 다르게 보이거나 권한 설정이 나타나지 않을 수 있음. 처음 설치했다면 업데이트를 몇 번 반복해야 정상 화면이 나오기도 함.</p>
+<ul>
+<li>앱 안에서 검색으로 「업데이트」를 찾아 실행함.</li>
+</ul>
+<h4>조작이 먹히지 않을 때</h4>
+<p>엉뚱한 라벨이 읽히거나, 가상 커서를 해제해도 방향키가 듣지 않는 경우가 있음. 아래 순서로 복구함.</p>
+<ol>
+<li><code>Esc</code>를 여러 번 눌러 열려 있는 목록 닫기</li>
+<li><code>F2</code>로 프롬프트 편집창으로 돌아가기</li>
+<li><code>F5</code>로 화면을 새로 읽고 다시 탐색하기</li>
+<li>그래도 라벨이 어긋나면 앱을 완전히 종료하고 다시 실행하기</li>
+</ol>
+<p><strong>앱 완전 종료 방법</strong></p>
+<p><code>Alt+F4</code>로 Claude Desktop 앱 창을 닫아도 백그라운드에 남을 수 있음. 완전히 종료하려면 작업 관리자에서 끝냄.</p>
+<ol>
+<li><code>Ctrl+Shift+Esc</code>로 작업 관리자 열기</li>
+<li>가상 커서를 해제하고 목록에서 <code>Claude</code> 찾기</li>
+<li>팝업 키를 누르고 <code>Alt+E</code>(작업 끝내기) 누르기</li>
+<li>Windows 키를 눌러 검색창에 「클로드」를 입력하고 실행하기</li>
+</ol>
+<p>컴퓨터를 껐다 켜도 결과는 같음. 설치나 설정을 반영하려고 앱을 다시 켜야 할 때도 이 방법을 씀.</p>
+<h4>작업 폴더 선택과 첫 지시</h4>
+<p>에이전트는 지정한 폴더를 작업 범위로 삼음. 폴더를 지정해야 결과 파일이 정확한 위치에 생성됨.</p>
+<ol>
+<li><strong>작업 폴더 선택하기</strong>: Code 탭의 프롬프트 편집창에서 위로 올라가 <strong>로컬 폴더</strong>를 고르고 <code>Enter</code>를 누름. 폴더 선택 대화상자가 열림.</li>
+<li><strong>연습 폴더 지정하기</strong>: 홈 디렉터리에 미리 만들어 둔 연습 폴더로 이동한 뒤 <strong>폴더 선택</strong> 버튼을 누름. 입력창 상단에 폴더 이름이 표시되면 지정 완료.</li>
+<li><strong>폴더 신뢰하기</strong>: 처음 여는 폴더면 신뢰를 묻는 화면이 뜸. 본인이 준비한 연습 폴더가 맞는지 확인하고 <strong>신뢰</strong> 버튼을 누름.</li>
+<li>
+<p><strong>첫 지시 보내기</strong>: Code 탭 하단 입력창에 다음을 입력하고 전송함.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 폴더에 어떤 파일이 있는지 읽고 정리해 줘.
+</code></pre>
+</li>
+<li>
+<p><strong>결과 확인하기</strong>: 연습 폴더에 넣어 둔 PDF와 한글 문서의 파일 이름·형식이 답변과 일치하는지 확인함.</p>
+</li>
+</ol>
+<h4>작업 범위와 권한 관리</h4>
+<ul>
+<li><strong>작업 범위</strong>: 선택한 폴더를 기준으로 파일을 읽고 작업함. 폴더 지정만으로 그 밖의 접근이 모두 차단되는 것은 아님. 실제 접근·실행 권한은 별도 설정으로 관리함.</li>
+<li><strong>승인 요청이 뜬 경우</strong>: 대상 파일과 실행할 명령을 확인하고 허용 여부를 결정함. 폴더 밖 접근이나 프로그램 설치도 현재 권한 설정에 따라 승인 요청이 뜰 수 있음.</li>
+<li><strong>자동 모드</strong>: 실행하려는 작업을 자동으로 검토해 승인 요청을 줄이는 설정임. 프롬프트 편집창 아래의 <strong>편집 수락</strong> 풀다운 메뉴에서 <strong>자동</strong>을 선택하고, 확인 창에서 <strong>자동 모드 활성화</strong>를 누름.</li>
+<li><strong>수동 승인</strong>: 파일 편집이나 명령 실행 때 승인 요청이 뜨면 내용을 확인하고 응답해야 작업이 계속됨.</li>
+</ul>
+<blockquote>
+<p><strong>자동 모드가 보이지 않는 경우</strong>: 앱 업데이트 상태와 계정·조직의 설정을 확인해야 함.</p>
+</blockquote>
 <button type="button" class="close" data-close>닫기</button>
 </article>
 <article id="s3" hidden>
@@ -606,8 +622,7 @@
 <ul>
 <li><strong>강의</strong>: AI 에이전트 실습 - Claude로 업무 자동화하기</li>
 <li><strong>과정명</strong>: 시각장애인 재직자 AI 활용 직무향상 과정</li>
-<li><strong>일시</strong>: 2026. 11. 14.(토) 13:00~16:00 (3시간)</li>
-<li><strong>진행</strong>: 비대면 Zoom</li>
+<li><strong>일시</strong>: 2026. 11. 14.(토) 12:00~15:00 (3시간)</li>
 <li><strong>강사</strong>: 김헌용 (서울 신명중학교 영어 교사, 함께하는장애인교원노동조합 위원장)</li>
 <li><strong>실습 도구</strong>: Claude Code CLI(터미널), 스킬 번들 <code>skills-for-the-blind</code></li>
 </ul>
@@ -615,84 +630,22 @@
 <h3>이번 시간의 목표</h3>
 <ul>
 <li>작업 결과 요약을 음성으로 듣는 환경 셋업하기</li>
-<li>규칙 파일 <code>CLAUDE.md</code>를 만들고 메모장에서 마크다운 읽기</li>
-<li>문서 업무 스킬 네 개 설치하고 Gemini API 키 등록하기</li>
+<li>규칙 파일 <code>CLAUDE.md</code>를 만들고 업무 규칙 기록하기</li>
+<li>설치한 스킬의 실행 환경을 점검하고 Gemini API 키 등록하기</li>
 <li>PDF와 한글 문서를 읽고, 한글 문서를 만들기</li>
 <li>긴 문서를 줄이고 음성 파일로 만들기</li>
 <li>다섯 스킬을 한 흐름으로 이어 쓰기</li>
 </ul>
-<hr />
-<h3>진행 순서</h3>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>시각</th>
-<th>내용</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>13:00~13:05</td>
-<td>지난 회기 이어받기</td>
-</tr>
-<tr>
-<td>13:05~13:30</td>
-<td>따라 하기 6. 작업 결과 요약을 음성으로 듣기</td>
-</tr>
-<tr>
-<td>13:30~13:35</td>
-<td>규칙 파일과 스킬</td>
-</tr>
-<tr>
-<td>13:35~13:55</td>
-<td>따라 하기 7. 규칙 파일 CLAUDE.md 만들기와 마크다운 읽기</td>
-</tr>
-<tr>
-<td>13:55~14:05</td>
-<td>휴식</td>
-</tr>
-<tr>
-<td>14:05~14:25</td>
-<td>따라 하기 8. 스킬 번들 설치</td>
-</tr>
-<tr>
-<td>14:25~14:35</td>
-<td>Gemini API 키 등록하기</td>
-</tr>
-<tr>
-<td>14:35~14:55</td>
-<td>따라 하기 9. docparse로 PDF·스캔 문서 읽기</td>
-</tr>
-<tr>
-<td>14:55~15:05</td>
-<td>휴식</td>
-</tr>
-<tr>
-<td>15:05~15:25</td>
-<td>따라 하기 10. hwpx-automation으로 한글 문서 읽고 쓰기</td>
-</tr>
-<tr>
-<td>15:25~15:35</td>
-<td>따라 하기 11. abridge로 긴 문서 줄이기</td>
-</tr>
-<tr>
-<td>15:35~15:47</td>
-<td>따라 하기 12. speech-toolkit으로 문서를 음성 파일로 만들기</td>
-</tr>
-<tr>
-<td>15:47~16:00</td>
-<td>따라 하기 13. 다섯 스킬 이어 쓰기, 과제 및 3회기 안내</td>
-</tr>
-</tbody>
-</table></div>
 <hr />
 <h3>지난 회기 이어받기</h3>
 <p><strong>갖춰져 있어야 하는 것</strong></p>
 <ol>
 <li><strong>터미널의 Claude Code CLI</strong>: 연습 폴더에서 터미널을 열고 <code>claude</code>를 입력하면 실행되고, 로그인이 유지돼야 함.</li>
 <li><strong>스크린 리더 모드</strong>: <code>claude</code>를 실행했을 때 시작 화면에 스크린 리더 모드 안내가 나와야 함.</li>
-<li><strong>연습 폴더의 파일</strong>: 홈 디렉터리의 「연습」 폴더에 PDF 한 개, 한글 문서(또는 워드 문서) 한 개, <code>내 업무 정리.md</code>가 있어야 함.</li>
+<li><strong>연습 폴더의 파일</strong>: 홈 디렉터리의 「연습」 폴더에 PDF 한 개와 한글 문서(또는 워드 문서) 한 개가 있어야 함. 업무 인터뷰를 마쳤다면 <code>내 업무 정리.md</code>도 함께 둠.</li>
 <li><strong>Node.js와 Python</strong>: 사전 준비 안내문 4번으로 설치한 상태여야 함. 스킬 설치와 문서 변환에 씀.</li>
+<li><strong>스킬 번들</strong>: 1회기 따라 하기 4에서 <code>skills-for-the-blind</code>와 다섯 스킬을 설치한 상태여야 함. 아직 설치하지 못했다면 그 절차를 먼저 마침.</li>
+<li><strong>마크다운 읽기</strong>: 1회기 따라 하기 5의 방법으로 메모장에서 <code>SKILL.md</code>를 읽을 수 있어야 함.</li>
 <li><strong>2회기 준비물</strong>: Gemini API 키. Google AI Studio에서 발급해 메모장 등에 복사해 둔 상태여야 함. 발급 절차는 사전 준비 안내문 6번 참조.</li>
 </ol>
 <p><strong>되짚을 개념</strong></p>
@@ -710,13 +663,13 @@
 <h3>따라 하기 6: 작업 결과 요약을 음성으로 듣기</h3>
 <ul>
 <li><strong>문제</strong>: 에이전트가 작업을 마치면 긴 결과 텍스트가 화면에 남음. 매번 키패드로 훑어야 무엇을 했는지 알 수 있음.</li>
-<li><strong>해결</strong>: 응답이 끝날 때마다 핵심 요약을 음성으로 들려주는 <code>agent-cli-tts-summary</code> 스킬을 설치함.</li>
+<li><strong>해결</strong>: 응답이 끝날 때마다 핵심 요약을 음성으로 들려주는 설치한 <code>agent-cli-tts-summary</code> 스킬의 TTS 요약을 설정함.</li>
 <li><strong>비용</strong>: 기본 음성은 Windows 내장 음성 엔진을 쓰므로 API 키가 필요 없고 비용도 들지 않음. 오늘은 기본값으로 둠.</li>
 </ul>
 <ol>
 <li>
-<p><strong>스킬 설치 요청하기</strong>: 연습 폴더에서 터미널을 열고 <code>claude</code>를 실행한 뒤 입력창에 다음 지시문을 입력함.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 의 agent-cli-tts-summary 스킬을 설치해 줘.
+<p><strong>스킬 설치 상태 확인하기</strong>: 연습 폴더에서 터미널을 열고 <code>claude</code>를 실행한 뒤 입력창에 다음 지시문을 입력함.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>agent-cli-tts-summary 스킬이 설치돼 있는지 확인해 줘. 없으면 <a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 에서 해당 스킬을 설치해 줘.
 </code></pre>
 </li>
 <li>
@@ -751,7 +704,7 @@
 <p><strong>[팁] 필요한 도움을 구체적으로 요청하기</strong></p>
 <p>설정에 익숙하지 않다면 설명만 요청하지 말고 설치와 설정까지 맡김. 이해하기 어려운 응답은 쉬운 말로 풀어 달라고 요청함. 실행 승인이 표시되면 요청 내용을 확인해야 함.</p>
 <h4>스킬 이름을 못 찾을 때</h4>
-<p><code>skills-for-the-blind</code>는 스킬 다섯 개를 설치하는 번들이고 <code>agent-cli-tts-summary</code>는 그중 하나임. 스킬을 찾지 못한다는 응답이 오면 번들을 지목해 하나만 설치하도록 다시 요청함. 나머지 넷은 따라 하기 8에서 설치함.</p>
+<p><code>skills-for-the-blind</code>는 스킬 다섯 개를 설치하는 번들이고 <code>agent-cli-tts-summary</code>는 그중 하나임. 스킬을 찾지 못한다는 응답이 오면 번들을 지목해 하나만 설치하도록 다시 요청함. 전체 번들의 설치 상태는 따라 하기 8에서 함께 점검함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들에서 agent-cli-tts-summary 하나만 설치해 줘.
 </code></pre>
 <h4>음성 속도 바꾸기와 끄기</h4>
@@ -812,7 +765,7 @@
 <li><strong>작업 폴더에 둔 스킬</strong>: 작업 폴더의 <code>.claude\skills</code>에 둔 스킬은 그 폴더에서만 씀.</li>
 </ul>
 <hr />
-<h3>따라 하기 7: 규칙 파일 CLAUDE.md 만들기와 마크다운 읽기</h3>
+<h3>따라 하기 7: 규칙 파일 CLAUDE.md 만들기</h3>
 <h4>만드는 법</h4>
 <ol>
 <li><strong>연습 폴더에서 Claude 열기</strong>: 파일 탐색기에서 연습 폴더로 들어가 <code>Ctrl+Space</code>로 파일 선택을 해제한 뒤 팝업 키로 <strong>터미널에서 열기</strong>를 선택하고 <code>claude</code>를 실행함.</li>
@@ -829,7 +782,7 @@
 <ul>
 <li>「코드 프로젝트 폴더는 아니지만」이라는 문구가 답변에 붙는 경우가 있음. Claude Code가 코딩 도구로 만들어져 있어 코드 파일이 없는 폴더에 이렇게 적는 것임. 문서 작업용 폴더라고 <code>CLAUDE.md</code>에 기록되므로 그대로 두면 됨.</li>
 </ul>
-<p><strong>확인 방법</strong>: 파일 탐색기에서 연습 폴더에 <code>CLAUDE.md</code>가 생겼는지 확인함. 메모장으로 열어 폴더의 용도와 파일 설명이 맞는지 읽음. 읽기 설정은 아래 「메모장에서 구문 보기로 바꾸기」 참조.</p>
+<p><strong>확인 방법</strong>: 파일 탐색기에서 연습 폴더에 <code>CLAUDE.md</code>가 생겼는지 확인함. 메모장으로 열어 폴더의 용도와 파일 설명이 맞는지 읽음. 읽기 설정은 1회기 따라 하기 5의 「메모장에서 구문 보기로 바꾸기」 참조.</p>
 <h4>규칙 한 줄 더하기</h4>
 <p>자동으로 만든 파일에는 폴더 설명만 들어 있음. 지킬 규칙은 직접 덧붙임.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>CLAUDE.md에 다음 규칙을 추가해 줘. 유료 API를 쓰기 전에는 반드시 나에게 먼저 물어볼 것. 결과 파일은 원본과 같은 폴더에 저장할 것.
@@ -856,59 +809,11 @@
 <ul>
 <li><strong>다른 에이전트</strong>: Codex의 규칙 파일 이름은 <code>AGENTS.md</code>임. 필요하면 Codex에 생성을 지시함.</li>
 </ul>
-<h4>메모장에서 구문 보기로 바꾸기</h4>
-<p>마크다운(<code>.md</code>)은 텍스트에 기호를 붙여 제목·목록·강조 등을 표시하는 문서 형식임. <code>CLAUDE.md</code>와 오늘 만들 결과 파일 대부분이 이 형식임.</p>
-<p>파일 탐색기에서 <code>CLAUDE.md</code>를 찾아 <code>Enter</code>를 누름. 마크다운 파일을 처음 여는 것이면 앱을 고르라는 화면이 뜨므로 <strong>메모장</strong>을 선택함.</p>
-<p>Windows 11의 메모장은 마크다운을 지원함. 기본값은 <strong>포맷 보기</strong>이고 제목은 크게, 굵게 표시한 글자는 굵게 보임. 센스리더가 아직 이 상태를 제대로 읽지 못함. <strong>구문 보기</strong>로 바꿈.</p>
-<ol>
-<li><strong>메뉴 열기</strong>: 메모장에서 <code>Alt</code>를 누름. 파일, 편집, 보기 메뉴가 뜸.</li>
-<li><strong>마크다운 메뉴로 이동하기</strong>: <strong>보기</strong>로 들어가 <strong>마크다운</strong>을 찾고 <code>Enter</code>를 누름.</li>
-<li><strong>구문 보기 선택하기</strong>: 포맷과 구문 중 <strong>구문</strong>을 고름.</li>
-</ol>
-<ul>
-<li>이 메뉴는 확장자가 <code>.md</code>인 파일을 열었을 때만 나타남. 영어로는 syntax임.</li>
-<li><strong>방향키를 눌러도 읽히지 않는 경우</strong>: 메모장에서 <code>Ctrl+T</code>로 새 탭을 열고 <code>Ctrl+F4</code>로 그 탭을 닫은 뒤 원래 문서를 다시 탐색함.</li>
-</ul>
-<h4>알아 둘 문법</h4>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>표기</th>
-<th>뜻</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>#</code></td>
-<td>제목. 개수가 곧 단계임(<code>#</code>이 하나면 1단계, 둘이면 2단계)</td>
-</tr>
-<tr>
-<td><code>**글자**</code></td>
-<td>굵게. 한글 문서의 <code>Ctrl+B</code>에 해당함</td>
-</tr>
-<tr>
-<td><code>-</code> 또는 <code>*</code> 뒤에 공백</td>
-<td>순서 없는 목록</td>
-</tr>
-<tr>
-<td><code>1.</code> <code>2.</code></td>
-<td>순서 있는 목록</td>
-</tr>
-<tr>
-<td><code>|</code>와 <code>-</code></td>
-<td>표</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li><strong>빠른 탐색</strong>: 메모장의 찾기에서 <code>#</code>을 검색하면 제목 기호가 있는 부분으로 이동할 수 있음.</li>
-<li><strong>목록 기호의 차이</strong>: 에이전트의 출력에 <code>*</code>와 <code>-</code> 중 어느 것이 나오더라도 순서 없는 목록이라는 뜻은 같음.</li>
-<li><strong>텍스트 파일과의 관계</strong>: 마크다운도 텍스트 파일이므로 메모장에서 읽고 수정할 수 있음. 에이전트에게 변환을 지시해 한글 문서나 워드 문서로 만들 수도 있음.</li>
-<li><strong>다른 사람에게 보여 줄 때</strong>: 포맷 보기로 되돌리면 제목과 강조 등이 서식으로 표시됨.</li>
-</ul>
+<h4>작성한 규칙 읽어 확인하기</h4>
+<p><code>CLAUDE.md</code>를 메모장의 구문 보기로 열어 폴더 설명과 추가한 규칙을 읽음. 내용이 낭독되지 않으면 <code>Ctrl+T</code>로 새 탭을 열었다가 <code>Ctrl+F4</code>로 닫고 원래 문서로 돌아옴. 마크다운의 제목·목록·강조 기호는 1회기 따라 하기 5 참조.</p>
 <hr />
-<h3>따라 하기 8: 스킬 번들 설치</h3>
-<p>따라 하기 6에서 설치한 것을 빼고 <code>skills-for-the-blind</code>의 나머지 네 스킬을 설치함.</p>
+<h3>따라 하기 8: 스킬 설치 상태와 실행 환경 점검하기</h3>
+<p>1회기에서 설치한 <code>skills-for-the-blind</code>의 다섯 스킬을 확인하고, 문서 업무에 필요한 실행 도구를 준비함. TTS 요약을 제외한 네 스킬의 역할은 다음과 같음.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -937,8 +842,8 @@
 </table></div>
 <ol>
 <li>
-<p><strong>번들 설치 요청하기</strong>: 입력창에 다음 지시문을 입력함.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들을 설치해 줘. agent-cli-tts-summary는 이미 설치했으니 나머지 네 스킬을 설치해 줘.
+<p><strong>번들 점검 요청하기</strong>: 입력창에 다음 지시문을 입력함.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 에 포함된 다섯 스킬의 설치 상태를 확인해 줘. 없는 스킬만 전역으로 설치해 줘.
 </code></pre>
 </li>
 <li>
@@ -1139,7 +1044,7 @@
 </ol>
 <p><strong>확인 방법</strong>: 메모장 구문 보기로 열어 원문의 표와 글상자 내용이 들어갔는지 확인함. 본문에 그림이 있으면 그림 속 글자는 빠질 수 있다는 경고가 나옴. 그 경우 그림 속 글자는 <code>docparse</code>로 따로 읽음.</p>
 <h4>2. 마크다운에서 한글 문서 만들기</h4>
-<p>1회기에 만든 <code>내 업무 정리.md</code>를 한글 문서로 만듦.</p>
+<p>1회기 복습 과제로 만든 <code>내 업무 정리.md</code>를 한글 문서로 만듦. 파일이 없으면 1회기 「내 업무 정리 파일 만들기」의 지시문으로 먼저 생성한 뒤 진행함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>연습 폴더의 내 업무 정리.md를 hwpx-automation 스킬로 한글 문서(HWPX)로 만들어 줘.
 </code></pre>
 <p><strong>확인 방법</strong>: 만든 한글 문서를 다시 마크다운으로 읽게 해서 내용이 그대로 들어갔는지 확인함.</p>
@@ -1224,13 +1129,14 @@
 <li>
 <p><strong>목소리 바꾸기</strong>: 목록을 확인한 뒤 음성 이름을 지정함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>Gemini 음성 목록을 보여 줘.
-
-Kore 음성으로 다시 만들어 줘.
 </code></pre>
 </li>
-<li>
-<p><strong>API 키 없이 만들기</strong>: <code>abridge</code>의 오디오북 기능은 따로 지정하지 않으면 컴퓨터 내장 음성으로 파일을 만듦. API 키와 비용이 필요 없음.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>방금 만든 축약본을 abridge 스킬의 오디오북 기능으로 컴퓨터 내장 음성 파일로 만들어 줘.
+</ul>
+<p>목록에서 사용할 음성을 고른 뒤 다음처럼 요청함.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>    Kore 음성으로 다시 만들어 줘.
+</code></pre>
+<ul>
+<li><strong>API 키 없이 만들기</strong>: <code>abridge</code>의 오디오북 기능은 따로 지정하지 않으면 컴퓨터 내장 음성으로 파일을 만듦. API 키와 비용이 필요 없음.<button type="button" class="copy" data-copy>복사</button><pre><code>방금 만든 축약본을 abridge 스킬의 오디오북 기능으로 컴퓨터 내장 음성 파일로 만들어 줘.
 </code></pre>
 </li>
 </ul>
