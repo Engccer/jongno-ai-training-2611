@@ -69,7 +69,24 @@ def unfence_in_lists(text: str) -> str:
         return '\n' + '\n'.join(' ' * 8 + l if l.strip() else '' for l in lines) + '\n'
     return INDENTED_FENCE.sub(repl, text)
 
-def render(path: Path) -> str:
+def add_accordions(body: str, sid: str) -> str:
+    """h3와 다음 h3 사이를 묶고 문서의 첫 항목만 펼친다."""
+    parts = re.split(r'<h3>(.*?)</h3>', body, flags=re.S)
+    result = [parts[0]]
+    for index in range(1, len(parts), 2):
+        panel_id = f"{sid}-panel-{(index + 1) // 2}"
+        expanded = index == 1
+        result.append(
+            f'<h3><button type="button" class="accordion-toggle" '
+            f'aria-expanded="{str(expanded).lower()}" aria-controls="{panel_id}">'
+            f'{parts[index]}</button></h3>\n'
+            f'<div id="{panel_id}"{ "" if expanded else " hidden"}>'
+            f'{parts[index + 1]}</div>'
+        )
+    return "".join(result)
+
+
+def render(path: Path, sid: str) -> str:
     text = path.read_text(encoding="utf-8")
     text = re.sub(r"^# .*\n", "", text, count=1)          # 문서 제목은 버튼·h2가 대신함
     # 원고는 번호 목록 아래 하위 항목을 3칸 들여쓰는데 Python-Markdown은 4칸부터 목록
@@ -82,13 +99,13 @@ def render(path: Path) -> str:
         body = body.replace(f"<h{lv}>", f"<h{lv+1}>").replace(f"</h{lv}>", f"</h{lv+1}>")
     body = body.replace("<table>", '<div class="table-wrap"><table>').replace("</table>", "</table></div>")
     body = linkify(body)
-    return body
+    return add_accordions(body, sid)
 
 articles, buttons = [], []
 for i, (title, path, live) in enumerate(SECTIONS, 1):
     sid = f"s{i}"
     buttons.append(f'<li><button type="button" data-open="{sid}">{html.escape(title)}</button></li>')
-    inner = render(path) if live else "<p>원고를 준비하고 있습니다.</p>"
+    inner = render(path, sid) if live else "<p>원고를 준비하고 있습니다.</p>"
     articles.append(
         f'<article id="{sid}" hidden>\n'
         f'<button type="button" class="close" data-close>닫기</button>\n'
