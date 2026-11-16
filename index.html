@@ -804,6 +804,7 @@
 <div id="s3-panel-1">
 <ul>
 <li>작업 결과 요약을 음성으로 듣는 환경 셋업하기</li>
+<li>실제 업무 폴더에서 Claude를 실행하고 실행 환경 점검하기</li>
 <li>규칙 파일 <code>CLAUDE.md</code>를 만들고 업무 규칙 기록하기</li>
 <li>설치한 스킬의 실행 환경을 점검하고 Gemini API 키 등록하기</li>
 <li>PDF와 한글 문서를 읽고, 한글 문서를 만들기</li>
@@ -828,6 +829,21 @@
 <ul>
 <li><strong>작업 폴더</strong>: project 폴더에서 터미널을 열어 실습함.</li>
 <li><strong>파일 경로 복사</strong>: 탐색기에서 파일을 선택하고 <code>Ctrl+Shift+C</code>를 누름(앞뒤 따옴표는 그대로 둠).</li>
+</ul>
+<h4>터미널 입력에서 자주 막히는 곳</h4>
+<ul>
+<li><strong>입력이 되지 않을 때</strong>: 화면에 선택지 질문이 떠 있는지 확인하고 답함.</li>
+<li><strong>답변 언어</strong>: 처음 화면은 영어로 나오지만 한국어로 입력하면 한국어로 답함.</li>
+<li><strong>위쪽 방향키</strong>: 입력창에서 누르면 이전에 입력한 지시문이 불려 옴.</li>
+<li>불려 온 내용이 있으면 아래쪽 방향키를 눌러 빈 입력줄로 돌아오거나, 입력줄의 글자를 모두 지운 뒤 입력함.</li>
+<li>아래쪽 방향키로 진행 상황 화면이 열리면 <code>Esc</code>를 한 번 누름. <code>Esc</code>는 진행 중인 작업을 멈출 수 있으므로 화면을 먼저 확인함.</li>
+<li><strong>화면 상황 묻기</strong>: <code>Alt+PrintScreen</code>으로 현재 창을 캡처하고, Claude 입력창에서 <code>Alt+V</code>로 붙여넣은 뒤 질문함.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>지금 이 화면이 어떤 상황인지 확인하고, 다음에 무엇을 하면 되는지 알려 줘.
+</code></pre>
+<ul>
+<li>캡처했다는 안내 음성은 나오지 않음.</li>
+<li>터미널에서 이미지 붙여넣기는 <code>Ctrl+V</code>가 아니라 <code>Alt+V</code>임.</li>
 </ul>
 <h4>지시문의 대괄호 바꿔 넣기</h4>
 <ul>
@@ -918,7 +934,7 @@
 </tr>
 <tr>
 <td><code>/tts speed 7</code></td>
-<td>속도 변경: 1(가장 느림)~10(가장 빠름), 5가 보통</td>
+<td>속도 변경: 1(가장 느림)~10(가장 빠름), 5가 보통, 소수점 가능(예: 7.5)</td>
 </tr>
 <tr>
 <td><code>/tts off</code>, <code>/tts on</code></td>
@@ -929,11 +945,22 @@
 <td>요약 분량 변경: 1은 1~2문장, 2는 3~6문장(기본값), 3은 7문장 이상</td>
 </tr>
 <tr>
+<td><code>/tts interim on</code>, <code>/tts interim off</code></td>
+<td>질문 선택지와 중간 진행 보고도 읽을지 정함(Windows 기본값은 끔)</td>
+</tr>
+<tr>
 <td><code>/tts-replay</code></td>
 <td>직전 요약 음성 재생(새로 만들지 않으므로 비용 없음)</td>
 </tr>
 </tbody>
 </table></div>
+<ul>
+<li><strong><code>verbosity</code></strong>: 요약 음성의 분량을 정하는 설정이며 철자는 V, E, R, B, O, S, I, T, Y임.</li>
+<li>요약 음성이 거슬리면 먼저 <code>/tts verbosity 1</code>로 짧게 줄여 봄.</li>
+<li>명령이 기억나지 않으면 Claude에게 물음.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>TTS 음성 요약에 쓸 수 있는 슬래시 명령을 알려 줘.
+</code></pre>
 <ul>
 <li>속도는 바꾼 직후 응답부터, 요약 분량은 그다음 응답부터 적용됨.</li>
 <li>스크린 리더와 요약 음성이 겹치면 원하는 쪽만 사용하고 필요할 때 다시 켬.</li>
@@ -942,6 +969,14 @@
 </ul>
 <button type="button" class="copy" data-copy>복사</button><pre><code>설정한 TTS 훅이 왜 안 도는지 확인하고 고쳐 줘.
 </code></pre>
+<h4>목소리 바꾸기</h4>
+<ul>
+<li>기본 음성은 Windows 내장 음성이며 비용이 들지 않음.</li>
+<li>더 자연스러운 음성은 Gemini, ElevenLabs, Azure 중 하나의 API 키를 발급해 환경 변수로 등록한 뒤 바꿈.</li>
+<li>서비스마다 요금과 무료 사용량이 다름.</li>
+<li>Azure는 무료 등급(월 50만 자)이 있고 숫자와 고유명사를 비교적 정확하게 읽음.</li>
+<li>키 등록 방법은 아래 「Gemini API 키 등록하기」와 같음.</li>
+</ul>
 <hr />
 </div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-4">규칙 파일과 스킬</button></h3>
 <div id="s3-panel-4" hidden>
@@ -954,13 +989,165 @@
 <li><strong>홈 디렉터리의 <code>.claude\skills</code></strong>: 어느 작업 폴더에서나 쓸 개인 스킬을 둠.</li>
 <li><strong>작업 폴더의 <code>.claude\skills</code></strong>: 그 폴더에서만 쓸 스킬을 둠.</li>
 </ul>
+<h4>다른 에이전트와 스킬 함께 쓰기</h4>
+<ul>
+<li>에이전트마다 스킬을 읽는 폴더가 다름.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>에이전트</th>
+<th>개인 스킬 폴더(홈 디렉터리 기준)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td><code>.claude\skills</code></td>
+</tr>
+<tr>
+<td>Codex(ChatGPT)</td>
+<td><code>.agents\skills</code></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Claude에서 설치한 스킬을 Codex에서도 쓰려면 <code>.agents\skills</code>에도 설치함.</li>
+<li>폴더를 직접 복사해 붙여넣어도 작동함.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>홈 디렉터리의 .claude\skills에 있는 스킬을 .agents\skills에도 복사해 줘.
+</code></pre>
+<h4>내 컴퓨터에 쌓는 이유</h4>
+<ul>
+<li>스킬, 규칙 파일, 업무 파일이 내 컴퓨터 폴더에 있으면 다른 에이전트로 옮기거나 폴더째 복사할 수 있음.</li>
+<li>앱 안의 클라우드 기능에 쌓은 자료는 그 서비스에서만 쓸 수 있음.</li>
+<li>설정과 스킬은 컴퓨터마다 한 번씩 설치함.</li>
+<li><strong>업무 파일</strong>: 여러 컴퓨터에서 쓰려면 Google Drive 데스크톱 앱처럼 탐색기에 드라이브로 나타나는 동기화 앱을 씀.</li>
+<li>Google Drive 데스크톱 앱을 설치하면 탐색기에 G 드라이브가 생기고, 그 안에서 작업한 내용이 클라우드에 바로 올라감.</li>
+<li>설치 중 <strong>내 컴퓨터의 폴더 동기화</strong>를 묻는 항목은 개인 파일이 업무 드라이브로 올라가지 않도록 확인하고 고름.</li>
+</ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-5">실습 7: 규칙 파일 CLAUDE.md 만들기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-5">실습 7: 작업 폴더에서 Claude 실행하고 CLAUDE.md 만들기</button></h3>
 <div id="s3-panel-5" hidden>
-<h4>만드는 법</h4>
+<h4>작업 폴더 정하기</h4>
+<ul>
+<li>이번 실습부터는 실제로 업무를 하는 폴더에서 Claude를 실행함.</li>
+<li>업무 폴더가 없으면 하나 만들고, 한글·PDF·텍스트 문서처럼 여러 형식의 파일을 넣어 둠.</li>
+<li>개인정보나 대외비가 있는 파일은 실습에 쓰지 않음.</li>
+<li><strong>폴더 정리</strong>: 업무별로 하위 폴더를 나눠 두면 Claude가 파일을 빨리 찾고, 무엇을 바꿨는지 확인하기 쉬움.</li>
+<li><strong>[장점]</strong> 업무 폴더에서 실행하면 그 폴더가 맥락이 되므로 지시문이 짧아짐.</li>
+<li>예를 들어 홈 디렉터리에서는 「업무 폴더에서 회의 일정 파일을 찾아 알려 줘」라고 해야 하지만, 업무 폴더에서는 「이번 주 회의 언제야?」로 충분함.</li>
+<li>자주 쓰는 업무 폴더는 탐색기 즐겨찾기에 고정함(1회기 [센스리더 팁] 참조).</li>
+</ul>
+<h4>작업 폴더에서 터미널 열기</h4>
 <ol>
-<li>탐색기에서 project 폴더로 들어가 <code>Ctrl+Space</code>로 파일 선택을 해제함.</li>
-<li>팝업 키로 <strong>터미널에서 열기</strong>를 선택하고 <code>claude</code>를 실행함.</li>
+<li>탐색기에서 업무 폴더로 들어가 <code>Ctrl+Space</code>로 파일 선택을 해제함.</li>
+<li>팝업 키 또는 <code>Shift+F10</code>을 누르고 위쪽 방향키로 <strong>터미널에서 열기</strong>를 선택함.<ul>
+<li>메뉴가 열린 상태에서 <code>Alt</code>, <code>T</code>를 차례로 눌러도 됨.</li>
+</ul>
+</li>
+<li>PowerShell 프롬프트에 업무 폴더 경로가 표시되는지 확인하고 <code>claude</code>를 실행함.</li>
+<li>파일이 많은 폴더나 Google Drive 폴더에서 접근 허용을 물으면 내용을 확인하고 <code>y</code>와 <code>Enter</code>를 누름.</li>
+</ol>
+<ul>
+<li>이 방법을 쓰면 바탕 화면에 Claude 바로 가기를 따로 만들 필요가 없음.</li>
+</ul>
+<h4>실행 화면 점검하기</h4>
+<ul>
+<li>맨 위로 가서 키패드로 내려오며 다음 항목을 확인함.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>스크린 리더 모드</td>
+<td>켜져 있다는 안내</td>
+</tr>
+<tr>
+<td>버전</td>
+<td>Claude Code 버전</td>
+</tr>
+<tr>
+<td>모델과 구독</td>
+<td>사용 중인 모델과 요금제(Pro, Max 등)</td>
+</tr>
+<tr>
+<td>폴더 경로</td>
+<td>지금 실행한 업무 폴더</td>
+</tr>
+<tr>
+<td>권한 모드</td>
+<td><code>Shift+Tab</code>으로 바꿀 수 있다는 안내</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>업데이트 안내</strong>: 다시 시작하라는 안내가 있으면 터미널 탭을 닫았다가 같은 폴더에서 다시 열고 <code>claude</code>를 실행함.</li>
+<li>탭 닫기는 <code>Ctrl+Shift+W</code>이며, 센스리더에서는 <code>Ctrl+Shift+N</code>으로 기능 키를 해제한 뒤 누름.</li>
+</ul>
+<h4>모델과 추론 수준 바꾸기</h4>
+<ul>
+<li>터미널에는 버튼이 없으므로 대부분의 설정을 슬래시 명령으로 바꿈.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>명령</th>
+<th>하는 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/model</code></td>
+<td>사용할 모델을 고름</td>
+</tr>
+<tr>
+<td><code>/effort</code></td>
+<td>추론 수준을 고름: low, medium, high, xhigh, max</td>
+</tr>
+</tbody>
+</table></div>
+<ol>
+<li><code>/model</code>을 입력하고 <code>Enter</code>를 누름.</li>
+<li>모델 목록을 키패드로 읽고 원하는 모델의 번호를 입력한 뒤 <code>Enter</code>를 누름.</li>
+<li>고른 모델은 바로 적용되고 다음 세션의 기본값으로도 저장됨.</li>
+<li><code>/effort</code>도 같은 방법으로 번호를 입력하고 <code>Enter</code>를 누름.</li>
+</ol>
+<ul>
+<li><strong>Opus</strong>: Claude 구독의 기본 모델이며 추론 수준의 기본값은 medium임.</li>
+<li>대부분의 문서 업무는 Opus의 medium으로 충분함.</li>
+<li><strong>턴과 세션</strong>: 지시문 하나와 그 응답을 턴, <code>claude</code>를 실행해 종료할 때까지 이어지는 대화를 세션이라고 함.</li>
+</ul>
+<h4>권한 모드 고르기</h4>
+<ul>
+<li>모드별 설명은 1회기 [센스리더 팁] 「Shift+Tab으로 권한 모드 바꾸기」 참조.</li>
+<li><code>Shift+Tab</code>을 누를 때마다 자동(<code>auto</code>), 수동(<code>default</code>), 편집 자동 승인(<code>acceptEdits</code>), 계획(<code>plan</code>) 순으로 바뀜.</li>
+<li>계획 모드에서는 파일을 바꾸지 않고, 탐색과 계획을 더 많이 함.</li>
+<li>자동 모드는 계정과 설정에 따라 목록에 없을 수 있음.</li>
+</ul>
+<h4>긴 지시문은 메모장에서 쓰기</h4>
+<ul>
+<li><code>Ctrl+G</code>를 누르면 지시문을 기본 편집기에서 작성할 수 있음.</li>
+<li>메모장이 아닌 다른 편집기가 열리면 닫고 설정을 요청함.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Claude Code의 외부 편집기를 메모장으로 설정해 줘.
+</code></pre>
+<ol>
+<li>열린 메모장에 지시문을 쓰거나 붙여넣음.</li>
+<li><code>Ctrl+S</code>로 저장하고 <code>Ctrl+F4</code>로 닫음.</li>
+<li>터미널 입력창에 지시문이 들어왔는지 확인하고 <code>Enter</code>를 누름.</li>
+</ol>
+<ul>
+<li>이 메모장에서 한글을 입력하면 자모가 분리되는 경우가 있으므로, 직접 입력보다 붙여넣기에 씀.</li>
+</ul>
+<h4>CLAUDE.md 만드는 법</h4>
+<ol>
+<li>위 절차로 업무 폴더에서 <code>claude</code>를 실행함.</li>
 <li>
 <p>입력창에 다음을 보냄.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>이 폴더의 파일들을 확인해서 CLAUDE.md를 한국어로 만들어 줘.
@@ -973,6 +1160,9 @@
 <li>메모장 구문 보기로 열어 폴더 용도와 파일 설명이 맞는지 읽음(1회기 실습 5 참조).</li>
 </ol>
 <ul>
+<li><strong><code>CLAUDE.md</code></strong>: 이 폴더가 무슨 일을 하는지, 어떤 파일과 하위 폴더가 있는지 적은 Claude용 업무 수첩임.</li>
+<li>다른 파일은 읽으라고 해야 읽지만, <code>CLAUDE.md</code>는 세션이 시작될 때 자동으로 읽힘.</li>
+<li>하위 폴더가 많은 업무 폴더일수록 매번 폴더를 탐색하는 수고가 줄어듦.</li>
 <li><code>/init</code>을 입력하고 <code>Enter</code>를 눌러도 만들 수 있으나 영어로 작성될 수 있음.</li>
 <li><strong>슬래시 명령</strong>: <code>/</code>로 시작하며 정해진 기능을 실행하는 입력 방식임.</li>
 <li>답변에 「코드 프로젝트 폴더는 아니지만」이 붙어도 문서 작업용 폴더로 기록되므로 그대로 진행함.</li>
@@ -999,13 +1189,30 @@
 <ul>
 <li>업무 자료의 최상위 폴더에는 공통 규칙을 둠.</li>
 <li>자주 작업하는 하위 폴더에는 해당 업무의 구체적인 규칙을 둠.</li>
-<li>폴더 구성이 바뀌면 작업 후 설명도 갱신함.</li>
+<li>하위 폴더에서 실행하면 그 폴더와 상위 폴더의 <code>CLAUDE.md</code>를 모두 읽음.</li>
+<li>파일 한두 개를 추가했을 때는 갱신하지 않아도 됨.</li>
+<li>폴더 구성이 바뀌면 작업 후 설명을 갱신함.</li>
 </ul>
 <button type="button" class="copy" data-copy>복사</button><pre><code>CLAUDE.md 업데이트해 줘.
 </code></pre>
+<h4>내 소개 파일 함께 두기</h4>
 <ul>
-<li>Codex의 규칙 파일은 <code>AGENTS.md</code>이며, 필요하면 Codex에 생성을 지시함.</li>
+<li>업무 폴더의 최상위에 담당 업무, 업무에서 중시하는 것, 스크린 리더 사용 여부 등을 적은 소개 파일을 둠.</li>
+<li>소개 파일을 둔 뒤 <code>CLAUDE.md</code>를 만들면 Claude가 사용자의 업무 맥락까지 파악함.</li>
 </ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 폴더의 내 소개.txt를 읽고 CLAUDE.md에 내 담당 업무와 작업할 때 고려할 점을 반영해 줘.
+</code></pre>
+<h4>AGENTS.md와 전역 지침</h4>
+<ul>
+<li><strong><code>AGENTS.md</code></strong>: Codex 등 다른 에이전트가 읽는 규칙 파일이며, 필요하면 해당 에이전트에 생성을 지시함.</li>
+<li>Claude도 <code>AGENTS.md</code>를 읽지만, 같은 폴더나 상위 폴더에 <code>CLAUDE.md</code>가 있으면 <code>CLAUDE.md</code>만 읽음.</li>
+<li>여러 에이전트를 함께 쓰면 <code>AGENTS.md</code>에 규칙을 적고, <code>CLAUDE.md</code>에는 <code>@AGENTS.md</code> 한 줄만 두어 같은 내용을 읽게 하는 방법이 있음.</li>
+<li><strong>전역 지침</strong>: 어느 폴더에서 작업하든 적용되는 규칙이며 홈 디렉터리의 <code>.claude\CLAUDE.md</code>에 적음.</li>
+<li>TTS 요약 스킬을 설정했다면 이 파일에 음성 요약 규칙이 이미 몇 줄 들어 있음.</li>
+<li>모든 작업에 적용할 원칙이 있으면 전역 지침에 추가하도록 요청함.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>어느 폴더에서 작업하든 지킬 규칙으로 전역 CLAUDE.md에 다음 내용을 추가해 줘. 파일을 지우기 전에는 반드시 나에게 먼저 물어볼 것.
+</code></pre>
 <h4>작성한 규칙 읽어 확인하기</h4>
 <ul>
 <li><code>CLAUDE.md</code>를 메모장 구문 보기로 열어 폴더 설명과 규칙을 읽음.</li>
@@ -1193,6 +1400,18 @@
 <li><strong>결제 설정</strong>: 요금이 발생하지 않도록 결제가 연결되지 않은 프로젝트의 키를 씀.</li>
 <li><strong>실습 자료</strong>: 개인정보나 대외비가 없는 문서를 씀.</li>
 <li>등록 후 메모장의 키를 지우고 저장하지 않고 닫음.</li>
+<li>한 번 등록한 키는 여러 작업과 프로그램에서 계속 씀.</li>
+</ul>
+<h4>사이트 열기는 Claude에게 맡기기</h4>
+<ul>
+<li>발급 사이트와 환경 변수 창을 여는 데까지만 Claude에게 맡기고, 키 복사와 입력은 직접 함.</li>
+<li>Claude가 키를 읽거나 화면에서 가져오면 키가 Claude 서비스와 대화 기록에 남음.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Google AI Studio의 API 키 페이지를 크롬으로 열어 줘. 키를 만들거나 읽지는 말고, 페이지가 열리면 멈춰 줘.
+</code></pre>
+<ul>
+<li>사이트를 여는 브라우저 자동화는 Claude in Chrome 확장이나 Playwright가 설치돼 있어야 함(아래 「3회기 준비」 참조).</li>
+<li>키가 대화에 노출됐다면 Google AI Studio에서 그 키를 삭제하고 새로 발급받음.</li>
 </ul>
 <hr />
 </div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-8">실습 9: docparse로 PDF·스캔 문서 읽기</button></h3>
@@ -1238,6 +1457,9 @@
 <ul>
 <li><strong>스캔 PDF</strong>: 글자 인식(OCR)에 LlamaParse·Upstage 등을 쓰므로 Gemini 외의 API 키가 필요함.</li>
 <li>LlamaParse의 월 무료 크레딧을 쓰려면 키를 발급하고 당시 무료 한도를 확인함.</li>
+<li>키가 없으면 Claude가 문서 이미지를 직접 읽어 처리하기도 하며, 몇 쪽 분량은 정확도가 높은 편임.</li>
+<li>수십 쪽 이상을 Claude가 직접 읽으면 사용량이 빨리 소진되므로 외부 파서를 씀.</li>
+<li>칸이 많거나 병합된 칸이 있는 표는 오류가 잦으므로, 스캔 문서의 결과는 외부로 쓰기 전에 다른 사람에게 한 번 확인받음.</li>
 <li><strong>16쪽 이상 PDF</strong>: 기본 파서는 LlamaParse이므로 무료 파서로 처리할 방법이 있는지 먼저 물음.</li>
 <li>
 <p><strong>도구 누락</strong>: 필요한 설치·설정 항목을 설명하도록 요청함.</p>
@@ -1402,6 +1624,15 @@
 </code></pre>
 </li>
 <li>
+<p><strong>Gemini 음성</strong>: 30개 남짓의 다국어 음성이며, Kore처럼 대표 음성일수록 빠른 속도나 숫자에서 덜 뭉개짐.</p>
+</li>
+<li><strong>Azure 음성</strong>: 언어별 신경망 음성이며 한국어 음성은 10개가 안 되지만 숫자와 고유명사를 정확하게 읽음.</li>
+<li>
+<p>Azure는 <code>AZURE_SPEECH_KEY</code>와 <code>AZURE_SPEECH_REGION</code> 두 값을 환경 변수로 등록해 씀(무료 등급 월 50만 자).</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>[축약본 경로]를 speech-toolkit 스킬로 Azure의 Hyunsu 음성 파일로 만들어 줘.
+</code></pre>
+</li>
+<li>
 <p><strong>API 키 없이 만들기</strong>: <code>abridge</code> 오디오북 기능의 기본값은 무료 컴퓨터 내장 음성임.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>방금 만든 축약본을 abridge 스킬의 오디오북 기능으로 컴퓨터 내장 음성 파일로 만들어 줘.
 </code></pre>
@@ -1416,6 +1647,11 @@
 </code></pre>
 <ul>
 <li>녹음된 사람의 동의를 받은 파일만 씀.</li>
+<li>전사 결과로 회의록까지 한 번에 만들 수 있음.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>[녹음 파일 경로]를 speech-toolkit 스킬로 전사한 다음, 그 전사본으로 회의록을 만들어 줘.
+</code></pre>
+<ul>
 <li>전사한 회의록은 <code>abridge</code>로 줄일 수 있음.</li>
 </ul>
 <hr />
@@ -1503,11 +1739,61 @@
 <li><strong>3회기</strong>: 직무 맞춤형 AI 활용 실습1, 2026. 11. 16.(월) 18:30~20:30</li>
 </ul>
 <ol>
-<li>업무 자료를 모을 폴더를 정하고 경로를 적어 둠(사전 준비 안내문 참조).</li>
+<li>업무 폴더에 <code>CLAUDE.md</code>를 만들고 실습 9~12 중 필요한 스킬을 하나 이상 써 봄.</li>
 <li><code>내 업무 정리.md</code>에서 반복되거나 시간이 많이 드는 업무 하나를 고름.</li>
-<li>개인정보가 없는 실제 업무 자료를 해당 폴더에 넣음.</li>
-<li>마치지 못한 실습를 이어서 하고 Gemini API 키 등록까지 마침.</li>
-</ol></div>
+<li>마치지 못한 실습을 이어서 하고 Gemini API 키 등록까지 마침.</li>
+</ol>
+<h4>3회기 준비</h4>
+<ul>
+<li>3회기부터는 자주 하는 업무를 자작 스킬로 만들고, 바이브 코딩으로 만든 결과물을 GitHub에 올려 공유하는 흐름을 다룸.</li>
+<li><strong>GitHub</strong>: 코드와 파일을 올려 두고 공유하는 서비스이며, 만든 웹 페이지를 주소 하나로 공개할 수 있음.</li>
+<li><strong>브라우저 자동화</strong>: Claude가 크롬을 열어 사이트를 조작하는 기능이며, API 키 발급이나 계정 설정에 씀.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>도구</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude in Chrome</td>
+<td>평소 쓰는 크롬에 Claude를 연결하므로 로그인 상태를 유지한 채 작업함. 처음 연결에 시간이 걸림</td>
+</tr>
+<tr>
+<td>Playwright</td>
+<td>로그인 정보가 없는 새 브라우저를 열어 작업하므로 매번 직접 로그인함. 다른 에이전트도 함께 씀</td>
+</tr>
+</tbody>
+</table></div>
+<ol>
+<li>GitHub 계정을 만듦. 사용자 이름은 공개 주소에 들어가므로 영문 소문자로 짧게 지음.</li>
+</ol>
+<p><a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a></p>
+<ol start="2">
+<li>크롬에 Claude in Chrome 확장을 설치하고 Claude 계정으로 로그인함.</li>
+</ol>
+<p><a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank" rel="noopener">https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn</a></p>
+<ol start="3">
+<li>크롬을 켠 상태에서 Claude를 다시 실행하고 연결을 확인함.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>지금 열려 있는 크롬 탭 목록을 읽어 줘.
+</code></pre>
+<ol start="4">
+<li>Playwright 설치를 요청함.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>브라우저 자동화에 쓸 Playwright를 설치해 줘. 설치 전에 무엇을 설치할지 알려 줘.
+</code></pre>
+<ol start="5">
+<li>여유가 있으면 GitHub를 터미널에서 다루는 gh CLI를 설치하고 인증함.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>GitHub CLI(gh)를 설치하고 내 GitHub 계정으로 인증하는 과정을 진행해 줘. 웹 브라우저 로그인이나 인증 코드 입력처럼 내가 직접 할 단계에서는 멈추고 알려 줘.
+</code></pre>
+<ul>
+<li>확장 로그인과 GitHub 로그인은 본인이 직접 함.</li>
+<li>인증 코드는 GitHub에 로그인한 브라우저에서 입력함.</li>
+</ul></div>
 <button type="button" class="close" data-close>닫기</button>
 </article>
 <article id="s4" hidden>
