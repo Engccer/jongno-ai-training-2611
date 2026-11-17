@@ -1,6 +1,6 @@
 """드라이브의 마크다운 정본을 읽어 index.html을 생성한다. 원고를 고치면 다시 실행한다."""
 # sanitize: allow-file 원고 정본이 놓인 Google Drive 마운트 지점을 찾는 것이 이 스크립트의 기능이라 경로를 일반화할 수 없다
-import html, re
+import hashlib, html, re
 from pathlib import Path
 import markdown
 
@@ -100,13 +100,58 @@ def render_md(text: str) -> str:
     return linkify(body)
 
 
-# 강의자료는 설치·설정 절차를 「설치와 환경 설정 N번」으로만 가리킨다. 표시 단계에서 이 말을
-# 버튼으로 바꾸고, 누르면 안내의 N번 항목을 대화상자로 띄운다. 정본 마크다운은 문장 그대로 둔다.
+# 강의자료가 다른 문서의 특정 절을 가리키는 말을 표시 단계에서 버튼으로 바꾸고, 누르면 그 절을
+# 대화상자로 띄운다. 정본 마크다운은 문장 그대로 둔다. 가리키는 말은 두 가지다.
+# - 「설치와 환경 설정 N번」: 안내 문서의 N번 항목
+# - 「N회차 실습 M」, 「N회차 「절 제목」」(앞에 「[센스리더 팁] 」이 붙기도 함): 다른 회차 원고의 절
 GUIDE_ITEM = re.compile(r"^### (\d+)\. (.+?)\n(.*?)(?=^### |^## |^---)", re.M | re.S)
-REF = re.compile(r"설치와 환경 설정 (\d+)번")
 GUIDE_ITEMS = {n: (title, body) for n, title, body in GUIDE_ITEM.findall(GUIDE.read_text(encoding="utf-8"))}
 if list(GUIDE_ITEMS) != [str(i) for i in range(1, len(GUIDE_ITEMS) + 1)]:
     raise SystemExit(f"안내 항목 번호가 1부터 이어지지 않습니다: {list(GUIDE_ITEMS)}")
+
+SESSIONS = {title[0]: path for title, path, _ in SECTIONS if "회차:" in title}
+
+def session_sections(text: str) -> dict:
+    """##·### 절을 제목으로 찾는다. 실습 절은 「실습 M」으로도 찾는다. 값은 (제목, 본문)."""
+    heads = list(re.finditer(r"^(#{2,3}) (.+)$", text, re.M))
+    found, dup = {}, set()
+    for i, h in enumerate(heads):
+        level = len(h.group(1))
+        end = next((n.start() for n in heads[i + 1:] if len(n.group(1)) <= level), len(text))
+        body = re.sub(r"\n-{3,}\s*$", "\n", text[h.end():end].rstrip()) + "\n"
+        title = h.group(2).strip()
+        if title in found:
+            dup.add(title)
+        found.setdefault(title, (title, body))
+        m = re.match(r"실습 (\d+): (.+)", title)
+        if m:
+            found[f"실습 {m.group(1)}"] = (f"실습 {m.group(1)}. {m.group(2)}", body)
+    found["__dup__"] = dup   # 같은 제목이 둘 이상인 절. 가리키면 어느 쪽인지 알 수 없으므로 빌드를 멈춘다.
+    return found
+
+SESSION_SECTIONS = {n: session_sections(p.read_text(encoding="utf-8")) for n, p in SESSIONS.items()}
+
+REF = re.compile(r"설치와 환경 설정 (\d+)번"
+                 r"|([1-4])회차 (?:\[센스리더 팁\] )?(?:「([^」<]+)」|(실습 \d+)(?![\d~]))")
+TARGETS = {}   # 대화상자 id -> (제목, 본문 마크다운). 실제로 가리킨 절만 담는다.
+
+def target(m):
+    if m.group(1):
+        n = m.group(1)
+        if n not in GUIDE_ITEMS:
+            raise SystemExit(f"설치와 환경 설정 {n}번 항목이 안내에 없습니다.")
+        title, body = GUIDE_ITEMS[n]
+        return f"g-{n}", f"설치와 환경 설정 {n}. {title}", body
+    n, key = m.group(2), m.group(3) or m.group(4)
+    if key not in SESSION_SECTIONS.get(n, {}):
+        raise SystemExit(f"{n}회차 원고에서 「{key}」 절을 찾지 못했습니다.")
+    if key in SESSION_SECTIONS[n]["__dup__"]:
+        raise SystemExit(f"{n}회차 원고에 「{key}」 절이 둘 이상이라 가리킬 수 없습니다.")
+    title, body = SESSION_SECTIONS[n][key]
+    label = f"{n}회차 {title}" if m.group(4) else f"{n}회차 「{title}」"
+    same = [k for k, (t, _) in TARGETS.items() if t == label]
+    tid = same[0] if same else f"x-{n}-{sum(k.startswith(f'x-{n}-') for k in TARGETS) + 1}"
+    return tid, label, body
 
 # 버튼은 문장 안에만 넣는다. 제목에 넣으면 아코디언 버튼 안에 버튼이 생기고,
 # 코드 블록에 넣으면 복사본에 버튼 글자가 섞인다.
@@ -115,24 +160,29 @@ NO_REF_ZONE = re.compile(r"<(pre|h\d)\b.*?</\1>", re.S)
 def link_refs(body: str) -> str:
     for zone in NO_REF_ZONE.finditer(body):
         if REF.search(zone.group(0)):
-            raise SystemExit(f"제목이나 코드 블록 안에 안내 참조가 있습니다: {zone.group(0)[:80]}")
+            raise SystemExit(f"제목이나 코드 블록 안에 참조가 있습니다: {zone.group(0)[:80]}")
     def repl(m):
-        n = m.group(1)
-        if n not in GUIDE_ITEMS:
-            raise SystemExit(f"설치와 환경 설정 {n}번 항목이 안내에 없습니다.")
-        return (f'<button type="button" class="ref" data-ref="g-{n}">'
-                f'설치와 환경 설정 {n}. {html.escape(GUIDE_ITEMS[n][0])}</button>')
+        tid, label, src = target(m)
+        TARGETS[tid] = (label, src)
+        return f'<button type="button" class="ref" data-ref="{tid}">{html.escape(label)}</button>'
     body = REF.sub(repl, body)
-    left = re.findall(r"설치와 환경 설정\s+\d[^<]{0,10}", re.sub(r"<button[^>]*>.*?</button>", "", body))
+    left = re.findall(r"설치와 환경 설정\s+\d[^<]{0,10}|[1-4]회차[^<「]{0,12}「[^<]{0,20}",
+                      re.sub(r"<button[^>]*>.*?</button>", "", body))
     if left:
-        print("경고: 버튼으로 바뀌지 않은 안내 참조:", left)
+        print("경고: 버튼으로 바뀌지 않은 참조:", left)
+    return body
+
+def raise_headings(body: str) -> str:
+    """대화상자 제목이 h2이므로 절 안의 소제목(h4부터)을 한 단계씩 올려 h3부터 시작하게 한다."""
+    for lv in (4, 5, 6):
+        body = body.replace(f"<h{lv}>", f"<h{lv-1}>").replace(f"</h{lv}>", f"</h{lv-1}>")
     return body
 
 def ref_templates() -> str:
+    # 대화상자 안의 참조는 버튼으로 바꾸지 않는다(대화상자 안에서 또 대화상자를 열지 않음).
     return "\n".join(
-        f'<template id="g-{n}" data-title="{html.escape(f"설치와 환경 설정 {n}. {title}")}">'
-        f'{render_md(body)}</template>'
-        for n, (title, body) in GUIDE_ITEMS.items())
+        f'<template id="{tid}" data-title="{html.escape(label)}">{raise_headings(render_md(src))}</template>'
+        for tid, (label, src) in TARGETS.items())
 
 
 def render(path: Path, sid: str) -> str:
@@ -153,5 +203,9 @@ for i, (title, path, live) in enumerate(SECTIONS, 1):
     )
 
 template = Path(__file__).with_name("template.html").read_text(encoding="utf-8")
+# 효과음 파일 이름은 그대로 두고 내용이 바뀌면 주소 뒤 버전 값을 바꿔 브라우저 캐시를 무효로 만든다.
+for sfx in sorted(Path(__file__).with_name("sfx").glob("*.mp3")):
+    ver = hashlib.sha1(sfx.read_bytes()).hexdigest()[:8]
+    template = template.replace(f"'sfx/{sfx.name}'", f"'sfx/{sfx.name}?v={ver}'")
 OUT.write_text(template.replace("{{BUTTONS}}", "\n".join(buttons)).replace("{{ARTICLES}}", "\n".join(articles)).replace("{{REFS}}", ref_templates()), encoding="utf-8")
 print("wrote", OUT, OUT.stat().st_size, "bytes")
