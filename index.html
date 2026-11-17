@@ -160,7 +160,7 @@
 <button type="button" class="copy" data-copy>복사</button><pre><code>gh auth login --clipboard
 </code></pre>
 <ol start="2">
-<li>질문이 차례로 나옵니다. 센스리더 키패드로 화면을 읽고, 일반 방향키로 항목을 고른 뒤 Enter로 확정하세요. 원하는 항목이 이미 선택돼 있으면 Enter만 누르면 됩니다. <code>Y</code>로 답하는 질문은 <code>Y</code>를 입력하고 Enter를 누릅니다.</li>
+<li>질문이 몇 가지 나옵니다. 묻는 순서는 gh 버전에 따라 다를 수 있으니 질문 내용을 듣고 아래 표에서 답을 찾으세요. 센스리더 키패드로 화면을 읽고, 일반 방향키로 항목을 고른 뒤 Enter로 확정하세요. 원하는 항목이 이미 선택돼 있으면 Enter만 누르면 됩니다. <code>Y</code>로 답하는 질문은 <code>Y</code>를 입력하고 Enter를 누릅니다.</li>
 </ol>
 <div class="table-wrap"><table>
 <thead>
@@ -1938,6 +1938,14 @@
 <li><strong>올리기와 가져오기</strong>: 구글 드라이브와 달리 자동으로 올라가지 않음. 올릴 시점을 정해 변경 내용을 기록하고 GitHub로 보내며, 다른 기기에서는 그 내용을 가져옴.</li>
 <li>올리기와 가져오기는 Claude에게 요청함.</li>
 <li>저장소는 공개와 비공개 중에서 고름. 공개 저장소는 누구나 내용을 볼 수 있음.</li>
+<li>개발 중이거나 혼자 쓸 것은 비공개로 둠. 무료 계정에서 웹 페이지로 배포하려면 저장소를 공개로 해야 함.</li>
+</ul>
+<h4>알아 둘 용어</h4>
+<ul>
+<li><strong>커밋</strong>: 바뀐 내용을 내 컴퓨터의 저장소에 기록함. 아직 GitHub에는 올라가지 않음.</li>
+<li><strong>푸시</strong>: 커밋한 내용을 GitHub로 올림.</li>
+<li><strong>풀</strong>: GitHub에 올라간 내용을 내 컴퓨터로 가져옴. 다른 컴퓨터에서 이어 쓸 때 먼저 함.</li>
+<li><strong>클론</strong>: GitHub의 저장소를 통째로 내 컴퓨터에 복사함.</li>
 </ul>
 <h4>세 가지 쓰임</h4>
 <ol>
@@ -1948,11 +1956,13 @@
 <ul>
 <li>보관이 본래 용도이고 배포는 덧붙은 기능임.</li>
 <li>화면을 HTML로 만든 앱은 서버를 따로 마련하지 않아도 이 기능만으로 다른 사람에게 주소를 전달할 수 있음.</li>
+<li>더 복잡한 앱은 Vercel 같은 배포 서비스를 저장소와 연결함. 한 번 연결하면 저장소에 올릴 때마다 웹 페이지가 자동으로 갱신됨.</li>
 </ul>
 <h4>gh CLI</h4>
 <ul>
 <li><strong>gh CLI</strong>: 터미널에서 GitHub 계정과 저장소를 다루는 도구임.</li>
 <li>인증을 한 번 마치면 Claude가 저장소 만들기와 웹 페이지 배포 설정은 gh CLI로, 올리기와 가져오기는 Git으로 처리함. GitHub 웹 화면을 직접 조작할 일이 줄어듦.</li>
+<li>Claude는 gh CLI 사용법을 알고 있어 따로 플러그인을 설치하지 않아도 「이 폴더를 GitHub에 올려 줘」 같은 요청을 처리함.</li>
 <li>gh CLI 인증은 Git에도 함께 적용됨.</li>
 <li>브라우저에서 GitHub에 로그인한 것과 gh CLI 인증은 별개임.</li>
 </ul>
@@ -1972,12 +1982,40 @@
 <li>실습 14~16은 인증을 마치지 않아도 진행할 수 있음.</li>
 <li>인증을 마치지 못했다면 4회기 전에 마쳐야 함.</li>
 </ul>
+<h4>직접 인증하기</h4>
+<ul>
+<li>인증은 Claude를 거치지 않고 터미널에 직접 입력하는 것이 가장 간단함.</li>
+</ul>
+<ol>
+<li>터미널에서 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+T</code>를 차례로 눌러 새 탭을 엶(1회기 [센스리더 팁] 참조). 터미널이 열려 있지 않으면 Windows 키를 누르고 <code>wt</code>를 입력해 엶. Claude를 실행하지 않은 PowerShell 상태에서 진행함.</li>
+<li>
+<p>아래 명령을 입력함.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>gh auth login --clipboard
+</code></pre>
+</li>
+<li>
+<p>질문이 몇 가지 나오면 질문마다 아래 답을 고름. gh 버전에 따라 묻는 순서가 다를 수 있음. 대부분 이미 선택돼 있어 Enter만 누르면 됨.</p>
+<ul>
+<li>사용할 서비스: <code>GitHub.com</code></li>
+<li>Git 연결 방식: <code>HTTPS</code></li>
+<li>Git에도 GitHub 계정 인증을 쓸지: <code>Y</code></li>
+<li>로그인 방법: <code>Login with a web browser</code></li>
+</ul>
+</li>
+<li>터미널에 일회용 인증 코드가 나오고 클립보드에 복사됨. 메모장에 붙여넣어 코드를 확인해 둠.</li>
+<li>터미널에서 Enter를 누르면 브라우저에 GitHub 화면이 열림. 본인 계정을 확인하고 코드 입력란에 코드를 붙여넣은 뒤 접근 권한을 승인함.</li>
+<li>터미널로 돌아와 <code>gh auth status</code>를 입력해 로그인 상태를 확인함.</li>
+</ol>
+<ul>
+<li>단계별 자세한 설명은 사전 준비 안내 10번 「인증」에 있음.</li>
+</ul>
 <h4>인증에서 막히는 곳</h4>
 <ul>
 <li><strong>명령을 입력했는데 웹 검색 결과가 뜨는 경우</strong>: Windows 검색창에 입력한 경우임. Windows 검색창에는 <code>wt</code>만 입력하고, 설치와 인증 명령은 열린 PowerShell에 입력함.</li>
 <li><strong>설치했는데 <code>gh</code> 명령을 찾지 못하는 경우</strong>: 터미널을 닫고 새로 연 뒤 <code>gh --version</code>을 입력함.</li>
 <li><strong>PowerShell에 한국어 지시를 입력해 오류가 난 경우</strong>: 한국어 지시는 <code>claude</code>를 실행한 뒤 입력함. <code>gh auth login --clipboard</code>은 PowerShell에 직접 입력하는 명령임.</li>
-<li><strong>선택 항목이 읽히지 않는 경우</strong>: 센스리더 키패드로 화면을 읽고 일반 방향키로 항목을 옮김. 선택 표시가 읽히지 않으면 센스리더의 구두점·특수문자 읽기 설정을 켬.</li>
+<li><strong>선택 항목이 읽히지 않는 경우</strong>: 센스리더 키패드로 화면을 읽고 일반 방향키로 항목을 옮김. 선택 표시가 읽히지 않으면 센스리더 구두점 읽기 토글(<code>Alt+Shift+Z</code>)을 「모두 읽기」라고 들릴 때까지 누름. 인증을 마치면 같은 키로 원래 설정으로 되돌림.</li>
+<li><strong>코드가 클립보드에 복사되지 않은 경우</strong>: 키패드로 코드가 있는 줄(<code>First copy your one-time code</code>)을 읽고 센스리더 <code>Insert+X</code>로 마지막 음성 출력 내용을 복사함. 메모장에 붙여넣어 코드만 남기고 다시 복사함.</li>
 <li><strong>GitHub에 로그인하지 않은 브라우저가 열린 경우</strong>: 로그인한 브라우저에 아래 주소를 직접 입력함.</li>
 </ul>
 <p><a href="https://github.com/login/device" target="_blank" rel="noopener">https://github.com/login/device</a></p>
@@ -1994,6 +2032,13 @@
 <li><strong>스크립트</strong>: 컴퓨터가 할 일을 순서대로 적은 코드 파일임. 정해진 처리만 담으면 같은 입력에 같은 결과를 냄.</li>
 <li><strong>스킬</strong>: 작업 절차와 판단 기준을 적은 <code>SKILL.md</code>에 스크립트와 참고 자료를 함께 묶은 폴더임. Claude가 읽고 상황에 맞게 수행함.</li>
 <li><strong>앱</strong>: 사람이 화면에서 직접 조작하는 프로그램임. HTML로 만든 앱은 브라우저에서 주소로 엶.</li>
+</ul>
+<h4>스크립트도 문서임</h4>
+<ul>
+<li>스크립트는 Python, JavaScript 같은 언어로 쓴 텍스트 파일임. <code>CLAUDE.md</code>, <code>SKILL.md</code>처럼 메모장으로 열어 읽을 수 있음.</li>
+<li>확장자로 언어를 구분함. Python은 <code>.py</code>, JavaScript는 <code>.js</code>임.</li>
+<li>연극 대본처럼 컴퓨터가 읽고 적힌 순서대로 실행함. 「이 입력이 오면 이렇게 처리한다」는 갈림길까지 모두 적어 둠.</li>
+<li>앱은 수많은 스크립트에 이미지, 소리, 데이터 같은 요소를 더한 것임.</li>
 </ul>
 <h4>스킬과 앱의 차이</h4>
 <div class="table-wrap"><table>
@@ -2029,14 +2074,35 @@
 </table></div>
 <ul>
 <li>앱 안에는 Claude가 들어 있지 않음. 앱에 AI 기능을 넣으려면 API 키와 사용료가 따로 필요함.</li>
+<li>만든 스킬은 Claude 입력창에 <code>/[스킬 이름]</code>을 입력해 바로 실행할 수 있음. 스킬 이름은 스킬 폴더의 영문 이름임. 자연어로 요청해도 Claude가 맞는 스킬을 골라 씀.</li>
+</ul>
+<h4>앱의 종류와 접근성</h4>
+<ul>
+<li><strong>웹 앱</strong>: 브라우저에서 여는 앱임. 이 과정에서 만드는 앱은 모두 HTML로 만든 웹 앱임.</li>
+<li><strong>데스크톱 앱</strong>: Windows나 macOS에 설치해 쓰는 앱임.</li>
+<li><strong>모바일 앱</strong>: iPhone이나 Android용으로 그 기기의 언어로 따로 만드는 앱임. 카카오톡처럼 기기마다 설치하는 앱이 이 방식임.</li>
+<li>웹 앱에 PWA 지원을 더하면 휴대폰 홈 화면이나 컴퓨터 바탕 화면에서 바로 열림. 웹 앱을 감싸는 포장이며 모바일 앱으로 바뀌는 것은 아님.</li>
+<li>데스크톱 앱과 모바일 앱은 접근성을 따로 지시해야 함. 지시가 없으면 스크린 리더로 쓰기 어려운 앱이 나올 수 있음.</li>
+<li>웹 앱은 웹 콘텐츠 접근성 지침(WCAG)에 맞춰 달라고 하면 대체로 잘 만듦. 다만 읽어 주는 요소가 지나치게 많아지기 쉬우므로 불필요한 ARIA 속성(스크린 리더에 덧붙여 알려 주는 속성)은 빼 달라고 함.</li>
+<li>화면 요소의 이름을 알면 요청이 쉬워짐. 예: 제목, 목록, 접었다 펼치는 아코디언, 이전·다음 버튼.</li>
+<li>효과음, 게임 엔진처럼 앱에 쓸 외부 도구는 CLI나 API를 제공하는 것으로 찾아 달라고 함. Claude가 터미널에서 직접 다룰 수 있음. 가져온 효과음이 어울리는지는 직접 들어 보고 고름.</li>
 </ul>
 <h4>스크립트는 스킬과 앱에 함께 쓰이는 작업 단위</h4>
 <ul>
 <li>스킬과 앱은 둘 중 하나를 고르는 대상이고, 스크립트는 어느 쪽을 고르든 그 안에 들어감.</li>
 <li><strong>스킬 안의 스크립트</strong>: 판단이 필요한 부분은 Claude가 맡고, 정해진 처리는 스크립트를 실행해 끝냄. <code>hwpx-automation</code> 폴더의 <code>hwpx_edit.py</code>가 한글 문서를 읽고 고치는 스크립트임.</li>
+<li>스킬 폴더의 일반적인 구성은 다음과 같음. 스킬마다 폴더 이름과 구성은 조금씩 다름.<ul>
+<li><code>SKILL.md</code>: 전체 작업 흐름과 Claude가 판단할 기준을 적음.</li>
+<li><code>scripts</code> 폴더: 정해진 처리를 하는 스크립트를 모아 둠.</li>
+<li><code>references</code> 폴더: 필요할 때만 읽는 참고 자료를 모아 둠.</li>
+</ul>
+</li>
+<li><code>SKILL.md</code>만 있는 스킬도 한 번 가 본 길을 다시 헤매지 않게 해 줌. 복잡한 스킬일수록 스크립트가 들어가야 강력해짐.</li>
+<li>Claude가 판단하는 부분이 많을수록 잘못 처리할 가능성도 커짐. 정해진 데이터를 옮기거나 계산하는 일은 스크립트에 맡김.</li>
 <li><strong>앱 안의 코드</strong>: 버튼을 누르면 실행되는 코드도 정해진 대로 처리한다는 점에서 스크립트와 같음.</li>
 <li>스크립트는 Claude가 작성하므로 코드를 직접 쓸 필요는 없음. 어느 부분을 스크립트로 만들지 정해 요청함.</li>
 <li>한 번만 하면 되는 처리는 스크립트로 남기지 않고 Claude에게 바로 요청함.</li>
+<li>스크립트 안에서 AI API를 불러 판단이 필요한 단계만 AI에 맡길 수도 있음. 예를 들어 이메일을 모으는 일은 스크립트가 하고 요약만 Claude API가 함. 이때는 API 키와 사용료가 필요함.</li>
 </ul>
 <h4>사례: 강연 한 편에 쓰인 스크립트, 스킬, 앱</h4>
 <p>중학교 영어 수업용 학습 게임과 그 게임의 학생 설문 결과를 발표하는 강연의 준비 자료임.</p>
@@ -2050,6 +2116,7 @@
 </li>
 <li>설문 응답이 늘면 앞의 세 스크립트를 순서대로 다시 실행해 같은 형식의 결과를 얻음.</li>
 <li><strong>스킬</strong>: 강연 원고와 발표 화면의 문장을 글 다듬기 스킬로 고침. 어느 표현을 어떻게 바꿀지는 Claude가 스킬의 기준을 읽고 판단하고, 금지한 기호가 남았는지 세는 검사는 스킬 안의 스크립트가 처리함.</li>
+<li>발표 화면에 넣을 문장은 판단의 영역이라 스크립트로 만들 수 없음. 그래서 원고를 먼저 글로 쓰고, 원고를 발표 화면으로 옮기는 절차를 스킬로 만들어 강연마다 씀.</li>
 <li><strong>앱</strong>: 학생은 학습 게임을, 청중은 발표 화면을 각자 브라우저에서 주소로 엶. 둘 다 HTML로 만들어 GitHub에 올려 배포함.</li>
 </ul>
 <p>학습 게임 Word Bomb</p>
@@ -2057,16 +2124,56 @@
 <p>발표 화면</p>
 <p><a href="https://engccer.github.io/260523-keynote/" target="_blank" rel="noopener">https://engccer.github.io/260523-keynote/</a></p>
 <ul>
-<li>설문 스크립트가 낸 통계는 발표 화면에 들어가고, 내레이션 스크립트가 만든 음성 파일은 발표 화면에서 재생됨.</li>
+<li>설문 스크립트가 낸 통계는 발표 화면에 들어가고, 내레이션 스크립트가 만든 음성 파일은 발표 화면에서 재생됨. 내레이션은 <code>speech-toolkit</code>의 음성 합성 스크립트로 만듦(2회기 실습 12 참조).</li>
+</ul>
+<h4>사례: 앱을 만드는 스킬</h4>
+<ul>
+<li>영어 수업용 학습 게임을 단원마다 같은 형식으로 만듦.</li>
+<li>게임을 만드는 절차는 스킬로 만들어 두고, 새 단원이 나오면 Claude가 스킬을 따라 게임을 추가함.</li>
+<li>완성된 게임은 학생이 브라우저에서 하는 앱임.</li>
 </ul>
 <h4>무엇을 만들지 정하는 두 질문</h4>
 <ol>
 <li><strong>누가 쓰는가.</strong> 나와 Claude가 쓰면 스킬로, Claude가 없는 다른 사람이 쓰면 앱으로 만듦.</li>
 <li><strong>매번 똑같이 처리되는 부분은 어디인가.</strong> 그 부분을 스크립트로 만듦.</li>
 </ol>
+<h4>사용량 한도</h4>
+<ul>
+<li>월 20달러 요금제에서 큰 앱을 만들면 사용량 한도에 금방 닿음.</li>
+<li>이 요금제에서는 문서 작업과 스킬 만들기를 중심으로 하고, 앱은 HTML로 만드는 작은 웹 앱까지만 만듦.</li>
+</ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-5">실습 14: 업무 폴더에서 반복되는 일 찾기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-5">작업할 폴더 정하기</button></h3>
 <div id="s4-panel-5" hidden>
+<ul>
+<li><strong>스킬을 만들 경우</strong>: 지금 쓰는 업무 폴더에서 만듦.</li>
+<li><strong>앱을 만들 경우</strong>: 새 폴더를 만들어 작업함. 앱에는 코드 파일이 많이 들어가므로 업무 폴더와 섞지 않음. 홈 디렉터리의 <code>project</code> 폴더(사전 준비 안내 5번 참조) 안에 앱마다 폴더를 만듦.</li>
+<li>
+<p><strong>어느 폴더에서나 쓸 스킬</strong>: 스킬을 만들 때 아래처럼 덧붙여 요청함. 홈 디렉터리의 <code>.claude\skills</code> 폴더에 저장됨(1회기 실습 3 참조).</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>사용자 수준 스킬로 만들어 줘.
+</code></pre>
+</li>
+<li>
+<p><strong>그 폴더에서만 쓸 스킬</strong>: 아래처럼 덧붙여 요청함. 작업 폴더 안의 <code>.claude\skills</code> 폴더에 저장됨.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 폴더에서만 쓰는 스킬로 만들어 줘.
+</code></pre>
+</li>
+</ul>
+<h4>팀 공유 폴더의 자료를 쓰는 경우</h4>
+<ul>
+<li>내 개인 폴더를 작업 폴더로 정함.</li>
+<li>
+<p>팀 공유 폴더의 파일은 읽기만 하고, 새로 만드는 파일은 내 작업 폴더에만 저장하게 함. 이 규칙을 작업 폴더의 <code>CLAUDE.md</code>에 적어 둠.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>CLAUDE.md에 이 규칙을 추가해 줘: [팀 공유 폴더 경로]의 파일은 읽기만 하고, 새로 만들거나 고친 파일은 이 폴더 안에만 저장한다.
+</code></pre>
+</li>
+<li>
+<p>공유 파일을 Claude가 읽는 것은 AI 서비스에 파일을 올려 묻는 것과 같음. 영업 기밀처럼 밖으로 내보내면 안 되는 자료는 빼고, 직장에 보안 규정이 있으면 따름.</p>
+</li>
+</ul>
+<hr />
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-6">실습 14: 업무 폴더에서 반복되는 일 찾기</button></h3>
+<div id="s4-panel-6" hidden>
 <ul>
 <li>지시문의 대괄호는 본인의 내용으로 바꿔 입력함(2회기 「지시문의 대괄호 바꿔 넣기」 참조).</li>
 </ul>
@@ -2104,8 +2211,8 @@
 <li>개인정보가 들어간 파일을 다루는 일은 피함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-6">실습 15: 매번 똑같은 처리를 스크립트로 만들기</button></h3>
-<div id="s4-panel-6" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-7">실습 15: 매번 똑같은 처리를 스크립트로 만들기</button></h3>
+<div id="s4-panel-7" hidden>
 <ul>
 <li>실습 14와 같은 Claude 대화에서 이어서 진행함.</li>
 <li><code>claude</code>를 다시 시작했다면 고른 일과 정리된 단계를 먼저 알려 줌.</li>
@@ -2161,6 +2268,8 @@
 </ol>
 <ul>
 <li>스크립트는 Claude 없이 실행되므로 Claude 사용량이 들지 않음.</li>
+<li>Claude를 설치할 수 없는 컴퓨터에서 할 일도 스크립트로 만듦. 예를 들어 여러 컴퓨터의 스크린 리더 설정을 똑같이 맞추는 일은 설정 스크립트를 USB로 옮겨 한 번씩 실행함. 실제로 쓰기 전에 여러 컴퓨터에서 시험해 봄.</li>
+<li>그 컴퓨터에 Python이 없으면 PowerShell 스크립트로 만들어 달라고 요청함.</li>
 </ul>
 <h4>막히는 곳</h4>
 <ul>
@@ -2170,8 +2279,8 @@
 </ul>
 <p>스크립트에는 이름, 비밀번호, API 키를 적지 않아야 함.</p>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-7">실습 16: 스킬로 만들지 앱으로 만들지 정하기</button></h3>
-<div id="s4-panel-7" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-8">실습 16: 스킬로 만들지 앱으로 만들지 정하기</button></h3>
+<div id="s4-panel-8" hidden>
 <ol>
 <li>
 <p>결과물을 쓸 사람을 넣어 판단을 요청함.</p>
@@ -2198,18 +2307,18 @@
 <li>본인만 쓰는 일은 스킬로 충분함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-8">과제 및 4회기 안내</button></h3>
-<div id="s4-panel-8" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-9">과제 및 4회기 안내</button></h3>
+<div id="s4-panel-9" hidden>
 <ul>
 <li><strong>4회기</strong>: 직무 맞춤형 AI 활용 실습2, 2026. 11. 18.(수) 18:30~20:30</li>
 </ul>
 <ol>
-<li>gh CLI 인증을 마치고 <code>gh auth status</code>로 확인함.</li>
-<li>만든 스크립트를 다른 파일로 한 번 더 실행함.</li>
-<li><code>자동화 계획.md</code>를 읽고 빠진 단계를 보완함.</li>
+<li>gh CLI 인증을 마치고 <code>gh auth status</code>로 확인함(이 원고의 「직접 인증하기」 참조).</li>
+<li>스킬과 앱 중 하나를 정해 만들기 시작함. 실습 14~16을 따라 <code>자동화 계획.md</code>를 먼저 만들어도 됨.</li>
+<li>만들다 막힌 곳과 4회기에 다뤘으면 하는 내용을 과정 대화방에 남김.</li>
 </ol>
 <ul>
-<li>4회기에는 <code>자동화 계획.md</code>에 따라 스킬 또는 앱을 만들고, 저장소를 공개할지와 웹 페이지로 배포할지를 정함.</li>
+<li>4회기는 각자 진행한 스킬과 앱을 바탕으로 한 질의응답 중심으로 진행함.</li>
 </ul></div>
 <button type="button" class="close" data-close>닫기</button>
 </article>
