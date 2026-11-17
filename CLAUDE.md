@@ -17,7 +17,7 @@
 - `index.html`: 생성물. 직접 편집하지 않는다.
 - `AGENTS.md`: 머리말 4줄과 `SYNC-BODY-START` 표시줄 아래에 `CLAUDE.md` 본문을 그대로 붙인 형제 문서. 이 저장소에는 `sync_agent_docs.py`가 없으므로 **`CLAUDE.md`를 고치면 같은 방식으로 함께 갱신한다.**
 - `sfx/open.mp3`·`close.mp3`: 열기·닫기 효과음(0.6초, -25~26 LUFS로 맞춤).
-- `sfx/dialog-open.mp3`·`dialog-close.mp3`: 원고의 「설치와 환경 설정 N번」 버튼이 여는 대화상자의 열기·닫기 효과음(ElevenLabs 효과음 생성, 0.6초, 약 -25.5 LUFS).
+- `sfx/dialog-open.mp3`·`dialog-close.mp3`: 원고의 「설치와 환경 설정 N번」 버튼이 여는 대화상자의 열기·닫기 효과음(ElevenLabs 효과음 생성, 맑은 띵 소리, 닫기는 조금 낮은 음, 0.8초, 약 -26 LUFS).
 
 ### build.py의 표시 단계 변환
 
