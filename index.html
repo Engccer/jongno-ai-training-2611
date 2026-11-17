@@ -49,7 +49,7 @@
 <ul id="menu">
 <li><button type="button" data-open="s1">실습에 필요한 설치와 환경 설정</button></li>
 <li><button type="button" data-open="s2">1회차: 터미널에서 Claude 시작하기</button></li>
-<li><button type="button" data-open="s3">2회차: 스킬로 문서 읽고 쓰고 듣기</button></li>
+<li><button type="button" data-open="s3">2회차: 시각장애인을 위한 스킬 번들 사용하기</button></li>
 <li><button type="button" data-open="s4">3회차: 반복 업무를 스크립트, 스킬, 앱으로 만들기</button></li>
 <li><button type="button" data-open="s5">4회차: 만든 스킬과 앱을 다듬고 계속 쓰기</button></li>
 </ul>
@@ -528,7 +528,7 @@
 <h4>네 회차의 흐름</h4>
 <ul>
 <li><strong>1회차, 터미널에서 Claude 시작하기</strong>: 터미널에서 Claude Code를 실행하고, 파일 탐색기로 작업 폴더와 스킬을 확인함.</li>
-<li><strong>2회차, 스킬로 문서 읽고 쓰고 듣기</strong>: 설치한 스킬로 PDF·한글 문서를 읽고, 만들고, 줄이고, 음성으로 들음.</li>
+<li><strong>2회차, 시각장애인을 위한 스킬 번들 사용하기</strong>: 설치한 스킬 번들로 PDF·한글 문서를 읽고, 만들고, 줄이고, 음성으로 들음.</li>
 <li><strong>3·4회차, 직무 맞춤형 AI 활용</strong>: 각자의 업무에서 고른 반복 업무를 스크립트, 스킬, 앱으로 만듦.</li>
 </ul>
 <h4>폴더와 파일을 중심으로 작업하기</h4>
@@ -922,7 +922,7 @@
 </article>
 <article id="s3" hidden>
 <button type="button" class="close" data-close>닫기</button>
-<h2 tabindex="-1">2회차: 스킬로 문서 읽고 쓰고 듣기</h2>
+<h2 tabindex="-1">2회차: 시각장애인을 위한 스킬 번들 사용하기</h2>
 <ul>
 <li><strong>강의</strong>: AI 에이전트 실습 - Claude로 업무 자동화하기</li>
 <li><strong>과정명</strong>: 시각장애인 재직자 AI 활용 직무향상 과정</li>
@@ -934,12 +934,12 @@
 <h3><button type="button" class="accordion-toggle" aria-expanded="true" aria-controls="s3-panel-1">이번 시간의 목표</button></h3>
 <div id="s3-panel-1">
 <ul>
-<li>작업 결과 요약을 음성으로 듣고 설정 바꾸기</li>
-<li>실제 업무 폴더에서 Claude를 실행하고 실행 환경 점검하기</li>
-<li>규칙 파일 <code>CLAUDE.md</code>를 만들고 업무 규칙 기록하기</li>
-<li>설치한 스킬의 실행 환경 점검하기</li>
-<li>PDF와 한글 문서를 읽고, 한글 문서를 만들기</li>
-<li>긴 문서를 줄이고 음성 파일로 만들기</li>
+<li>시각장애인을 위한 스킬 번들 <code>skills-for-the-blind</code>의 구성과 다섯 스킬이 하는 일 이해하기</li>
+<li><code>agent-cli-tts-summary</code>로 작업 결과 요약을 음성으로 듣고 설정 바꾸기</li>
+<li>실제 업무 폴더에서 Claude를 실행해 실행 화면을 점검하고 규칙 파일 <code>CLAUDE.md</code> 만들기</li>
+<li>번들의 스킬이 설치된 상태와 실행 환경 점검하기</li>
+<li><code>docparse</code>와 <code>hwpx-automation</code>으로 PDF와 한글 문서를 읽고, 한글 문서 만들기</li>
+<li><code>abridge</code>와 <code>speech-toolkit</code>으로 긴 문서를 줄이고 음성 파일로 만들거나 녹음을 텍스트로 바꾸기</li>
 <li>다섯 스킬을 한 흐름으로 이어 쓰기</li>
 </ul>
 <hr />
@@ -963,100 +963,12 @@
 <li><strong>기능키 무시(<code>Ctrl+Shift+N</code>)</strong>: 다음에 누르는 키 한 번을 센스리더가 처리하지 않고 프로그램에 넘김. 가상 커서 상태에서는 동작하지 않음(<button type="button" class="ref" data-ref="x-1-2">1회차 「파일 경로를 복사해 지시하기」</button> 참조).</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-3">규칙 파일과 스킬</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-3">시각장애인을 위한 스킬 번들</button></h3>
 <div id="s3-panel-3" hidden>
 <ul>
-<li><strong>규칙 파일(<code>CLAUDE.md</code>)</strong>: 폴더 설명과 공통 규칙을 적으며, 그 폴더에서 Claude를 시작할 때 읽음.</li>
-<li><strong>스킬</strong>: 반복 작업의 절차를 <code>SKILL.md</code>에 적고 참고 자료와 실행 스크립트를 함께 둠.</li>
-<li>에이전트는 할 일이 스킬의 설명과 맞으면 해당 스킬을 사용함.</li>
-<li>스킬은 직접 만들거나 공개된 것을 설치할 수 있음.</li>
-<li>사용할 스킬을 명확히 지정하려면 이름과 할 일을 함께 입력함.</li>
-<li><strong>홈 디렉터리의 <code>.claude\skills</code></strong>: 어느 작업 폴더에서나 쓸 개인 스킬을 둠.</li>
-<li><strong>작업 폴더의 <code>.claude\skills</code></strong>: 그 폴더에서만 쓸 스킬을 둠.</li>
+<li>이번 회차는 스킬 번들 <code>skills-for-the-blind</code>의 다섯 스킬을 점검하고 실제 문서 업무에 써 봄.</li>
+<li>다섯 스킬은 PDF·한글 문서를 마크다운으로 읽고, 한글 문서를 만들고, 긴 글을 원문 어투대로 줄이고, 결과를 음성으로 들려줌.</li>
 </ul>
-<h4>CLAUDE.md는 Claude용 업무 수첩</h4>
-<ul>
-<li><strong><code>CLAUDE.md</code></strong>: 이 폴더가 무슨 일을 하는지, 어떤 파일과 하위 폴더가 있는지 적은 Claude용 업무 수첩임.</li>
-<li>다른 파일은 읽으라고 해야 읽지만, <code>CLAUDE.md</code>는 세션이 시작될 때 자동으로 읽힘.</li>
-<li>하위 폴더가 많은 업무 폴더일수록 매번 폴더를 탐색하는 수고가 줄어듦.</li>
-</ul>
-<h4>CLAUDE.md가 있으면 달라지는 점</h4>
-<ul>
-<li><strong>[장점]</strong> 폴더 용도와 공통 규칙을 매번 설명하지 않아도 됨.</li>
-<li>「회의 결과 안내문 만들어 줘」라고 지시하면 <code>CLAUDE.md</code>의 규칙을 참고함.</li>
-<li>회의명·참석 대상·일정처럼 규칙 파일에 없는 조건은 지시에 적어야 함.</li>
-<li>짧은 작업보다 여러 단계를 거치는 작업에서 목표와 규칙을 유지하는 데 도움이 됨.</li>
-</ul>
-<h4>폴더마다 두는 이유</h4>
-<ul>
-<li>업무 자료의 최상위 폴더에는 공통 규칙을 둠.</li>
-<li>자주 작업하는 하위 폴더에는 해당 업무의 구체적인 규칙을 둠.</li>
-<li>하위 폴더에서 실행하면 그 폴더와 상위 폴더의 <code>CLAUDE.md</code>를 모두 읽음.</li>
-<li>파일 한두 개를 추가했을 때는 갱신하지 않아도 됨.</li>
-<li>폴더 구성이 바뀌면 작업 후 설명을 갱신함.</li>
-</ul>
-<button type="button" class="copy" data-copy>복사</button><pre><code>CLAUDE.md 업데이트해 줘.
-</code></pre>
-<h4>AGENTS.md와 전역 지침</h4>
-<ul>
-<li><strong><code>AGENTS.md</code></strong>: Codex 등 다른 에이전트가 읽는 규칙 파일이며, 필요하면 해당 에이전트에 생성을 지시함.</li>
-<li>Claude도 <code>AGENTS.md</code>를 읽지만, 같은 폴더나 상위 폴더에 <code>CLAUDE.md</code>가 있으면 <code>CLAUDE.md</code>만 읽음.</li>
-<li>여러 에이전트를 함께 쓰면 <code>AGENTS.md</code>에 규칙을 적고, <code>CLAUDE.md</code>에는 <code>@AGENTS.md</code> 한 줄만 두어 같은 내용을 읽게 하는 방법이 있음.</li>
-<li><strong>전역 지침</strong>: 어느 폴더에서 작업하든 적용되는 규칙이며 홈 디렉터리의 <code>.claude\CLAUDE.md</code>에 적음.</li>
-<li>TTS 요약 스킬을 설정하면 이 파일에 음성 요약 규칙이 몇 줄 들어감.</li>
-</ul>
-<h4>다른 에이전트와 스킬 함께 쓰기</h4>
-<ul>
-<li>에이전트마다 스킬을 읽는 폴더가 다름.</li>
-</ul>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>에이전트</th>
-<th>개인 스킬 폴더(홈 디렉터리 기준)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Claude Code</td>
-<td><code>.claude\skills</code></td>
-</tr>
-<tr>
-<td>Codex(ChatGPT)</td>
-<td><code>.agents\skills</code></td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li>Claude에서 설치한 스킬을 Codex에서도 쓰려면 <code>.agents\skills</code>에도 설치함.</li>
-<li>폴더를 직접 복사해 붙여넣어도 작동함.</li>
-</ul>
-<button type="button" class="copy" data-copy>복사</button><pre><code>홈 디렉터리의 .claude\skills에 있는 스킬을 .agents\skills에도 복사해 줘.
-</code></pre>
-<h4>스킬과 파일을 내 컴퓨터에 두는 이유</h4>
-<ul>
-<li>스킬, 규칙 파일, 업무 파일이 내 컴퓨터 폴더에 있으면 다른 에이전트로 옮기거나 폴더째 복사할 수 있음.</li>
-<li>앱 안의 클라우드 기능에 쌓은 자료는 그 서비스에서만 쓸 수 있음.</li>
-<li>설정과 스킬은 컴퓨터마다 한 번씩 설치함.</li>
-<li><strong>업무 파일</strong>: 여러 컴퓨터에서 쓰려면 Google Drive 데스크톱 앱처럼 탐색기에 드라이브로 나타나는 동기화 앱을 씀.</li>
-<li>Google Drive 데스크톱 앱을 설치하면 탐색기에 G 드라이브가 생기고, 그 안에서 작업한 내용이 클라우드에 바로 올라감.</li>
-<li>설치 중 <strong>내 컴퓨터의 폴더 동기화</strong>를 묻는 항목은 개인 파일이 업무 드라이브로 올라가지 않도록 확인하고 고름.</li>
-</ul>
-<hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-4">Claude Code의 주요 용어</button></h3>
-<div id="s3-panel-4" hidden>
-<ul>
-<li><strong>턴과 세션</strong>: 지시문 하나와 그 응답을 턴, <code>claude</code>를 실행해 종료할 때까지 이어지는 대화를 세션이라고 함.</li>
-<li><strong>슬래시 명령</strong>: <code>/</code>로 시작하며 정해진 기능을 실행하는 입력 방식임.</li>
-<li>터미널에는 버튼이 없으므로 대부분의 설정을 슬래시 명령으로 바꿈.</li>
-<li><strong>모델</strong>: Opus는 Claude 구독의 기본 모델임.</li>
-<li><strong>추론 수준</strong>: 모델이 답하기 전에 생각하는 정도이며 Opus의 기본값은 medium임. 대부분의 문서 업무는 Opus의 medium으로 충분함.</li>
-<li><strong>권한 모드</strong>: Claude가 파일을 바꾸거나 명령을 실행하기 전에 물을지를 정함. 계획 모드에서는 파일을 바꾸지 않고, 탐색과 계획을 더 많이 함.</li>
-<li><strong>훅(Hook)</strong>: 특정 시점에 스크립트를 실행하는 장치이며, <code>agent-cli-tts-summary</code> 스킬에서는 응답 후 요약 음성을 재생함.</li>
-</ul>
-<hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-5">스킬 번들과 실행 도구</button></h3>
-<div id="s3-panel-5" hidden>
 <h4>번들의 구조</h4>
 <ul>
 <li><code>skills-for-the-blind</code>는 다섯 스킬의 설치와 점검을 맡는 스킬임.</li>
@@ -1148,7 +1060,7 @@
 <li>폴더 이름과 <code>SKILL.md</code> 첫머리의 <code>name</code>을 함께 바꿈.</li>
 <li>에이전트가 스킬을 고를 때 읽는 <code>description</code>도 새 용도에 맞게 고침.</li>
 <li>복사본에는 원본의 개선 내용이 자동으로 반영되지 않음.</li>
-<li>갱신을 계속 받으려면 원본을 유지하고 변경할 사항을 <code>CLAUDE.md</code>에 적는 방법도 있음.</li>
+<li>갱신을 계속 받으려면 원본은 그대로 두고, 바꿀 점은 폴더의 규칙 파일 <code>CLAUDE.md</code>에 적는 방법도 있음.</li>
 <li>대괄호를 새 스킬 이름으로 바꿔 입력함.</li>
 </ul>
 <button type="button" class="copy" data-copy>복사</button><pre><code>docparse 스킬을 복사해서 [새 이름]이라는 별도 스킬로 만들어 줘. 폴더 이름과 SKILL.md의 name, description을 그 이름에 맞게 바꿔 줘.
@@ -1160,31 +1072,14 @@
 <li><code>skills-for-the-blind</code>는 공개 저장소에서 소스 전체를 읽을 수 있음.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-6">환경 변수와 API 키</button></h3>
-<div id="s3-panel-6" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-4">다섯 스킬이 하는 일</button></h3>
+<div id="s3-panel-4" hidden>
+<h4>agent-cli-tts-summary: 응답 요약을 음성으로 듣기</h4>
 <ul>
-<li><code>docparse</code>의 Gemini 파서와 <code>speech-toolkit</code>의 Gemini 음성은 <code>GEMINI_API_KEY</code> 환경 변수에서 키를 읽음.</li>
-<li><strong>환경 변수</strong>: 여러 프로그램이 읽을 수 있도록 Windows에 저장한 설정값임.</li>
-<li>환경 변수는 새로 연 터미널부터 읽힘.</li>
-<li>한 번 등록한 키는 여러 작업과 프로그램에서 계속 씀.</li>
+<li><code>agent-cli-tts-summary</code>는 응답이 끝날 때마다 핵심 요약을 음성으로 들려줌.</li>
+<li>긴 응답을 키패드로 처음부터 읽지 않고 결과부터 파악할 수 있음.</li>
+<li>기본값인 Windows 내장 음성은 API 키와 비용이 필요 없음.</li>
 </ul>
-<h4>키는 비밀번호처럼 관리함</h4>
-<ul>
-<li><strong>키는 Claude 입력창에 붙여넣지 않음.</strong></li>
-<li>대화는 Claude 서비스로 전송되고 컴퓨터의 대화 기록에도 남음.</li>
-<li>이미 붙여넣었다면 Google AI Studio에서 키를 삭제하고 새로 발급받음.</li>
-<li>발급 사이트와 환경 변수 창을 여는 데까지만 Claude에게 맡기고, 키 복사와 입력은 직접 함.</li>
-<li>Claude가 키를 읽거나 화면에서 가져오면 키가 Claude 서비스와 대화 기록에 남음.</li>
-</ul>
-<h4>무료로 쓰기 위한 조건</h4>
-<ul>
-<li><strong>무료 티어</strong>: 사용 한도와 데이터 처리 조건은 Google AI Studio에서 확인함.</li>
-<li><strong>결제 설정</strong>: 요금이 발생하지 않도록 결제가 연결되지 않은 프로젝트의 키를 씀.</li>
-<li><strong>실습 자료</strong>: 개인정보나 대외비가 없는 문서를 씀.</li>
-</ul>
-<hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-7">네 스킬로 하는 문서 업무</button></h3>
-<div id="s3-panel-7" hidden>
 <h4>docparse: 문서 진단과 파서 선택</h4>
 <ul>
 <li>PDF는 표의 읽기 순서가 뒤섞일 수 있고, 스캔 문서는 글자가 그림으로 되어 읽히지 않을 수 있음.</li>
@@ -1238,7 +1133,122 @@
 <li>ElevenLabs·OpenAI 등은 별도 키가 필요하고 요금이 발생할 수 있음.</li>
 <li><strong>Gemini 음성</strong>: 30개 남짓의 다국어 음성이며, Kore처럼 대표 음성일수록 빠른 속도나 숫자에서 덜 뭉개짐.</li>
 <li><strong>Azure 음성</strong>: 언어별 신경망 음성이며 한국어 음성은 10개가 안 되지만 숫자와 고유명사를 정확하게 읽음.</li>
-<li>Azure는 <code>AZURE_SPEECH_KEY</code>와 <code>AZURE_SPEECH_REGION</code> 두 값을 환경 변수로 등록해 씀(무료 등급 월 50만 자).</li>
+</ul>
+<hr />
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-5">환경 변수와 API 키</button></h3>
+<div id="s3-panel-5" hidden>
+<ul>
+<li><code>docparse</code>의 Gemini 파서와 <code>speech-toolkit</code>의 Gemini 음성은 <code>GEMINI_API_KEY</code> 환경 변수에서 키를 읽음.</li>
+<li><strong>환경 변수</strong>: 여러 프로그램이 읽을 수 있도록 Windows에 저장한 설정값임.</li>
+<li>환경 변수는 새로 연 터미널부터 읽힘.</li>
+<li>한 번 등록한 키는 여러 작업과 프로그램에서 계속 씀.</li>
+<li>Azure 음성은 <code>AZURE_SPEECH_KEY</code>와 <code>AZURE_SPEECH_REGION</code> 두 값을 환경 변수로 등록해 씀(무료 등급 월 50만 자).</li>
+</ul>
+<h4>키는 비밀번호처럼 관리함</h4>
+<ul>
+<li><strong>키는 Claude 입력창에 붙여넣지 않음.</strong></li>
+<li>대화는 Claude 서비스로 전송되고 컴퓨터의 대화 기록에도 남음.</li>
+<li>이미 붙여넣었다면 Google AI Studio에서 키를 삭제하고 새로 발급받음.</li>
+<li>발급 사이트와 환경 변수 창을 여는 데까지만 Claude에게 맡기고, 키 복사와 입력은 직접 함.</li>
+<li>Claude가 키를 읽거나 화면에서 가져오면 키가 Claude 서비스와 대화 기록에 남음.</li>
+</ul>
+<h4>무료로 쓰기 위한 조건</h4>
+<ul>
+<li><strong>무료 티어</strong>: 사용 한도와 데이터 처리 조건은 Google AI Studio에서 확인함.</li>
+<li><strong>결제 설정</strong>: 요금이 발생하지 않도록 결제가 연결되지 않은 프로젝트의 키를 씀.</li>
+<li><strong>실습 자료</strong>: 개인정보나 대외비가 없는 문서를 씀.</li>
+</ul>
+<hr />
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-6">규칙 파일과 스킬</button></h3>
+<div id="s3-panel-6" hidden>
+<ul>
+<li><strong>규칙 파일(<code>CLAUDE.md</code>)</strong>: 폴더 설명과 공통 규칙을 적으며, 그 폴더에서 Claude를 시작할 때 읽음.</li>
+<li><strong>스킬</strong>: 반복 작업의 절차를 <code>SKILL.md</code>에 적고 참고 자료와 실행 스크립트를 함께 둠.</li>
+<li>에이전트는 할 일이 스킬의 설명과 맞으면 해당 스킬을 사용함.</li>
+<li>스킬은 직접 만들거나 공개된 것을 설치할 수 있음.</li>
+<li>사용할 스킬을 명확히 지정하려면 이름과 할 일을 함께 입력함.</li>
+<li><strong>홈 디렉터리의 <code>.claude\skills</code></strong>: 어느 작업 폴더에서나 쓸 개인 스킬을 둠.</li>
+<li><strong>작업 폴더의 <code>.claude\skills</code></strong>: 그 폴더에서만 쓸 스킬을 둠.</li>
+</ul>
+<h4>CLAUDE.md는 Claude용 업무 수첩</h4>
+<ul>
+<li><strong><code>CLAUDE.md</code></strong>: 이 폴더가 무슨 일을 하는지, 어떤 파일과 하위 폴더가 있는지 적은 Claude용 업무 수첩임.</li>
+<li>다른 파일은 읽으라고 해야 읽지만, <code>CLAUDE.md</code>는 세션이 시작될 때 자동으로 읽힘.</li>
+<li>하위 폴더가 많은 업무 폴더일수록 매번 폴더를 탐색하는 수고가 줄어듦.</li>
+</ul>
+<h4>CLAUDE.md가 있으면 달라지는 점</h4>
+<ul>
+<li><strong>[장점]</strong> 폴더 용도와 공통 규칙을 매번 설명하지 않아도 됨.</li>
+<li>「회의 결과 안내문 만들어 줘」라고 지시하면 <code>CLAUDE.md</code>의 규칙을 참고함.</li>
+<li>회의명·참석 대상·일정처럼 규칙 파일에 없는 조건은 지시에 적어야 함.</li>
+<li>짧은 작업보다 여러 단계를 거치는 작업에서 목표와 규칙을 유지하는 데 도움이 됨.</li>
+</ul>
+<h4>폴더마다 두는 이유</h4>
+<ul>
+<li>업무 자료의 최상위 폴더에는 공통 규칙을 둠.</li>
+<li>자주 작업하는 하위 폴더에는 해당 업무의 구체적인 규칙을 둠.</li>
+<li>하위 폴더에서 실행하면 그 폴더와 상위 폴더의 <code>CLAUDE.md</code>를 모두 읽음.</li>
+<li>파일 한두 개를 추가했을 때는 갱신하지 않아도 됨.</li>
+<li>폴더 구성이 바뀌면 작업 후 설명을 갱신함.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>CLAUDE.md 업데이트해 줘.
+</code></pre>
+<h4>AGENTS.md와 전역 지침</h4>
+<ul>
+<li><strong><code>AGENTS.md</code></strong>: Codex 등 다른 에이전트가 읽는 규칙 파일이며, 필요하면 해당 에이전트에 생성을 지시함.</li>
+<li>Claude도 <code>AGENTS.md</code>를 읽지만, 같은 폴더나 상위 폴더에 <code>CLAUDE.md</code>가 있으면 <code>CLAUDE.md</code>만 읽음.</li>
+<li>여러 에이전트를 함께 쓰면 <code>AGENTS.md</code>에 규칙을 적고, <code>CLAUDE.md</code>에는 <code>@AGENTS.md</code> 한 줄만 두어 같은 내용을 읽게 하는 방법이 있음.</li>
+<li><strong>전역 지침</strong>: 어느 폴더에서 작업하든 적용되는 규칙이며 홈 디렉터리의 <code>.claude\CLAUDE.md</code>에 적음.</li>
+<li>TTS 요약 스킬을 설정하면 이 파일에 음성 요약 규칙이 몇 줄 들어감.</li>
+</ul>
+<h4>다른 에이전트와 스킬 함께 쓰기</h4>
+<ul>
+<li>에이전트마다 스킬을 읽는 폴더가 다름.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>에이전트</th>
+<th>개인 스킬 폴더(홈 디렉터리 기준)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td><code>.claude\skills</code></td>
+</tr>
+<tr>
+<td>Codex(ChatGPT)</td>
+<td><code>.agents\skills</code></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Claude에서 설치한 스킬을 Codex에서도 쓰려면 <code>.agents\skills</code>에도 설치함.</li>
+<li>폴더를 직접 복사해 붙여넣어도 작동함.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>홈 디렉터리의 .claude\skills에 있는 스킬을 .agents\skills에도 복사해 줘.
+</code></pre>
+<h4>스킬과 파일을 내 컴퓨터에 두는 이유</h4>
+<ul>
+<li>스킬, 규칙 파일, 업무 파일이 내 컴퓨터 폴더에 있으면 다른 에이전트로 옮기거나 폴더째 복사할 수 있음.</li>
+<li>앱 안의 클라우드 기능에 쌓은 자료는 그 서비스에서만 쓸 수 있음.</li>
+<li>설정과 스킬은 컴퓨터마다 한 번씩 설치함.</li>
+<li><strong>업무 파일</strong>: 여러 컴퓨터에서 쓰려면 Google Drive 데스크톱 앱처럼 탐색기에 드라이브로 나타나는 동기화 앱을 씀.</li>
+<li>Google Drive 데스크톱 앱을 설치하면 탐색기에 G 드라이브가 생기고, 그 안에서 작업한 내용이 클라우드에 바로 올라감.</li>
+<li>설치 중 <strong>내 컴퓨터의 폴더 동기화</strong>를 묻는 항목은 개인 파일이 업무 드라이브로 올라가지 않도록 확인하고 고름.</li>
+</ul>
+<hr />
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-7">Claude Code의 주요 용어</button></h3>
+<div id="s3-panel-7" hidden>
+<ul>
+<li><strong>턴과 세션</strong>: 지시문 하나와 그 응답을 턴, <code>claude</code>를 실행해 종료할 때까지 이어지는 대화를 세션이라고 함.</li>
+<li><strong>슬래시 명령</strong>: <code>/</code>로 시작하며 정해진 기능을 실행하는 입력 방식임.</li>
+<li>터미널에는 버튼이 없으므로 대부분의 설정을 슬래시 명령으로 바꿈.</li>
+<li><strong>모델</strong>: Opus는 Claude 구독의 기본 모델임.</li>
+<li><strong>추론 수준</strong>: 모델이 답하기 전에 생각하는 정도이며 Opus의 기본값은 medium임. 대부분의 문서 업무는 Opus의 medium으로 충분함.</li>
+<li><strong>권한 모드</strong>: Claude가 파일을 바꾸거나 명령을 실행하기 전에 물을지를 정함. 계획 모드에서는 파일을 바꾸지 않고, 탐색과 계획을 더 많이 함.</li>
+<li><strong>훅(Hook)</strong>: 특정 시점에 스크립트를 실행하는 장치이며, <code>agent-cli-tts-summary</code> 스킬에서는 응답 후 요약 음성을 재생함.</li>
 </ul>
 <hr />
 </div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-8">실습 전에 알아 둘 것</button></h3>
@@ -1266,12 +1276,8 @@
 <li>같은 형식의 파일이 여럿이면 경로로 지목함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-9">실습 4: 작업 결과 요약을 음성으로 듣기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-9">실습 4: agent-cli-tts-summary로 작업 결과 요약 듣기</button></h3>
 <div id="s3-panel-9" hidden>
-<ul>
-<li><code>agent-cli-tts-summary</code>는 응답이 끝날 때마다 핵심 요약을 음성으로 들려줌.</li>
-<li>기본값인 Windows 내장 음성은 API 키와 비용이 필요 없음.</li>
-</ul>
 <ol>
 <li>TTS 요약을 설치하고 설정함(<button type="button" class="ref" data-ref="g-9">설치와 환경 설정 9. TTS 요약 설치</button> 참조).</li>
 <li>project 폴더에서 <code>claude</code>를 실행하고 간단한 작업을 지시해 요약 음성이 나오는지 확인함.<button type="button" class="copy" data-copy>복사</button><pre><code>지금 이 폴더에 있는 파일 개수를 세어 줘.
@@ -1506,7 +1512,7 @@
 <li>마크다운 문법은 <button type="button" class="ref" data-ref="x-1-6">1회차 「마크다운」</button> 참조.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-11">실습 6: 스킬 설치 상태와 실행 환경 점검하기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-11">실습 6: 번들의 스킬 설치 상태와 실행 환경 점검하기</button></h3>
 <div id="s3-panel-11" hidden>
 <ol>
 <li>
@@ -2782,7 +2788,7 @@
 <li>폴더 이름과 <code>SKILL.md</code> 첫머리의 <code>name</code>을 함께 바꿈.</li>
 <li>에이전트가 스킬을 고를 때 읽는 <code>description</code>도 새 용도에 맞게 고침.</li>
 <li>복사본에는 원본의 개선 내용이 자동으로 반영되지 않음.</li>
-<li>갱신을 계속 받으려면 원본을 유지하고 변경할 사항을 <code>CLAUDE.md</code>에 적는 방법도 있음.</li>
+<li>갱신을 계속 받으려면 원본은 그대로 두고, 바꿀 점은 폴더의 규칙 파일 <code>CLAUDE.md</code>에 적는 방법도 있음.</li>
 <li>대괄호를 새 스킬 이름으로 바꿔 입력함.</li>
 </ul>
 <button type="button" class="copy" data-copy>복사</button><pre><code>docparse 스킬을 복사해서 [새 이름]이라는 별도 스킬로 만들어 줘. 폴더 이름과 SKILL.md의 name, description을 그 이름에 맞게 바꿔 줘.
@@ -3508,6 +3514,7 @@
 <li><strong>환경 변수</strong>: 여러 프로그램이 읽을 수 있도록 Windows에 저장한 설정값임.</li>
 <li>환경 변수는 새로 연 터미널부터 읽힘.</li>
 <li>한 번 등록한 키는 여러 작업과 프로그램에서 계속 씀.</li>
+<li>Azure 음성은 <code>AZURE_SPEECH_KEY</code>와 <code>AZURE_SPEECH_REGION</code> 두 값을 환경 변수로 등록해 씀(무료 등급 월 50만 자).</li>
 </ul>
 <h3>키는 비밀번호처럼 관리함</h3>
 <ul>
