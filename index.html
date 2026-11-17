@@ -35,6 +35,10 @@
   blockquote { margin: 1rem 0; padding: .5rem 1rem; border-left: 4px solid var(--line); }
   hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
   .table-wrap { overflow-x: auto; }
+  .ref { display: inline; min-height: 0; padding: .05rem .4rem; border-width: 1px; text-decoration: underline; }
+  dialog { width: calc(100% - 2rem); max-width: 46rem; max-height: 90vh; max-height: 90dvh; overflow: auto; overscroll-behavior: contain; color: var(--fg); background: var(--bg); border: 2px solid var(--fg); border-radius: .5rem; padding: 1rem; box-sizing: border-box; }
+  dialog::backdrop { background: rgba(0, 0, 0, .6); }
+  body:has(dialog[open]) { overflow: hidden; }
 </style>
 </head>
 <body>
@@ -43,33 +47,45 @@
 <p>시각장애인 재직자 AI 활용 직무향상 과정 · 종로구시각장애인취업역량강화센터 · 김헌용 담당 네 회차(2026. 11. 11.~11. 18.)</p>
 <h2>강의자료 순서</h2>
 <ul id="menu">
-<li><button type="button" data-open="s1">사전 준비 안내</button></li>
-<li><button type="button" data-open="s2">1회차: 작업 환경 셋업</button></li>
+<li><button type="button" data-open="s1">실습에 필요한 설치와 환경 설정</button></li>
+<li><button type="button" data-open="s2">1회차: 터미널에서 Claude 시작하기</button></li>
 <li><button type="button" data-open="s3">2회차: 스킬로 문서 읽고 쓰고 듣기</button></li>
 <li><button type="button" data-open="s4">3회차: 반복 업무를 스크립트, 스킬, 앱으로 만들기</button></li>
 <li><button type="button" data-open="s5">4회차: 만든 스킬과 앱을 다듬고 계속 쓰기</button></li>
 </ul>
 <article id="s1" hidden>
 <button type="button" class="close" data-close>닫기</button>
-<h2 tabindex="-1">사전 준비 안내</h2>
+<h2 tabindex="-1">실습에 필요한 설치와 환경 설정</h2>
 <ul>
 <li><strong>과정명</strong>: 시각장애인 재직자 AI 활용 직무향상 과정</li>
 <li><strong>해당 회차</strong>: 김헌용 강사 담당 네 회차(11월 11일~11월 18일)</li>
 </ul>
-<p>아래 10가지 준비사항을 참고하여 강의 전에 필요한 작업을 완료해 주세요.</p>
+<p>실습에 필요한 프로그램 설치, 계정, API 키, 인증을 회차별로 모았습니다. 항목마다 적힌 시점까지 마쳐 주세요. 강의자료에서 이 안내의 번호를 가리키면 해당 항목을 열어 따라 하시면 됩니다.</p>
 <hr />
-<h3><button type="button" class="accordion-toggle" aria-expanded="true" aria-controls="s1-panel-1">1회차(11월 11일) 전까지</button></h3>
+<h3><button type="button" class="accordion-toggle" aria-expanded="true" aria-controls="s1-panel-1">1회차</button></h3>
 <div id="s1-panel-1">
 <h4>1. Claude 계정 로그인</h4>
+<p>1회차 전에 마쳐 주세요.</p>
 <p>Claude Pro 계정으로 로그인합니다. <strong>무료 플랜에서는 실습에 쓸 Code 탭과 Claude Code가 열리지 않으므로</strong> 플랜을 먼저 확인해 주세요.</p>
 <h4>2. Claude Desktop 앱 설치</h4>
+<p>1회차 전에 마쳐 주세요.</p>
 <p>아래 주소에서 Windows용 앱을 내려받아 설치합니다.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://claude.ai/download" target="_blank" rel="noopener">https://claude.ai/download</a>
 </code></pre>
 <p><strong>확인</strong>: 앱을 실행해 좌측 사이드바에 <strong>코드</strong> 항목이 있는지 봅니다. 코드 항목이 보이면 1번과 2번이 함께 확인된 것입니다.</p>
+<ul>
+<li><strong>Code 탭으로 이동</strong>: 사이드바에서 <strong>코드</strong>를 선택하고 <code>Enter</code>를 누릅니다. <code>F2</code>를 누르면 프롬프트 편집창으로 이동합니다.</li>
+<li><strong>앱 업데이트</strong>: 구버전은 메뉴나 권한 설정이 다를 수 있습니다. 앱 안에서 「업데이트」를 검색해 실행하세요. 처음 설치한 직후에는 업데이트를 여러 번 해야 할 수 있습니다.</li>
+</ul>
 <h4>3. Git 설치</h4>
+<p>1회차 전에 마쳐 주세요.</p>
 <p>Code 탭을 처음 열면 <strong>Git 설치 안내 대화상자</strong>가 자동으로 뜹니다. 대화상자 안의 <strong>Git 다운로드</strong> 버튼을 누르고, 내려받은 설치 파일을 실행해 모든 화면에서 기본 설정 그대로 Next 또는 Install을 눌러 끝까지 설치합니다.</p>
 <p><strong>「나중에」 버튼을 누르지 마세요.</strong> Git 없이 진행되어 다음 단계가 막힙니다.</p>
+<ul>
+<li>안내가 뜨지 않으면 Git이 이미 설치된 것이므로 4번으로 넘어갑니다.</li>
+<li>다운로드가 진행되지 않으면 <strong>다운로드 페이지 열기</strong>를 누릅니다. 브라우저가 열리지 않으면 다운로드 폴더에 설치 파일이 있는지 확인해 실행합니다.</li>
+<li>Git을 설치하기 전에는 프롬프트 입력창이 비활성 상태입니다.</li>
+</ul>
 <p>설치가 끝나면 앱을 완전히 종료한 뒤 다시 실행합니다. <strong>Claude 앱은 창을 닫아도 백그라운드에 남으므로 작업 관리자로 끕니다.</strong></p>
 <ol>
 <li><code>Ctrl+Shift+Esc</code>로 작업 관리자를 엽니다.</li>
@@ -81,17 +97,30 @@
 <p><strong>확인</strong>: 다시 실행한 뒤 Code 탭으로 돌아와 하단 입력창에 아래 문장을 그대로 붙여넣고 보냅니다.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>Git 설치를 마쳤는데 제대로 설치된 것인지 확인해 줘.
 </code></pre>
-<p>Claude가 확인을 위해 PowerShell 명령을 실행하겠다며 권한을 묻습니다. <strong>항상 허용</strong>을 누르세요. 설치가 확인됐다는 답이 오면 된 것입니다.</p>
-<p>환경 변수를 설정해야 한다는 안내가 나오면 시스템 설정 창을 직접 건드리지 마시고 입력창에 아래 한 줄을 보내세요.</p>
+<p>Claude가 확인을 위해 PowerShell 명령을 실행하겠다며 권한을 묻습니다. <strong>항상 허용</strong>을 누르세요. 같은 종류의 명령을 다시 묻지 않는 설정입니다. 설치가 확인됐다는 답이 오면 된 것입니다.</p>
+<p>환경 변수를 설정해야 한다는 안내가 나오면(<code>CLAUDE_CODE_GIT_BASH_PATH</code> 등) 시스템 설정 창을 직접 건드리지 마시고 입력창에 아래 한 줄을 보내세요. 안내에 붙은 번호는 달라질 수 있으므로 번호 대신 방법 이름으로 지시합니다.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>PowerShell로 환경 변수를 영구 설정하는 방법으로 네가 바로 해 줘.
 </code></pre>
+<p>「현재 세션의 PATH에는 아직 반영되지 않았다」는 안내가 나와도 같은 방법으로 앱을 다시 실행합니다.</p>
 <p>환경 변수 설정이 끝나면 위와 같은 방법으로 앱을 한 번 더 종료하고 다시 실행합니다.</p>
+<p><strong>다른 에이전트로 Git을 이미 설치했는데 설치하라고 나오는 경우</strong>: 설치를 맡겼던 에이전트에 아래 문장을 보냅니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Claude를 쓰려는데 Git을 설치하라고 나와. Git이 전역으로 설치되어 있는지 확인해 줘.
+</code></pre>
+<p><strong>앱에서 키 조작이 반응하지 않는 경우</strong>: 라벨이 잘못 읽히거나 가상 커서를 해제해도 방향키가 듣지 않으면 아래 순서로 복구합니다.</p>
+<ol>
+<li><code>Esc</code>를 여러 번 눌러 열려 있는 목록을 닫습니다.</li>
+<li><code>F2</code>로 프롬프트 편집창으로 돌아갑니다.</li>
+<li><code>F5</code>로 화면을 새로 읽고 다시 탐색합니다.</li>
+<li>그래도 라벨이 어긋나면 위 방법으로 앱을 완전히 종료하고 다시 실행합니다.</li>
+</ol>
 <h4>4. Node.js와 Python 설치</h4>
+<p>1회차 전에 마쳐 주세요.</p>
 <p>스킬 설치와 문서 변환에 필요합니다. 3번까지 마치셨으면 입력창에 아래를 그대로 붙여넣으세요.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>이 컴퓨터에 Node.js와 Python이 설치돼 있는지 확인하고, 없으면 설치해 줘. 설치가 끝나면 각각의 버전을 알려 줘.
 </code></pre>
 <p>도중에 권한 요청이 뜨면 내용을 읽고 허용합니다. 마지막에 두 프로그램의 버전이 나오면 설치된 것입니다.</p>
 <h4>5. 홈 디렉터리에 project 폴더 만들기</h4>
+<p>1회차 전에 마쳐 주세요.</p>
 <p>홈 디렉터리에 폴더를 하나 만들고 이름을 「project」로 붙입니다. Windows에서 홈 디렉터리는 <code>C:\Users\&lt;본인 계정 이름&gt;</code>이며, 파일 탐색기에는 「사용자」 폴더 아래 본인 계정 이름으로 표시됩니다. 파일 탐색기에서 <code>Alt+D</code>로 주소창에 이동해 <code>%USERPROFILE%</code>을 입력하고 Enter를 누르면 바로 열립니다.</p>
 <p>project 폴더 안에는 다음 두 파일을 넣어 주세요.</p>
 <ul>
@@ -99,20 +128,130 @@
 <li>업무에서 다루는 <strong>한글 문서 한 개</strong>(한글 문서가 없으면 워드 문서)</li>
 </ul>
 <p><strong>이름·연락처·주민등록번호 같은 개인정보가 들어 있지 않은 문서</strong>로 골라 주세요.</p>
-<p>1회차에 Claude에서 이 폴더를 처음 고르면 폴더를 신뢰할지 묻는 화면이 뜹니다. <strong>신뢰</strong> 버튼을 누르셔야 그 폴더의 파일을 읽습니다.</p>
+<p>Claude에서 이 폴더를 처음 고르면 폴더를 신뢰할지 묻는 화면이 뜹니다. <strong>신뢰</strong> 버튼을 누르셔야 그 폴더의 파일을 읽습니다.</p>
+<p><strong>Desktop 앱에서 이 폴더로 작업하려면</strong>: 화면 확대가 익숙하시면 터미널 대신 Code 탭을 써도 됩니다.</p>
+<ol>
+<li>Code 탭에서 편집창 위쪽의 <strong>로컬 폴더</strong>를 고르고 <code>Enter</code>를 누릅니다.</li>
+<li>홈 디렉터리의 project 폴더로 이동해 <strong>폴더 선택</strong>을 누릅니다.</li>
+<li>입력창 상단에 project 폴더 이름이 표시되는지 확인합니다.</li>
+<li>신뢰를 물으면 본인이 준비한 폴더인지 확인하고 <strong>신뢰</strong>를 누릅니다.</li>
+<li>폴더 밖 접근이나 프로그램 설치처럼 승인을 묻는 작업은 대상 파일과 명령을 확인하고 응답합니다. 편집창 아래 <strong>편집 수락</strong> 메뉴에서 <strong>자동</strong>을 고르고 <strong>자동 모드 활성화</strong>를 누르면 승인 요청이 줄어듭니다. 자동 모드가 보이지 않으면 앱을 업데이트합니다.</li>
+</ol>
+<h4>6. Windows 터미널과 Claude Code 설치</h4>
+<p>1회차 수업에서 함께 합니다.</p>
+<p>Desktop 앱 Code 탭이나 사용 중인 에이전트에 아래 두 문장을 차례로 보냅니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 컴퓨터에 Windows 터미널과 PowerShell 7이 설치돼 있는지 확인해 줘. 없으면 설치하고, Windows 터미널을 기본 터미널 앱으로 설정해 줘. Windows 터미널의 기본 프로필은 PowerShell 7로 바꿔 줘.
+</code></pre>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Claude Code CLI를 공식 네이티브 설치 방식으로 설치해 줘. 이미 설치돼 있으면 설치 방식과 실제 실행되는 경로를 확인해 줘.
+</code></pre>
+<p>중복 설치 안내가 나오면 실제로 실행되는 Claude의 설치 방식과 경로를 확인해 달라고 요청합니다.</p>
+<p>설치가 끝나면 터미널에서 처음 실행해 로그인합니다.</p>
+<ol>
+<li>Windows 키를 누르고 <code>wt</code>를 입력한 뒤 <code>Enter</code>를 누릅니다. 검색되지 않으면 <code>Windows Terminal</code>을 검색합니다.</li>
+<li>키패드로 시작 화면을 읽어 PowerShell 7인지 확인합니다. Windows PowerShell이면 에이전트에 기본 프로필 변경을 요청하고 터미널을 다시 엽니다.</li>
+<li><code>claude</code>를 입력하고 <code>Enter</code>를 누릅니다.</li>
+<li>테마 선택이 나오면 원하는 화면 색상을 고릅니다.</li>
+<li>Claude 구독 계정 로그인을 선택하고 브라우저에서 인증한 뒤 터미널로 돌아옵니다. 이미 인증했다면 로그인 화면이 생략될 수 있습니다.</li>
+</ol>
+<p><code>claude</code>를 찾지 못하면 터미널을 닫고 다시 엽니다. 그래도 안 되면 설치를 맡긴 에이전트에 오류 문구를 전달합니다.</p>
+<p><strong>확인</strong>: 터미널의 Claude에 한국어로 질문하고 답을 받으면 된 것입니다. 이후에는 Desktop 앱을 닫아도 됩니다.</p>
+<h4>7. 스크린 리더 모드 켜기</h4>
+<p>1회차 수업에서 함께 합니다.</p>
+<p>터미널의 Claude 입력창에 아래 문장을 보냅니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>클로드 코드 설정에서 스크린 리더 모드 켜 줘.
+</code></pre>
+<p><strong>「클로드 코드 설정에서」까지 입력하세요.</strong> 생략하면 다른 접근성 설정과 혼동할 수 있습니다. 고르라는 목록이 뜨면 목록에서 고르지 말고 위 문장을 그대로 다시 보냅니다.</p>
+<p><strong>확인</strong>: 터미널을 다시 열고 <code>claude</code>를 실행합니다. 시작 화면에 스크린 리더 모드 안내가 나오고 장식 문자가 줄었으면 된 것입니다. 한 번 켜 두면 다른 폴더에서 실행해도 유지됩니다.</p>
+<h4>8. 시각장애인을 위한 스킬 번들 설치</h4>
+<p>1회차 수업에서 함께 합니다.</p>
+<ol>
+<li>새 터미널에서 <code>cd ~</code>를 입력해 홈 디렉터리로 이동한 뒤 <code>claude</code>를 실행합니다.</li>
+<li>입력창에 아래 문장을 보냅니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들과 그 안의 다섯 스킬을 모두 설치해 줘. Claude Code에서 어느 작업 폴더를 열어도 쓸 수 있게 전역으로 설치해 줘. 이미 설치된 것은 상태를 확인하고 빠진 것만 설치해 줘.
+</code></pre>
+<ol start="3">
+<li>실행 승인을 물으면 키패드로 마지막 응답을 읽고 내용을 확인해 응답합니다.</li>
+<li>필요한 프로그램이 없다는 오류가 나오면 아래 문장을 보냅니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>스킬 설치에 필요한 무료 프로그램과 패키지를 확인해서 설치해 줘. 유료 서비스 가입이나 결제는 진행하지 마.
+</code></pre>
+<ol start="5">
+<li>파일 탐색기에서 홈 디렉터리의 <code>.claude\skills</code>를 열어 스킬 폴더를 확인합니다. <code>skills-for-the-blind</code>까지 여섯 폴더이며, 기존 스킬이 있으면 더 많을 수 있습니다.</li>
+<li><code>/exit</code>로 Claude를 종료하고 <code>claude</code>를 다시 실행한 뒤 아래 문장을 보냅니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>skills-for-the-blind에 포함된 다섯 스킬이 모두 설치돼 있는지 확인하고, 각각 어떤 일을 할 수 있는지 알려 줘.
+</code></pre>
+<p><strong>확인</strong>: 스킬 폴더가 있고 새 대화에서도 다섯 스킬을 찾으면 된 것입니다. 이미 설치하셨다면 최신 상태인지 점검을 요청하고, 직접 고친 파일이 있으면 다시 설치하기 전에 알려 주세요.</p>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s1-panel-2">2회차(11월 14일) 전까지</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s1-panel-2">2회차</button></h3>
 <div id="s1-panel-2" hidden>
-<h4>6. Gemini API 키 발급</h4>
+<h4>9. TTS 요약 설치</h4>
+<p>2회차 수업에서 함께 합니다.</p>
+<p><code>agent-cli-tts-summary</code>는 Claude의 응답이 끝날 때마다 핵심 요약을 음성으로 들려줍니다. 기본값인 Windows 내장 음성은 API 키와 비용이 필요 없습니다.</p>
+<ol>
+<li>project 폴더에서 터미널을 열고 <code>claude</code>를 실행합니다.</li>
+<li>아래 문장으로 스킬 설치 상태를 확인합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>agent-cli-tts-summary 스킬이 설치돼 있는지 확인해 줘. 없으면 <a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 에서 해당 스킬을 설치해 줘.
+</code></pre>
+<ol start="3">
+<li>다운로드나 명령 실행 승인을 물으면 내용을 확인하고 <code>y</code>와 <code>Enter</code>를 누릅니다.</li>
+<li>같은 입력창에서 TTS 요약 설정을 요청합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 스킬대로 TTS 요약 루프를 설정해 줘.
+</code></pre>
+<ol start="5">
+<li>요약 언어와 음성을 물으면 <strong>한국어</strong>와 <strong>Windows 내장 음성</strong>을 고릅니다. 묻지 않으면 기본값으로 설정됩니다.</li>
+<li>설정 중 권한 요청이 뜨면 내용을 확인하고 허용합니다.</li>
+<li>설정이 끝나면 <code>exit</code>로 나갔다가 <code>claude</code>를 다시 실행합니다. 설정은 새 대화부터 적용됩니다.</li>
+</ol>
+<p><strong>진행이 멈춘 것처럼 보이는 경우</strong></p>
+<ul>
+<li><strong>승인 대기</strong>: 마지막 응답의 요청 내용을 읽고, 허용하려면 <code>y</code>와 <code>Enter</code>를 누릅니다.</li>
+<li><strong>작업 중</strong>: 진행 줄이 계속 바뀌면 다른 창에서 기다립니다.</li>
+<li><strong>설치 실패</strong>: 「인식되지 않습니다」 같은 오류가 나오면 필요한 도구가 없는 것입니다. 설치에는 Node.js의 <code>npx</code>, 설정 점검에는 Python, 재생에는 Windows PowerShell과 내장 음성을 씁니다. 아래 문장으로 설치와 설정을 함께 맡깁니다.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이런 개발 환경 설정은 내가 잘 모르니, 필요한 건 네가 알아서 설치하고 설정까지 끝내 줘. 무료 프로그램만 설치하고, 설치 전에 무엇을 설치할지 알려 줘.
+</code></pre>
+<p><strong>스킬 이름을 찾지 못하는 경우</strong>: <code>skills-for-the-blind</code>는 다섯 스킬을 설치하는 번들이고 <code>agent-cli-tts-summary</code>는 그중 하나입니다. 번들에서 이 스킬만 설치해 달라고 요청합니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들에서 agent-cli-tts-summary 하나만 설치해 줘.
+</code></pre>
+<p><strong>확인</strong>: 간단한 작업을 지시했을 때 요약 음성이 나오면 된 것입니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>지금 이 폴더에 있는 파일 개수를 세어 줘.
+</code></pre>
+<h4>10. Gemini API 키 발급과 등록</h4>
+<p>발급은 2회차 전에 마쳐 주세요. 등록은 2회차 수업에서 함께 합니다.</p>
 <p>문서 파싱과 음성 변환 실습에 씁니다. 결제 정보를 등록하지 않은 키는 무료 범위 안에서만 쓰이므로 요금이 나가지 않습니다.</p>
+<p><strong>키는 비밀번호와 같습니다.</strong> 다른 사람과 공유하지 마시고, 화면에 띄워 둔 채 자리를 비우지 마세요. Claude 입력창에도 붙여넣지 않습니다.</p>
+<p><strong>발급</strong></p>
 <button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">https://aistudio.google.com/apikey</a>
 </code></pre>
-<p>Google 계정으로 로그인한 뒤 API 키를 만들고, 발급된 키를 메모장 등에 복사해 두세요. 2회차 실습 9에서 입력하게 됩니다.</p>
-<p><strong>키는 비밀번호와 같습니다.</strong> 다른 사람과 공유하지 마시고, 화면에 띄워 둔 채 자리를 비우지 마세요.</p>
+<p>Google 계정으로 로그인한 뒤 API 키를 만들고, 발급된 키를 메모장 등에 복사해 둡니다.</p>
+<p><strong>등록</strong></p>
+<ol>
+<li>Windows 키를 누르고 「환경 변수」를 검색합니다.</li>
+<li><strong>계정의 환경 변수 편집</strong>을 고르고 <code>Enter</code>를 누릅니다. 검색되지 않으면 Claude에게 아래 문장을 보냅니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>계정의 환경 변수 편집 창을 열어 줘. 키 값은 내가 직접 입력할게.
+</code></pre>
+<ol start="3">
+<li>위쪽 <strong>사용자 변수</strong> 목록 아래의 <strong>새로 만들기</strong> 버튼을 누릅니다. 아래쪽 시스템 변수의 같은 이름 버튼과 혼동하지 않도록 <code>Tab</code>으로 위치를 확인합니다.</li>
+<li>변수 이름에 <code>GEMINI_API_KEY</code>를 입력합니다.</li>
+<li>변수 값에 복사해 둔 키를 붙여넣고 <strong>확인</strong>을 누릅니다.</li>
+<li>환경 변수 창의 <strong>확인</strong>을 눌러 닫습니다.</li>
+<li>터미널을 모두 닫고 project 폴더에서 다시 열어 <code>claude</code>를 실행합니다.</li>
+<li>키 값을 출력하지 않고 등록 여부만 확인해 달라고 요청합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>GEMINI_API_KEY 환경 변수가 등록돼 있는지 확인해 줘. 키 값은 화면에 출력하지 말고 있는지 없는지만 알려 줘.
+</code></pre>
+<p>등록을 마치면 메모장의 키를 지우고 저장하지 않고 닫습니다. 키가 대화에 노출됐다면 Google AI Studio에서 그 키를 삭제하고 새로 발급받으세요.</p>
+<p>다른 서비스의 API 키(ElevenLabs, Azure 등)도 같은 방법으로 등록합니다. 변수 이름만 다릅니다.</p>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s1-panel-3">3회차(11월 16일) 전까지</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s1-panel-3">3회차</button></h3>
 <div id="s1-panel-3" hidden>
-<h4>7. 업무 폴더 하나 정하기</h4>
+<h4>11. 업무 폴더 하나 정하기</h4>
+<p>3회차 전에 마쳐 주세요.</p>
 <p>3회차부터는 project 폴더가 아니라 <strong>본인 업무 자료가 있는 폴더에서</strong> 실습합니다. 그 폴더 하나를 정해 주세요.</p>
 <ul>
 <li>업무 자료를 모아 두는 폴더면 가장 좋습니다. 정리가 안 돼 있어도 괜찮습니다.</li>
@@ -120,9 +259,11 @@
 <li>회사 컴퓨터에만 자료가 있으시면 실습에 쓸 컴퓨터의 문서 폴더 아래에 폴더를 하나 만들고, 개인정보가 없는 자료만 옮겨 주세요.</li>
 </ul>
 <p><strong>확인</strong>: 그 폴더의 경로를 적어 두시면 됩니다. 파일 탐색기에서 그 폴더에 포커스를 두고 <code>Ctrl+Shift+C</code>를 누르면 경로가 복사됩니다. 센스리더에서는 이 키가 센스리더 기능과 겹치므로 기능키 무시(<code>Ctrl+Shift+N</code>)를 한 번 누른 뒤 <code>Ctrl+Shift+C</code>를 누르세요.</p>
-<h4>8. 자동화하고 싶은 업무 하나 정하기</h4>
-<p>매주 반복하거나 시간이 많이 드는 업무 하나를 골라 주세요. 그 업무에 쓰는 자료(개인정보가 없는 것)를 7번의 업무 폴더에 넣어 두시면 3회차에 그 자료로 실습합니다.</p>
-<h4>9. GitHub 계정 만들기</h4>
+<h4>12. 자동화하고 싶은 업무 하나 정하기</h4>
+<p>3회차 전에 마쳐 주세요.</p>
+<p>매주 반복하거나 시간이 많이 드는 업무 하나를 골라 주세요. 그 업무에 쓰는 자료(개인정보가 없는 것)를 11번의 업무 폴더에 넣어 두시면 3회차에 그 자료로 실습합니다.</p>
+<h4>13. GitHub 계정 만들기</h4>
+<p>3회차 전에 마쳐 주세요.</p>
 <p>GitHub는 코드와 파일을 올려 두는 서비스입니다. 3회차부터 만든 결과물을 보관하고 공유하는 데 씁니다.</p>
 <ol>
 <li>브라우저에서 아래 주소를 엽니다.</li>
@@ -134,12 +275,16 @@
 <li>사람 확인 단계가 나오면 오디오 인증을 고릅니다. 음성 안내를 듣고 질문에 맞게 답을 입력합니다.</li>
 <li>이메일로 온 인증 번호를 입력합니다.</li>
 </ol>
-<p><strong>확인</strong>: 브라우저에서 GitHub에 로그인된 상태면 된 것입니다. 이 브라우저를 10번에서 다시 씁니다.</p>
-<h4>10. gh CLI 설치와 인증</h4>
-<p>gh CLI는 터미널에서 GitHub를 다루는 도구입니다. 한 번 인증해 두면 저장소를 만들고 파일을 올리는 일을 Claude가 대신합니다. <strong>브라우저에서 GitHub에 로그인했더라도 gh 인증은 따로 해야 합니다.</strong></p>
+<p><strong>확인</strong>: 브라우저에서 GitHub에 로그인된 상태면 된 것입니다. 이 브라우저를 14번에서 다시 씁니다.</p>
+<h4>14. gh CLI 설치와 인증</h4>
+<p>3회차 전에 마쳐 주세요. 3회차 실습은 인증 없이도 진행할 수 있지만, 4회차 전에는 마쳐야 합니다.</p>
+<p>gh CLI는 터미널에서 GitHub를 다루는 도구입니다. 한 번 인증해 두면 저장소를 만들고 파일을 올리는 일을 Claude가 대신합니다. <strong>브라우저에서 GitHub에 로그인했더라도 gh 인증은 따로 해야 합니다.</strong> 인증은 Claude를 거치지 않고 터미널에 직접 입력하는 것이 가장 간단합니다.</p>
+<p>Claude에게 설치와 인증 진행을 맡길 수도 있습니다(선택). 로그인과 코드 입력은 본인이 직접 합니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>GitHub CLI(gh)를 설치하고 내 GitHub 계정으로 인증하는 과정을 진행해 줘. 웹 브라우저 로그인이나 인증 코드 입력처럼 내가 직접 할 단계에서는 멈추고 알려 줘.
+</code></pre>
 <p><strong>설치</strong></p>
 <ol>
-<li>Windows 키를 누르고 <code>wt</code>를 입력한 뒤 Enter를 눌러 Windows Terminal을 엽니다. Claude를 실행하지 않은 PowerShell 상태에서 진행합니다.</li>
+<li>Windows 키를 누르고 <code>wt</code>를 입력한 뒤 Enter를 눌러 Windows Terminal을 엽니다. 이미 열려 있으면 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+T</code>를 차례로 눌러 새 탭을 엽니다. Claude를 실행하지 않은 PowerShell 상태에서 진행합니다.</li>
 <li>아래 명령을 입력합니다.</li>
 </ol>
 <button type="button" class="copy" data-copy>복사</button><pre><code>winget install GitHub.cli
@@ -189,12 +334,8 @@
 </tbody>
 </table></div>
 <ol start="3">
-<li>터미널에 일회용 인증 코드가 나오고 클립보드에 자동으로 복사됩니다. 메모장에 붙여넣어 코드가 들어왔는지 확인해 두세요. 복사되지 않았으면 키패드로 코드가 있는 줄을 읽은 뒤 센스리더의 <code>Insert+X</code>로 복사해 메모장에 붙여넣고, 코드만 골라 다시 복사합니다.</li>
-<li>터미널로 돌아와 Enter를 누릅니다. 브라우저가 열리지 않거나 GitHub에 로그인하지 않은 브라우저가 열리면, 9번에서 로그인한 브라우저에 아래 주소를 직접 입력하세요.</li>
-</ol>
-<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/login/device" target="_blank" rel="noopener">https://github.com/login/device</a>
-</code></pre>
-<ol start="5">
+<li>터미널에 일회용 인증 코드가 나오고 클립보드에 자동으로 복사됩니다. 메모장에 붙여넣어 코드가 들어왔는지 확인해 두세요.</li>
+<li>터미널로 돌아와 Enter를 누르면 브라우저에 GitHub 화면이 열립니다.</li>
 <li>표시된 계정이 본인 계정인지 확인하고 계속 진행합니다.</li>
 <li>가상 커서를 끄고 코드 입력란의 첫 칸에 코드를 붙여넣습니다. 나머지 칸이 채워지지 않으면 한 글자씩 입력합니다.</li>
 <li>접근 권한을 승인합니다. 완료 메시지가 나오면 터미널로 돌아갑니다.</li>
@@ -202,7 +343,61 @@
 <p><strong>확인</strong>: 터미널에 아래 명령을 입력합니다. 본인 계정이 로그인 상태로 나오면 된 것입니다.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>gh auth status
 </code></pre>
-<p>인증 코드가 만료됐다는 메시지가 나오면 터미널에서 <code>Ctrl+C</code>로 취소하고 <code>gh auth login --clipboard</code>부터 다시 하세요. 끝까지 되지 않으면 어디서 멈췄는지만 적어 두셨다가 3회차에 알려 주세요.</p>
+<p><strong>막히는 경우</strong></p>
+<ul>
+<li><strong>명령을 입력했는데 웹 검색 결과가 뜨는 경우</strong>: Windows 검색창에 입력한 것입니다. Windows 검색창에는 <code>wt</code>만 입력하고, 설치와 인증 명령은 열린 PowerShell에 입력합니다.</li>
+<li><strong>설치했는데 <code>gh</code> 명령을 찾지 못하는 경우</strong>: 터미널을 닫고 새로 연 뒤 <code>gh --version</code>을 입력합니다.</li>
+<li><strong>PowerShell에 한국어 지시를 입력해 오류가 난 경우</strong>: 한국어 지시는 <code>claude</code>를 실행한 뒤 입력합니다. <code>gh auth login --clipboard</code>는 PowerShell에 직접 입력하는 명령입니다.</li>
+<li><strong>선택 항목이 읽히지 않는 경우</strong>: 선택 표시가 읽히지 않으면 센스리더 구두점 읽기 토글(<code>Alt+Shift+Z</code>)을 「모두 읽기」라고 들릴 때까지 누릅니다. 인증을 마치면 같은 키로 원래 설정으로 되돌립니다.</li>
+<li><strong>코드가 클립보드에 복사되지 않은 경우</strong>: 키패드로 코드가 있는 줄(<code>First copy your one-time code</code>)을 읽고 센스리더 <code>Insert+X</code>로 마지막 음성 출력 내용을 복사합니다. 메모장에 붙여넣어 코드만 남기고 다시 복사합니다.</li>
+<li><strong>브라우저가 열리지 않거나 GitHub에 로그인하지 않은 브라우저가 열린 경우</strong>: 13번에서 로그인한 브라우저에 아래 주소를 직접 입력합니다.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/login/device" target="_blank" rel="noopener">https://github.com/login/device</a>
+</code></pre>
+<ul>
+<li><strong>인증 코드 오류나 만료 메시지가 나온 경우</strong>: 터미널에서 <code>Ctrl+C</code>로 취소하고 <code>gh auth login --clipboard</code>부터 다시 해서 새 코드를 받습니다.</li>
+<li><strong>Claude가 인증 대기 중 시간 초과를 알린 경우</strong>: 별도 PowerShell에서 직접 인증하고 <code>gh auth status</code>로 확인한 뒤 Claude로 돌아갑니다.</li>
+<li><strong>어느 단계인지 알 수 없는 경우</strong>: <code>Alt+PrintScreen</code>으로 창을 캡처하고, 터미널 새 탭에서 <code>claude</code>를 실행해 입력창에 <code>Alt+V</code>로 붙여넣어 상황을 묻습니다.</li>
+</ul>
+<p>끝까지 되지 않으면 어디서 멈췄는지 적어 두셨다가 강의 시간에 알려 주세요.</p>
+<h4>15. 브라우저 자동화 연결</h4>
+<p>선택 사항입니다. 3회차 전에 해 두시면 좋습니다.</p>
+<p>브라우저 자동화는 Claude가 크롬을 열어 사이트를 조작하는 기능입니다. API 키 발급 페이지 열기나 계정 설정에 씁니다. 두 가지 방법이 있습니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>도구</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude in Chrome</td>
+<td>평소 쓰는 크롬에 Claude를 연결하므로 로그인 상태를 유지한 채 작업합니다. 처음 연결에 시간이 걸립니다</td>
+</tr>
+<tr>
+<td>Playwright</td>
+<td>로그인 정보가 없는 새 브라우저를 열어 작업하므로 매번 직접 로그인합니다. 다른 에이전트도 함께 씁니다</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Claude in Chrome</strong></p>
+<ol>
+<li>크롬에 Claude in Chrome 확장을 설치하고 Claude 계정으로 로그인합니다. 확장 로그인은 본인이 직접 합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank" rel="noopener">https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn</a>
+</code></pre>
+<ol start="2">
+<li>크롬을 켠 상태에서 Claude를 다시 실행하고 연결을 확인합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>지금 열려 있는 크롬 탭 목록을 읽어 줘.
+</code></pre>
+<p><strong>Playwright</strong></p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>브라우저 자동화에 쓸 Playwright를 설치해 줘. 설치 전에 무엇을 설치할지 알려 줘.
+</code></pre>
+<p>연결한 뒤에는 API 키 발급 페이지를 여는 일도 맡길 수 있습니다. 키를 만들고 복사하는 일은 본인이 직접 합니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Google AI Studio의 API 키 페이지를 크롬으로 열어 줘. 키를 만들거나 읽지는 말고, 페이지가 열리면 멈춰 줘.
+</code></pre>
 <hr />
 </div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s1-panel-4">함께 확인할 것</button></h3>
 <div id="s1-panel-4" hidden>
@@ -211,65 +406,90 @@
 <h4>운영체제</h4>
 <p>실습 절차는 Windows 기준으로 준비했습니다. macOS를 쓰시면 미리 알려 주세요.</p>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s1-panel-5">준비사항 점검표</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s1-panel-5">점검표</button></h3>
 <div id="s1-panel-5" hidden>
 <div class="table-wrap"><table>
 <thead>
 <tr>
 <th>항목</th>
-<th>마감</th>
+<th>시점</th>
 <th>확인</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1. Claude 계정 로그인</td>
-<td>11/11</td>
+<td>11/11 전</td>
 <td></td>
 </tr>
 <tr>
 <td>2. Claude Desktop 앱 설치</td>
-<td>11/11</td>
+<td>11/11 전</td>
 <td></td>
 </tr>
 <tr>
 <td>3. Git 설치</td>
-<td>11/11</td>
+<td>11/11 전</td>
 <td></td>
 </tr>
 <tr>
-<td>4. Node.js·Python 설치</td>
-<td>11/11</td>
+<td>4. Node.js와 Python 설치</td>
+<td>11/11 전</td>
 <td></td>
 </tr>
 <tr>
 <td>5. 홈 디렉터리에 project 폴더 만들기</td>
-<td>11/11</td>
+<td>11/11 전</td>
 <td></td>
 </tr>
 <tr>
-<td>6. Gemini API 키 발급</td>
-<td>11/14</td>
+<td>6. Windows 터미널과 Claude Code 설치</td>
+<td>1회차 수업</td>
 <td></td>
 </tr>
 <tr>
-<td>7. 업무 폴더 하나 정하기</td>
-<td>11/16</td>
+<td>7. 스크린 리더 모드 켜기</td>
+<td>1회차 수업</td>
 <td></td>
 </tr>
 <tr>
-<td>8. 자동화하고 싶은 업무 하나 정하기</td>
-<td>11/16</td>
+<td>8. 시각장애인을 위한 스킬 번들 설치</td>
+<td>1회차 수업</td>
 <td></td>
 </tr>
 <tr>
-<td>9. GitHub 계정 만들기</td>
-<td>11/16</td>
+<td>9. TTS 요약 설치</td>
+<td>2회차 수업</td>
 <td></td>
 </tr>
 <tr>
-<td>10. gh CLI 설치와 인증</td>
-<td>11/16</td>
+<td>10. Gemini API 키 발급과 등록</td>
+<td>발급 11/14 전, 등록 2회차 수업</td>
+<td></td>
+</tr>
+<tr>
+<td>11. 업무 폴더 하나 정하기</td>
+<td>11/16 전</td>
+<td></td>
+</tr>
+<tr>
+<td>12. 자동화하고 싶은 업무 하나 정하기</td>
+<td>11/16 전</td>
+<td></td>
+</tr>
+<tr>
+<td>13. GitHub 계정 만들기</td>
+<td>11/16 전</td>
+<td></td>
+</tr>
+<tr>
+<td>14. gh CLI 설치와 인증</td>
+<td>11/16 전(늦어도 4회차 전)</td>
+<td></td>
+</tr>
+<tr>
+<td>15. 브라우저 자동화 연결</td>
+<td>선택</td>
 <td></td>
 </tr>
 </tbody>
@@ -278,7 +498,7 @@
 </article>
 <article id="s2" hidden>
 <button type="button" class="close" data-close>닫기</button>
-<h2 tabindex="-1">1회차: 작업 환경 셋업</h2>
+<h2 tabindex="-1">1회차: 터미널에서 Claude 시작하기</h2>
 <ul>
 <li><strong>강의</strong>: AI 에이전트 실습 - Claude로 업무 자동화하기</li>
 <li><strong>과정명</strong>: 시각장애인 재직자 AI 활용 직무향상 과정</li>
@@ -290,10 +510,9 @@
 <h3><button type="button" class="accordion-toggle" aria-expanded="true" aria-controls="s2-panel-1">이번 시간의 목표</button></h3>
 <div id="s2-panel-1">
 <ul>
-<li>터미널에서 Claude Code를 실행하고 스크린 리더 모드 켜기</li>
+<li>터미널에서 Claude Code를 실행하고 첫 질문 보내기</li>
 <li>홈 디렉터리와 Claude Code의 설정 폴더 확인하기</li>
 <li>project 폴더에서 Claude를 실행하고 파일 목록 확인하기</li>
-<li>시각장애인을 위한 스킬 번들을 설치하고 설치 결과 확인하기</li>
 <li>메모장에서 <code>SKILL.md</code>를 열어 스킬의 기능과 절차 읽기</li>
 </ul>
 <hr />
@@ -308,7 +527,7 @@
 </ul>
 <h4>네 회차의 흐름</h4>
 <ul>
-<li><strong>1회차, 작업 환경 셋업</strong>: 터미널에서 Claude Code를 실행하고, 파일 탐색기로 작업 폴더와 스킬을 확인함.</li>
+<li><strong>1회차, 터미널에서 Claude 시작하기</strong>: 터미널에서 Claude Code를 실행하고, 파일 탐색기로 작업 폴더와 스킬을 확인함.</li>
 <li><strong>2회차, 스킬로 문서 읽고 쓰고 듣기</strong>: 설치한 스킬로 PDF·한글 문서를 읽고, 만들고, 줄이고, 음성으로 들음.</li>
 <li><strong>3·4회차, 직무 맞춤형 AI 활용</strong>: 각자의 업무에서 고른 반복 업무를 스크립트, 스킬, 앱으로 만듦.</li>
 </ul>
@@ -323,7 +542,7 @@
 <p>Claude Desktop 앱의 <strong>Code 탭</strong>과 <strong>Claude Code CLI</strong>는 같은 폴더를 다룰 수 있음.</p>
 </li>
 <li>터미널은 입력과 키패드 리뷰로, Desktop 앱은 편집창·버튼·응답 영역을 오가며 조작함.</li>
-<li>화면 확대가 익숙하면 Desktop 앱에서 <strong>코드</strong>를 선택해 사용해도 됨.</li>
+<li>화면 확대가 익숙하면 Desktop 앱에서 <strong>코드</strong>를 선택해 사용해도 됨(<button type="button" class="ref" data-ref="g-5">설치와 환경 설정 5. 홈 디렉터리에 project 폴더 만들기</button> 참조).</li>
 </ul>
 <hr />
 </div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-3">터미널, 셸, CLI</button></h3>
@@ -470,88 +689,47 @@
 <li><strong>다른 사람에게 보여 줄 때</strong>: 포맷 보기로 되돌리면 제목과 강조 등이 서식으로 표시됨.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-6">사전 준비 점검</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-6">실습 전에 갖출 것</button></h3>
 <div id="s2-panel-6" hidden>
 <ul>
-<li>Claude 구독 계정 로그인</li>
-<li>설치를 맡길 에이전트(Claude Desktop 앱 Code 탭 또는 Codex 등)</li>
-<li>Node.js와 Python</li>
-<li>홈 디렉터리의 「project」 폴더에 PDF 한 개와 한글 또는 워드 문서 한 개</li>
-<li>설치·파일 준비는 사전 준비 안내문 참조.</li>
+<li><strong>Claude 구독 계정</strong>: <button type="button" class="ref" data-ref="g-1">설치와 환경 설정 1. Claude 계정 로그인</button> 참조.</li>
+<li><strong>Claude Desktop 앱</strong>: <button type="button" class="ref" data-ref="g-2">설치와 환경 설정 2. Claude Desktop 앱 설치</button> 참조.</li>
+<li><strong>Git</strong>: <button type="button" class="ref" data-ref="g-3">설치와 환경 설정 3. Git 설치</button> 참조.</li>
+<li><strong>Node.js와 Python</strong>: <button type="button" class="ref" data-ref="g-4">설치와 환경 설정 4. Node.js와 Python 설치</button> 참조.</li>
+<li><strong>project 폴더와 연습 파일</strong>: <button type="button" class="ref" data-ref="g-5">설치와 환경 설정 5. 홈 디렉터리에 project 폴더 만들기</button> 참조.</li>
+<li>터미널과 Claude Code, 스크린 리더 모드, 스킬 번들은 수업에서 함께 설치함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-7">실습 1: 터미널과 Claude Code 셋업하기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-7">실습 1: 터미널에서 Claude 실행하기</button></h3>
 <div id="s2-panel-7" hidden>
-<h4>설치와 기본 설정 요청하기</h4>
 <ul>
-<li>Desktop 앱 Code 탭이나 사용 중인 에이전트에 다음을 보냄.</li>
+<li>Windows 터미널과 Claude Code가 설치돼 있어야 하며, 설치하지 않았다면 먼저 설치함(<button type="button" class="ref" data-ref="g-6">설치와 환경 설정 6. Windows 터미널과 Claude Code 설치</button> 참조).</li>
 </ul>
-<button type="button" class="copy" data-copy>복사</button><pre><code>이 컴퓨터에 Windows 터미널과 PowerShell 7이 설치돼 있는지 확인해 줘. 없으면 설치하고, Windows 터미널을 기본 터미널 앱으로 설정해 줘. Windows 터미널의 기본 프로필은 PowerShell 7로 바꿔 줘.
-</code></pre>
-<button type="button" class="copy" data-copy>복사</button><pre><code>Claude Code CLI를 공식 네이티브 설치 방식으로 설치해 줘. 이미 설치돼 있으면 설치 방식과 실제 실행되는 경로를 확인해 줘.
-</code></pre>
-<ul>
-<li>중복 설치 안내가 나오면 실제 실행되는 Claude의 설치 방식과 경로를 확인하도록 요청함.</li>
-</ul>
-<h4>터미널에서 직접 실행하기</h4>
 <ol>
-<li>Windows 키를 누르고 <code>wt</code>를 입력한 뒤 <code>Enter</code>를 누름(검색되지 않으면 <code>Windows Terminal</code> 검색).</li>
-<li>키패드로 시작 화면을 읽어 PowerShell 7인지 확인함.<ul>
-<li>Windows PowerShell이면 에이전트에 기본 프로필 변경을 요청하고 터미널을 다시 엶.</li>
-</ul>
-</li>
+<li>Windows 키를 누르고 <code>wt</code>를 입력한 뒤 <code>Enter</code>를 누름.</li>
 <li>
 <p>PowerShell에 다음을 입력해 홈 디렉터리로 이동함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>cd ~
 </code></pre>
 </li>
 <li>
-<p>PowerShell에 다음을 입력하고 <code>Enter</code>를 누름.</p>
+<p>PowerShell에 다음을 입력하고 <code>Enter</code>를 누름. 처음 실행이면 테마 선택과 로그인이 나옴(<button type="button" class="ref" data-ref="g-6">설치와 환경 설정 6. Windows 터미널과 Claude Code 설치</button> 참조).</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>claude
 </code></pre>
 </li>
 <li>
-<p>테마 선택이 나오면 원하는 화면 색상을 고름.</p>
+<p>폴더 신뢰를 물으면 본인의 홈 디렉터리인지 확인하고 허용함(<code>y/n</code> 형식이면 <code>y</code> 입력 후 <code>Enter</code>).</p>
 </li>
-<li>Claude 구독 계정 로그인을 선택하고 브라우저에서 인증한 뒤 터미널로 돌아옴.<ul>
-<li>이미 인증했다면 로그인 화면이 생략될 수 있음.</li>
-</ul>
-</li>
-<li>폴더 신뢰를 물으면 본인의 홈 디렉터리인지 확인하고 허용함(<code>y/n</code> 형식이면 <code>y</code> 입력 후 <code>Enter</code>).</li>
 <li>모델명과 입력창이 나타나면 간단한 자연어 질문을 보내 응답을 확인함.</li>
+<li>스크린 리더 모드를 켜고 터미널을 다시 열어 <code>claude</code>를 실행함(<button type="button" class="ref" data-ref="g-7">설치와 환경 설정 7. 스크린 리더 모드 켜기</button> 참조).</li>
 </ol>
 <ul>
-<li><strong><code>claude</code>를 찾지 못하면</strong>: 터미널을 다시 열고, 그래도 안 되면 에이전트에 오류 문구를 전달함.</li>
-<li><strong>앱 안에서만 실행됐다면</strong>: Windows 터미널을 직접 열어 위 절차를 진행함.</li>
-<li>
-<p>터미널에서 Claude가 실행되면 Desktop 앱을 닫아도 됨.</p>
-</li>
-<li>
-<p><strong>확인</strong>: Windows 터미널의 Claude에서 한국어 질문에 답을 받음.</p>
-</li>
+<li><strong>앱 안에서만 실행됐다면</strong>: Windows 터미널을 직접 열어 진행함.</li>
+<li><strong>확인</strong>: Windows 터미널의 Claude에서 한국어 질문에 답을 받고, 시작 화면에 스크린 리더 모드 안내가 나옴.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-8">실습 2: 스크린 리더 모드 켜기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-8">[센스리더 팁] 터미널에서 Claude 다루기</button></h3>
 <div id="s2-panel-8" hidden>
-<ul>
-<li>Claude Code 입력창에 다음을 보냄.</li>
-</ul>
-<button type="button" class="copy" data-copy>복사</button><pre><code>클로드 코드 설정에서 스크린 리더 모드 켜 줘.
-</code></pre>
-<ul>
-<li><strong>「클로드 코드 설정에서」까지 입력함</strong>(생략하면 다른 접근성 설정과 혼동할 수 있음).</li>
-<li>고르라는 목록이 떴으면 목록에서 하나를 고르지 말고 위 문장을 그대로 다시 보냄.</li>
-</ul>
-<ol>
-<li>터미널을 다시 열고 <code>claude</code>를 실행함.</li>
-<li>시작 화면의 스크린 리더 모드 안내와 장식 문자 감소를 확인함.</li>
-</ol>
-<ul>
-<li>선택지는 번호와 항목을 먼저 읽고 번호 입력 후 <code>Enter</code>로 확정함.</li>
-</ul>
-<hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-9">[센스리더 팁] 터미널에서 Claude 다루기</button></h3>
-<div id="s2-panel-9" hidden>
 <h4>입력창은 맨 아래에 있음</h4>
 <ul>
 <li>입력창은 화면 맨 아래에 있고, 그 가까이에 권한 모드가 표시됨.</li>
@@ -599,8 +777,8 @@
 <li>대화를 새로 시작하려면 <code>/exit</code>로 Claude Code를 종료한 뒤, PowerShell 프롬프트에서 <code>claude</code>를 다시 실행함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-10">실습 3: 홈 디렉터리와 Claude 설정 폴더 탐색하기</button></h3>
-<div id="s2-panel-10" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-9">실습 2: 홈 디렉터리와 Claude 설정 폴더 탐색하기</button></h3>
+<div id="s2-panel-9" hidden>
 <h4>홈 디렉터리와 설정 폴더 확인하기</h4>
 <ol>
 <li><code>Windows 키+E</code>로 파일 탐색기를 열고 <strong>내 PC</strong>, <strong>로컬 디스크(C:)</strong>, <strong>사용자</strong>로 차례로 들어감.</li>
@@ -641,8 +819,8 @@
 <li><strong>확인</strong>: 답변의 파일 이름과 탐색기의 파일 이름이 일치함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-11">[센스리더 팁] 파일 탐색기 다루기</button></h3>
-<div id="s2-panel-11" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-10">[센스리더 팁] 파일 탐색기 다루기</button></h3>
+<div id="s2-panel-10" hidden>
 <h4>자주 쓰는 폴더 고정하기</h4>
 <ol>
 <li><strong>파일 탐색기 열기</strong>: <code>Windows 키+E</code>를 누름.</li>
@@ -681,41 +859,11 @@
 <li>다른 데스크톱으로 이동해도 실행 중인 작업은 계속됨.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-12">실습 4: 시각장애인을 위한 스킬 번들 설치하기</button></h3>
-<div id="s2-panel-12" hidden>
-<ol>
-<li><strong>홈 디렉터리에서 Claude 열기</strong>: 새 터미널의 PowerShell 프롬프트에서 <code>cd ~</code>를 입력한 뒤 <code>claude</code>를 실행함.</li>
-<li>
-<p><strong>전체 설치 요청하기</strong>: Claude 입력창에 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들과 그 안의 다섯 스킬을 모두 설치해 줘. Claude Code에서 어느 작업 폴더를 열어도 쓸 수 있게 전역으로 설치해 줘. 이미 설치된 것은 상태를 확인하고 빠진 것만 설치해 줘.
-</code></pre>
-</li>
-<li>
-<p>키패드로 마지막 응답을 읽고 실행 승인을 물으면 내용을 확인해 응답함.</p>
-</li>
-<li>
-<p>필요한 프로그램이 없다는 오류가 나오면 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>스킬 설치에 필요한 무료 프로그램과 패키지를 확인해서 설치해 줘. 유료 서비스 가입이나 결제는 진행하지 마.
-</code></pre>
-</li>
-<li>
-<p>탐색기에서 홈 디렉터리의 <code>.claude\skills</code>를 열어 다섯 스킬 폴더를 확인함.</p>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-11">실습 3: SKILL.md를 메모장에서 읽기</button></h3>
+<div id="s2-panel-11" hidden>
 <ul>
-<li><code>skills-for-the-blind</code>까지 여섯 폴더이며, 기존 스킬이 있으면 더 많을 수 있음.</li>
+<li>스킬 번들이 설치돼 있어야 하며, 설치하지 않았다면 먼저 설치함(<button type="button" class="ref" data-ref="g-8">설치와 환경 설정 8. 시각장애인을 위한 스킬 번들 설치</button> 참조).</li>
 </ul>
-</li>
-<li><strong>새 대화에서 확인하기</strong>: <code>/exit</code>로 Claude를 종료하고 PowerShell에서 <code>claude</code>를 다시 실행한 뒤 다음을 보냄.<button type="button" class="copy" data-copy>복사</button><pre><code>skills-for-the-blind에 포함된 다섯 스킬이 모두 설치돼 있는지 확인하고, 각각 어떤 일을 할 수 있는지 알려 줘.
-</code></pre>
-</li>
-</ol>
-<ul>
-<li><strong>확인</strong>: 스킬 폴더가 있고 새 대화에서도 스킬을 찾음.</li>
-<li>음성 출력·문서 변환에 필요한 설정은 별도로 점검해야 함.</li>
-<li>이미 설치했다면 최신 상태인지 점검하고, 직접 수정한 파일은 재설치 전에 알림.</li>
-</ul>
-<hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-13">실습 5: SKILL.md를 메모장에서 읽기</button></h3>
-<div id="s2-panel-13" hidden>
 <ol>
 <li><strong>스킬 폴더 열기</strong>: 홈 디렉터리의 <code>.claude\skills</code>에서 <code>agent-cli-tts-summary</code> 폴더를 엶.</li>
 <li><strong>지침 파일 찾기</strong>: <code>SKILL.md</code>를 선택함(<code>README.md</code>·<code>SKILLS.md</code>와 구별).</li>
@@ -746,8 +894,8 @@
 <li>고쳐 쓰려면 2회차 「고쳐 쓸 스킬은 이름을 바꿔 보관하기」 참조.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-14">과제 및 2회차 안내</button></h3>
-<div id="s2-panel-14" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-12">과제 및 2회차 안내</button></h3>
+<div id="s2-panel-12" hidden>
 <ul>
 <li><strong>2회차: 2026년 11월 14일(토) 12:00~15:00</strong></li>
 </ul>
@@ -756,7 +904,7 @@
 <li><strong>폴더 탐색 연습하기</strong>: project 폴더와 홈 디렉터리를 고정하고, 파일 탐색기에서 두 위치를 오감.</li>
 <li><strong>스킬 설치 확인하기</strong>: 다섯 스킬의 폴더가 있고 새 대화에서 인식되는지 확인함.</li>
 <li>스킬 하나의 <code>SKILL.md</code>를 메모장으로 읽음.</li>
-<li><strong>Gemini API 키 준비하기</strong>: 사전 준비 안내문 참조.</li>
+<li><strong>Gemini API 키 발급하기</strong>: <button type="button" class="ref" data-ref="g-10">설치와 환경 설정 10. Gemini API 키 발급과 등록</button> 참조.</li>
 <li><strong>연습 파일 준비하기</strong>: PDF 한 개와 한글 또는 워드 문서 한 개를 project 폴더에 둠.</li>
 </ol>
 <h4>내 업무 정리 파일 만들기</h4>
@@ -769,117 +917,6 @@
 <ul>
 <li>이름·연락처·고객 정보 없이 업무 종류와 흐름만 설명함.</li>
 <li>인터뷰를 마치면 <code>내 업무 정리.md</code>를 메모장으로 읽고 빠진 업무의 추가를 요청함.</li>
-</ul>
-<hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s2-panel-15">부록: Desktop 앱 Code 탭 셋업</button></h3>
-<div id="s2-panel-15" hidden>
-<h4>Code 탭으로 이동하기</h4>
-<ol>
-<li>사이드바에서 <strong>코드</strong>를 선택하고 <code>Enter</code>를 누름.</li>
-<li><code>F2</code>로 프롬프트 편집창에 이동함.</li>
-</ol>
-<ul>
-<li>화면 구성이 다르면 사이드바에서 항목 이름을 확인함.</li>
-</ul>
-<h4>Git 설치 안내가 뜬 경우</h4>
-<ol>
-<li><strong>Code 탭으로 이동하기</strong>: Claude Desktop 앱을 실행하고, 사이드바에서 <code>코드</code>를 누름.</li>
-<li>Git 설치 안내가 뜨면 <strong>Git 다운로드</strong>를 누름(<strong>나중에</strong>를 고르면 진행되지 않음).<ul>
-<li>안내가 없으면 Git이 이미 설치된 것이므로 3~4단계를 건너뜀.</li>
-</ul>
-</li>
-<li><strong>Git 설치하기</strong>: 내려받은 설치 파일(<code>Git-x.x.x-64-bit.exe</code>)을 실행하고, 설치 마법사의 모든 화면에서 기본 설정 그대로 <strong>Next</strong> 또는 <strong>Install</strong>을 눌러 설치를 마침.<ul>
-<li>진행되지 않으면 <strong>다운로드 페이지 열기</strong>를 누름.</li>
-<li>브라우저가 열리지 않으면 다운로드 폴더에 설치 파일이 있는지 확인해 실행함.</li>
-<li>Git 설치 전에는 프롬프트 입력창이 비활성 상태임.</li>
-</ul>
-</li>
-<li>앱을 완전히 종료하고 다시 실행함.</li>
-<li>
-<p><strong>설치 확인 요청하기</strong>: Code 탭으로 돌아와 하단 프롬프트 입력창에 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>Git 설치를 마쳤는데 제대로 설치된 것인지 확인해 줘.
-</code></pre>
-</li>
-<li>
-<p>PowerShell 명령 실행 승인을 물으면 내용을 확인하고 허용함.</p>
-<ul>
-<li><strong>항상 허용</strong>은 해당 규칙에 맞는 명령을 다시 묻지 않는 설정임.</li>
-</ul>
-</li>
-<li>
-<p><code>bash.exe</code>를 찾지 못해 <code>CLAUDE_CODE_GIT_BASH_PATH</code> 설정 안내가 나오면 다음을 보냄.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>PowerShell로 환경 변수를 영구 설정하는 방법으로 네가 바로 해 줘.
-</code></pre>
-<ul>
-<li>안내 번호는 달라질 수 있으므로 번호 대신 방법 이름으로 지시함.</li>
-<li>환경 변수 안내가 뜨지 않고 Git을 정상적으로 인식하면 추가 설정 없이 진행함.</li>
-<li>「현재 세션의 PATH에는 아직 반영되지 않았다」는 안내가 나오면 앱을 완전히 종료하고 다시 실행한 뒤 설치 상태를 다시 확인함.</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><strong>확인</strong>: 설치 확인 요청에 Git이 설치됐다는 답이 돌아옴.</li>
-</ul>
-<h4>이미 설치한 Git을 인식하지 못할 때</h4>
-<ul>
-<li>설치를 맡긴 에이전트에 다음을 보냄.</li>
-</ul>
-<button type="button" class="copy" data-copy>복사</button><pre><code>Claude를 쓰려는데 Git을 설치하라고 나와. Git이 전역으로 설치되어 있는지 확인해 줘.
-</code></pre>
-<h4>앱을 최신으로 유지하기</h4>
-<ul>
-<li>구버전에서는 메뉴나 권한 설정이 다를 수 있음.</li>
-<li>앱 안에서 검색으로 「업데이트」를 찾아 실행함.</li>
-<li>처음 설치하면 업데이트를 반복해야 할 수 있음.</li>
-</ul>
-<h4>키 조작이 반응하지 않을 때</h4>
-<ul>
-<li>라벨이 잘못 읽히거나 가상 커서를 해제해도 방향키가 듣지 않으면 다음 순서로 복구함.</li>
-</ul>
-<ol>
-<li><code>Esc</code>를 여러 번 눌러 열려 있는 목록 닫기</li>
-<li><code>F2</code>로 프롬프트 편집창으로 돌아가기</li>
-<li><code>F5</code>로 화면을 새로 읽고 다시 탐색하기</li>
-<li>그래도 라벨이 어긋나면 앱을 완전히 종료하고 다시 실행하기</li>
-</ol>
-<h5>앱 완전 종료 방법</h5>
-<ul>
-<li><code>Alt+F4</code>로 닫아도 백그라운드에 남을 수 있으므로 작업 관리자에서 종료함.</li>
-</ul>
-<ol>
-<li><code>Ctrl+Shift+Esc</code>로 작업 관리자 열기</li>
-<li>가상 커서를 해제하고 목록에서 <code>Claude</code> 찾기</li>
-<li>팝업 키를 누르고 <code>Alt+E</code>(작업 끝내기) 누르기</li>
-<li>Windows 키를 눌러 검색창에 「클로드」를 입력하고 실행하기</li>
-</ol>
-<h4>작업 폴더 선택과 첫 지시</h4>
-<ul>
-<li>결과 파일을 저장할 폴더를 지정함.</li>
-</ul>
-<ol>
-<li>Code 탭에서 편집창 위쪽의 <strong>로컬 폴더</strong>를 고르고 <code>Enter</code>를 누름.</li>
-<li>홈 디렉터리의 project 폴더로 이동해 <strong>폴더 선택</strong>을 누름.</li>
-<li>입력창 상단에 project 폴더 이름이 표시되는지 확인함.</li>
-<li>신뢰를 물으면 본인이 준비한 폴더인지 확인하고 <strong>신뢰</strong>를 누름.</li>
-<li>
-<p>Code 탭 입력창에 다음을 입력하고 전송함.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>이 폴더에 어떤 파일이 있는지 읽고 정리해 줘.
-</code></pre>
-</li>
-<li>
-<p>답변의 파일 이름·형식이 project 폴더의 파일과 일치하는지 확인함.</p>
-</li>
-</ol>
-<h4>작업 범위와 권한 관리</h4>
-<ul>
-<li>폴더 밖 접근·프로그램 설치 등 승인을 물으면 대상 파일과 명령을 확인하고 응답함.</li>
-<li><strong>자동 모드</strong>는 실행할 작업을 검토해 승인 요청을 줄임.</li>
-<li>
-<p>편집창 아래 <strong>편집 수락</strong> 메뉴에서 <strong>자동</strong>을 고른 뒤 <strong>자동 모드 활성화</strong>를 누름.</p>
-</li>
-<li>
-<p>자동 모드가 없으면 앱 업데이트와 계정·조직 설정을 확인함.</p>
-</li>
 </ul></div>
 <button type="button" class="close" data-close>닫기</button>
 </article>
@@ -897,10 +934,10 @@
 <h3><button type="button" class="accordion-toggle" aria-expanded="true" aria-controls="s3-panel-1">이번 시간의 목표</button></h3>
 <div id="s3-panel-1">
 <ul>
-<li>작업 결과 요약을 음성으로 듣는 환경 셋업하기</li>
+<li>작업 결과 요약을 음성으로 듣고 설정 바꾸기</li>
 <li>실제 업무 폴더에서 Claude를 실행하고 실행 환경 점검하기</li>
 <li>규칙 파일 <code>CLAUDE.md</code>를 만들고 업무 규칙 기록하기</li>
-<li>설치한 스킬의 실행 환경을 점검하고 Gemini API 키 등록하기</li>
+<li>설치한 스킬의 실행 환경 점검하기</li>
 <li>PDF와 한글 문서를 읽고, 한글 문서를 만들기</li>
 <li>긴 문서를 줄이고 음성 파일로 만들기</li>
 <li>다섯 스킬을 한 흐름으로 이어 쓰기</li>
@@ -914,10 +951,10 @@
 <li><strong>스크린 리더 모드</strong>: 시작 화면에 스크린 리더 모드 안내가 나와야 함.</li>
 <li><strong>연습 파일</strong>: 홈 디렉터리의 「project」 폴더에 PDF 한 개와 한글 또는 워드 문서 한 개를 둠.</li>
 <li>업무 인터뷰를 마쳤다면 <code>내 업무 정리.md</code>도 함께 둠.</li>
-<li><strong>Node.js와 Python</strong>: 스킬 설치와 문서 변환에 필요함(사전 준비 안내문 참조).</li>
-<li><strong>스킬 번들</strong>: <code>skills-for-the-blind</code>와 다섯 스킬을 설치함(1회차 실습 4 참조).</li>
-<li><strong>마크다운 읽기</strong>: 메모장에서 <code>SKILL.md</code>를 읽을 수 있어야 함(1회차 실습 5 참조).</li>
-<li><strong>Gemini API 키</strong>: Google AI Studio에서 발급해 메모장 등에 복사해 둠(사전 준비 안내문 참조).</li>
+<li><strong>Node.js와 Python</strong>: 스킬 설치와 문서 변환에 필요함(<button type="button" class="ref" data-ref="g-4">설치와 환경 설정 4. Node.js와 Python 설치</button> 참조).</li>
+<li><strong>스킬 번들</strong>: <code>skills-for-the-blind</code>와 다섯 스킬을 설치함(<button type="button" class="ref" data-ref="g-8">설치와 환경 설정 8. 시각장애인을 위한 스킬 번들 설치</button> 참조).</li>
+<li><strong>마크다운 읽기</strong>: 메모장에서 <code>SKILL.md</code>를 읽을 수 있어야 함(1회차 실습 3 참조).</li>
+<li><strong>Gemini API 키</strong>: Google AI Studio에서 발급해 메모장 등에 복사해 둠(<button type="button" class="ref" data-ref="g-10">설치와 환경 설정 10. Gemini API 키 발급과 등록</button> 참조).</li>
 </ul>
 <h4>되짚을 개념</h4>
 <ul>
@@ -1229,64 +1266,22 @@
 <li>같은 형식의 파일이 여럿이면 경로로 지목함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-9">실습 6: 작업 결과 요약을 음성으로 듣기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-9">실습 4: 작업 결과 요약을 음성으로 듣기</button></h3>
 <div id="s3-panel-9" hidden>
 <ul>
 <li><code>agent-cli-tts-summary</code>는 응답이 끝날 때마다 핵심 요약을 음성으로 들려줌.</li>
 <li>기본값인 Windows 내장 음성은 API 키와 비용이 필요 없음.</li>
 </ul>
 <ol>
-<li>project 폴더에서 터미널을 열고 <code>claude</code>를 실행함.</li>
-<li>
-<p>다음 지시문으로 스킬 설치 상태를 확인함.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>agent-cli-tts-summary 스킬이 설치돼 있는지 확인해 줘. 없으면 <a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 에서 해당 스킬을 설치해 줘.
-</code></pre>
-</li>
-<li>
-<p>다운로드나 명령 실행 승인을 물으면 내용을 확인하고 <code>y</code>와 <code>Enter</code>를 누름.</p>
-</li>
-<li>
-<p>같은 입력창에서 TTS 요약 설정을 요청함.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>이 스킬대로 TTS 요약 루프를 설정해 줘.
-</code></pre>
-</li>
-<li>
-<p>요약 언어와 음성을 물으면 <strong>한국어</strong>와 <strong>Windows 내장 음성</strong>을 고름(묻지 않으면 기본값으로 설정됨).</p>
-</li>
-<li>자동 설정 중 권한 요청이 뜨면 내용을 확인하고 허용함.</li>
-<li>설정이 끝나면 <code>exit</code>로 나갔다가 <code>claude</code>를 다시 실행함.</li>
-<li>간단한 작업을 지시해 요약 음성이 나오는지 확인함.<button type="button" class="copy" data-copy>복사</button><pre><code>지금 이 폴더에 있는 파일 개수를 세어 줘.
+<li>TTS 요약을 설치하고 설정함(<button type="button" class="ref" data-ref="g-9">설치와 환경 설정 9. TTS 요약 설치</button> 참조).</li>
+<li>project 폴더에서 <code>claude</code>를 실행하고 간단한 작업을 지시해 요약 음성이 나오는지 확인함.<button type="button" class="copy" data-copy>복사</button><pre><code>지금 이 폴더에 있는 파일 개수를 세어 줘.
 </code></pre>
 </li>
 </ol>
 <ul>
-<li>에이전트가 훅과 설정 파일을 만들며, 새 대화부터 설정이 적용됨.</li>
 <li><code>/tts</code>를 입력하고 <code>Enter</code>를 누르면 현재 설정을 확인할 수 있음.</li>
-</ul>
-<h4>진행이 멈춘 것처럼 보일 때</h4>
-<ul>
-<li><strong>승인 대기</strong>: 마지막 응답의 요청 내용을 읽고 허용하려면 <code>y</code>와 <code>Enter</code>를 누름.</li>
-<li><strong>작업 중</strong>: 진행 줄이 계속 바뀌면 다른 창에서 기다림.</li>
-<li><strong>설치 실패</strong>: 「인식되지 않습니다」 같은 오류가 나오면 필요한 도구가 없는 것임.</li>
-</ul>
-<h4>설치가 실패할 때</h4>
-<ul>
-<li>설치에는 Node.js의 <code>npx</code>, 설정 점검에는 Python, 재생에는 Windows PowerShell과 내장 음성을 씀.</li>
-<li>필요한 도구가 없어 멈췄다면 설치와 설정을 함께 요청함.</li>
-</ul>
-<button type="button" class="copy" data-copy>복사</button><pre><code>이런 개발 환경 설정은 내가 잘 모르니, 필요한 건 네가 알아서 설치하고 설정까지 끝내 줘. 무료 프로그램만 설치하고, 설치 전에 무엇을 설치할지 알려 줘.
-</code></pre>
-<ul>
 <li><strong>[팁]</strong> 이해하기 어려운 응답은 쉬운 말로 풀어 달라고 요청함.</li>
-<li>실행 승인이 뜨면 내용을 확인하고 응답함.</li>
 </ul>
-<h4>스킬 이름을 못 찾을 때</h4>
-<ul>
-<li><code>skills-for-the-blind</code>는 다섯 스킬을 설치하는 번들이고 <code>agent-cli-tts-summary</code>는 그중 하나임.</li>
-<li>스킬을 찾지 못하면 번들에서 해당 스킬만 설치하도록 요청함.</li>
-</ul>
-<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들에서 agent-cli-tts-summary 하나만 설치해 줘.
-</code></pre>
 <h4>음성 속도 바꾸기와 끄기</h4>
 <ul>
 <li>입력창에 말로 요청하거나 <code>/tts</code> 명령을 입력하고 <code>Enter</code>를 누름.</li>
@@ -1350,9 +1345,10 @@
 <li>더 자연스러운 음성은 Gemini, ElevenLabs, Azure 중 하나의 API 키를 발급해 환경 변수로 등록한 뒤 바꿈.</li>
 <li>서비스마다 요금과 무료 사용량이 다름.</li>
 <li>Azure는 무료 등급(월 50만 자)이 있고 숫자와 고유명사를 비교적 정확하게 읽음.</li>
+<li>키 등록 방법은 Gemini API 키와 같음(<button type="button" class="ref" data-ref="g-10">설치와 환경 설정 10. Gemini API 키 발급과 등록</button> 참조).</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-10">실습 7: 작업 폴더에서 Claude 실행하고 CLAUDE.md 만들기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-10">실습 5: 작업 폴더에서 Claude 실행하고 CLAUDE.md 만들기</button></h3>
 <div id="s3-panel-10" hidden>
 <h4>작업 폴더 정하기</h4>
 <ul>
@@ -1510,7 +1506,7 @@
 <li>마크다운 문법은 1회차 「마크다운」 참조.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-11">실습 8: 스킬 설치 상태와 실행 환경 점검하기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-11">실습 6: 스킬 설치 상태와 실행 환경 점검하기</button></h3>
 <div id="s3-panel-11" hidden>
 <ol>
 <li>
@@ -1556,49 +1552,11 @@
 <li>스킬 폴더의 <code>SKILL.md</code>를 직접 읽어도 됨.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-12">실습 9: Gemini API 키 등록하기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-12">실습 7: docparse로 PDF·스캔 문서 읽기</button></h3>
 <div id="s3-panel-12" hidden>
-<h4>등록 절차</h4>
-<ol>
-<li>Windows 키를 누르고 「환경 변수」를 검색함.</li>
-<li>
-<p><strong>계정의 환경 변수 편집</strong>을 고르고 <code>Enter</code>를 누름(검색되지 않으면 아래 지시문 사용).</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>계정의 환경 변수 편집 창을 열어 줘. 키 값은 내가 직접 입력할게.
-</code></pre>
-</li>
-<li>
-<p>위쪽 <strong>사용자 변수</strong> 목록 아래의 <strong>새로 만들기</strong> 버튼을 누름.</p>
 <ul>
-<li>아래쪽 시스템 변수의 같은 이름 버튼과 혼동하지 않도록 <code>Tab</code>으로 위치를 확인함.</li>
+<li>Gemini API 키가 등록돼 있어야 하며, 등록하지 않았다면 먼저 등록함(<button type="button" class="ref" data-ref="g-10">설치와 환경 설정 10. Gemini API 키 발급과 등록</button> 참조).</li>
 </ul>
-</li>
-<li>변수 이름에 <code>GEMINI_API_KEY</code>를 입력함.</li>
-<li>변수 값에 복사해 둔 키를 붙여넣고 <strong>확인</strong>을 누름.<ul>
-<li>키는 이 창에만 붙여넣고 Claude 입력창에는 붙여넣지 않음.</li>
-</ul>
-</li>
-<li>환경 변수 창의 <strong>확인</strong>을 눌러 닫음.</li>
-<li>터미널을 모두 닫고 project 폴더에서 다시 열어 <code>claude</code>를 실행함.</li>
-<li>키 값을 출력하지 않고 등록 여부만 확인하도록 요청함.<button type="button" class="copy" data-copy>복사</button><pre><code>GEMINI_API_KEY 환경 변수가 등록돼 있는지 확인해 줘. 키 값은 화면에 출력하지 말고 있는지 없는지만 알려 줘.
-</code></pre>
-</li>
-</ol>
-<ul>
-<li>등록 후 메모장의 키를 지우고 저장하지 않고 닫음.</li>
-</ul>
-<h4>사이트 열기는 Claude에게 맡기기</h4>
-<ul>
-<li>키를 아직 발급받지 않았다면 발급 페이지를 여는 데까지만 Claude에게 맡김.</li>
-</ul>
-<button type="button" class="copy" data-copy>복사</button><pre><code>Google AI Studio의 API 키 페이지를 크롬으로 열어 줘. 키를 만들거나 읽지는 말고, 페이지가 열리면 멈춰 줘.
-</code></pre>
-<ul>
-<li>사이트를 여는 브라우저 자동화는 Claude in Chrome 확장이나 Playwright가 설치돼 있어야 함. 없으면 브라우저에서 페이지를 직접 엶.</li>
-<li>키가 대화에 노출됐다면 Google AI Studio에서 그 키를 삭제하고 새로 발급받음.</li>
-</ul>
-<hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-13">실습 10: docparse로 PDF·스캔 문서 읽기</button></h3>
-<div id="s3-panel-13" hidden>
 <ol>
 <li>탐색기에서 project 폴더의 PDF를 선택하고 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+C</code>를 차례로 눌러 경로를 복사함.</li>
 <li>
@@ -1642,8 +1600,8 @@
 </li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-14">실습 11: hwpx-automation으로 한글 문서 읽고 쓰기</button></h3>
-<div id="s3-panel-14" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-13">실습 8: hwpx-automation으로 한글 문서 읽고 쓰기</button></h3>
+<div id="s3-panel-13" hidden>
 <h4>1. 한글 문서를 마크다운으로 읽기</h4>
 <ol>
 <li>project 폴더의 한글 문서를 선택하고 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+C</code>를 차례로 눌러 경로를 복사함.</li>
@@ -1698,10 +1656,10 @@
 <li><strong>서식 확인</strong>: 글자 겹침이나 쪽 넘김은 화면으로 확인해야 하므로 외부 발송 전 동료에게 확인을 요청함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-15">실습 12: abridge로 긴 문서 줄이기</button></h3>
-<div id="s3-panel-15" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-14">실습 9: abridge로 긴 문서 줄이기</button></h3>
+<div id="s3-panel-14" hidden>
 <ol>
-<li>실습 10의 PDF 파싱 결과(<code>.md</code>)를 선택하고 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+C</code>를 차례로 눌러 경로를 복사함.</li>
+<li>실습 7의 PDF 파싱 결과(<code>.md</code>)를 선택하고 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+C</code>를 차례로 눌러 경로를 복사함.</li>
 <li>
 <p>대괄호를 복사한 경로로 바꿔 입력함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>[마크다운 파일 경로]를 abridge 스킬로 줄여 줘. 날짜, 금액, 기한, 담당자 연락처는 빠뜨리지 마. 결과는 같은 폴더에 저장하고 파일 이름을 알려 줘.
@@ -1723,10 +1681,10 @@
 <li>회의 전사본에 화자 이름이 있으면 「이름: 발언」 형식으로 대화 흐름을 남김.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-16">실습 13: speech-toolkit으로 문서를 음성 파일로 만들기</button></h3>
-<div id="s3-panel-16" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-15">실습 10: speech-toolkit으로 문서를 음성 파일로 만들기</button></h3>
+<div id="s3-panel-15" hidden>
 <ol>
-<li>실습 12의 축약본을 선택하고 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+C</code>를 차례로 눌러 경로를 복사함.</li>
+<li>실습 9의 축약본을 선택하고 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+C</code>를 차례로 눌러 경로를 복사함.</li>
 <li>
 <p>대괄호를 복사한 경로로 바꿔 입력함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>[축약본 경로]를 speech-toolkit 스킬로 Gemini 음성 파일로 만들어 줘. Gemini 외의 유료 음성 서비스는 쓰지 말고, 그런 서비스가 필요하면 멈춰 줘. 마크다운 기호는 읽지 않도록 정리해서 변환해 줘. 음성 파일은 project 폴더에 저장하고 경로를 알려 줘.
@@ -1782,8 +1740,8 @@
 <li>전사한 회의록은 <code>abridge</code>로 줄일 수 있음.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-17">실습 14: 다섯 스킬 이어 쓰기</button></h3>
-<div id="s3-panel-17" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-16">실습 11: 다섯 스킬 이어 쓰기</button></h3>
+<div id="s3-panel-16" hidden>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -1860,67 +1818,23 @@
 <li>한글 문서는 1단계의 <code>docparse</code>를 <code>hwpx-automation</code>으로 바꾸고 나머지는 그대로 진행함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-18">과제 및 3회차 안내</button></h3>
-<div id="s3-panel-18" hidden>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s3-panel-17">과제 및 3회차 안내</button></h3>
+<div id="s3-panel-17" hidden>
 <ul>
 <li><strong>3회차</strong>: 직무 맞춤형 AI 활용 실습1, 2026. 11. 16.(월) 18:30~20:30</li>
 </ul>
 <ol>
-<li>업무 폴더에 <code>CLAUDE.md</code>를 만들고 실습 10~13 중 필요한 스킬을 하나 이상 써 봄.</li>
-<li><code>내 업무 정리.md</code>에서 반복되거나 시간이 많이 드는 업무 하나를 고름.</li>
-<li>마치지 못한 실습을 이어서 하고 Gemini API 키 등록까지 마침.</li>
+<li>업무 폴더에 <code>CLAUDE.md</code>를 만들고 실습 7~10 중 필요한 스킬을 하나 이상 써 봄.</li>
+<li><code>내 업무 정리.md</code>에서 반복되거나 시간이 많이 드는 업무 하나를 고름(<button type="button" class="ref" data-ref="g-12">설치와 환경 설정 12. 자동화하고 싶은 업무 하나 정하기</button> 참조).</li>
+<li>마치지 못한 실습을 이어서 함. Gemini API 키를 등록하지 않았다면 등록함(<button type="button" class="ref" data-ref="g-10">설치와 환경 설정 10. Gemini API 키 발급과 등록</button> 참조).</li>
 </ol>
 <h4>3회차 준비</h4>
 <ul>
 <li>3·4회차에는 반복 업무를 스크립트, 스킬, 앱으로 만들고 GitHub에 올려 공유하는 흐름을 다룸.</li>
-<li><strong>GitHub</strong>: 코드와 파일을 올려 두고 공유하는 서비스이며, 만든 웹 페이지를 주소 하나로 공개할 수 있음.</li>
-<li><strong>브라우저 자동화</strong>: Claude가 크롬을 열어 사이트를 조작하는 기능이며, API 키 발급이나 계정 설정에 씀.</li>
-</ul>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>도구</th>
-<th>특징</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Claude in Chrome</td>
-<td>평소 쓰는 크롬에 Claude를 연결하므로 로그인 상태를 유지한 채 작업함. 처음 연결에 시간이 걸림</td>
-</tr>
-<tr>
-<td>Playwright</td>
-<td>로그인 정보가 없는 새 브라우저를 열어 작업하므로 매번 직접 로그인함. 다른 에이전트도 함께 씀</td>
-</tr>
-</tbody>
-</table></div>
-<ol>
-<li>GitHub 계정을 만듦. 사용자 이름은 공개 주소에 들어가므로 영문 소문자로 짧게 지음.</li>
-</ol>
-<p><a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a></p>
-<ol start="2">
-<li>크롬에 Claude in Chrome 확장을 설치하고 Claude 계정으로 로그인함.</li>
-</ol>
-<p><a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank" rel="noopener">https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn</a></p>
-<ol start="3">
-<li>크롬을 켠 상태에서 Claude를 다시 실행하고 연결을 확인함.</li>
-</ol>
-<button type="button" class="copy" data-copy>복사</button><pre><code>지금 열려 있는 크롬 탭 목록을 읽어 줘.
-</code></pre>
-<ol start="4">
-<li>Playwright 설치를 요청함.</li>
-</ol>
-<button type="button" class="copy" data-copy>복사</button><pre><code>브라우저 자동화에 쓸 Playwright를 설치해 줘. 설치 전에 무엇을 설치할지 알려 줘.
-</code></pre>
-<ol start="5">
-<li>여유가 있으면 GitHub를 터미널에서 다루는 gh CLI를 설치하고 인증함.</li>
-</ol>
-<button type="button" class="copy" data-copy>복사</button><pre><code>GitHub CLI(gh)를 설치하고 내 GitHub 계정으로 인증하는 과정을 진행해 줘. 웹 브라우저 로그인이나 인증 코드 입력처럼 내가 직접 할 단계에서는 멈추고 알려 줘.
-</code></pre>
-<ul>
-<li>gh CLI를 직접 설치하고 인증하는 절차는 사전 준비 안내 9번, 10번에 있음.</li>
-<li>확장 로그인과 GitHub 로그인은 본인이 직접 함.</li>
-<li>인증 코드는 GitHub에 로그인한 브라우저에서 입력함.</li>
+<li><strong>업무 폴더</strong>: <button type="button" class="ref" data-ref="g-11">설치와 환경 설정 11. 업무 폴더 하나 정하기</button> 참조.</li>
+<li><strong>GitHub 계정</strong>: <button type="button" class="ref" data-ref="g-13">설치와 환경 설정 13. GitHub 계정 만들기</button> 참조.</li>
+<li><strong>gh CLI 설치와 인증</strong>: <button type="button" class="ref" data-ref="g-14">설치와 환경 설정 14. gh CLI 설치와 인증</button> 참조.</li>
+<li><strong>브라우저 자동화(선택)</strong>: <button type="button" class="ref" data-ref="g-15">설치와 환경 설정 15. 브라우저 자동화 연결</button> 참조.</li>
 </ul></div>
 <button type="button" class="close" data-close>닫기</button>
 </article>
@@ -1950,11 +1864,12 @@
 <div id="s4-panel-2" hidden>
 <h4>준비 상태 확인하기</h4>
 <ul>
-<li><strong>업무 폴더</strong>: 본인 업무 자료가 있는 폴더 하나를 정함(사전 준비 안내 7번 참조).</li>
-<li><strong>자동화할 업무와 자료</strong>: 반복하는 업무 하나를 고르고, 그 업무에 쓰는 파일을 업무 폴더에 둠(사전 준비 안내 8번 참조).</li>
-<li><strong>규칙 파일</strong>: 업무 폴더에 <code>CLAUDE.md</code>가 있어야 함(2회차 실습 7 참조).</li>
+<li><strong>업무 폴더</strong>: 본인 업무 자료가 있는 폴더 하나를 정함(<button type="button" class="ref" data-ref="g-11">설치와 환경 설정 11. 업무 폴더 하나 정하기</button> 참조).</li>
+<li><strong>자동화할 업무와 자료</strong>: 반복하는 업무 하나를 고르고, 그 업무에 쓰는 파일을 업무 폴더에 둠(<button type="button" class="ref" data-ref="g-12">설치와 환경 설정 12. 자동화하고 싶은 업무 하나 정하기</button> 참조).</li>
+<li><strong>규칙 파일</strong>: 업무 폴더에 <code>CLAUDE.md</code>가 있어야 함(2회차 실습 5 참조).</li>
 <li>업무 인터뷰를 마쳤다면 <code>내 업무 정리.md</code>를 업무 폴더에 복사해 둠.</li>
-<li><strong>GitHub 계정과 gh CLI</strong>: 계정을 만들고 gh CLI를 설치해 인증함(사전 준비 안내 9번, 10번 참조).</li>
+<li><strong>GitHub 계정</strong>: 계정을 만들어 둠(<button type="button" class="ref" data-ref="g-13">설치와 환경 설정 13. GitHub 계정 만들기</button> 참조).</li>
+<li><strong>gh CLI</strong>: 설치하고 인증함(<button type="button" class="ref" data-ref="g-14">설치와 환경 설정 14. gh CLI 설치와 인증</button> 참조).</li>
 </ul>
 <h4>되짚을 개념</h4>
 <ul>
@@ -1983,7 +1898,7 @@
 <h4>세 가지 쓰임</h4>
 <ol>
 <li><strong>여러 기기에서 이어 쓰기</strong>: 집 컴퓨터에서 올린 스크립트와 스킬을 직장 컴퓨터에서 가져와 이어서 씀.</li>
-<li><strong>다른 사람과 공유하기</strong>: 저장소 주소를 알려 주면 상대가 그 내용을 가져감. 스킬 번들 <code>skills-for-the-blind</code>도 저장소 주소로 설치함(1회차 실습 4 참조).</li>
+<li><strong>다른 사람과 공유하기</strong>: 저장소 주소를 알려 주면 상대가 그 내용을 가져감. 스킬 번들 <code>skills-for-the-blind</code>도 저장소 주소로 설치함(<button type="button" class="ref" data-ref="g-8">설치와 환경 설정 8. 시각장애인을 위한 스킬 번들 설치</button> 참조).</li>
 <li><strong>웹 페이지로 배포하기</strong>: 저장소에 올린 HTML 파일을 주소 하나로 여는 웹 페이지로 만듦.</li>
 </ol>
 <ul>
@@ -2098,7 +2013,7 @@
 <p>발표 화면</p>
 <p><a href="https://engccer.github.io/260523-keynote/" target="_blank" rel="noopener">https://engccer.github.io/260523-keynote/</a></p>
 <ul>
-<li>설문 스크립트가 낸 통계는 발표 화면에 들어가고, 내레이션 스크립트가 만든 음성 파일은 발표 화면에서 재생됨. 내레이션은 <code>speech-toolkit</code>의 음성 합성 스크립트로 만듦(2회차 실습 13 참조).</li>
+<li>설문 스크립트가 낸 통계는 발표 화면에 들어가고, 내레이션 스크립트가 만든 음성 파일은 발표 화면에서 재생됨. 내레이션은 <code>speech-toolkit</code>의 음성 합성 스크립트로 만듦(2회차 실습 10 참조).</li>
 </ul>
 <h4>사례: 앱을 만드는 스킬</h4>
 <ul>
@@ -2121,9 +2036,9 @@
 <div id="s4-panel-5" hidden>
 <ul>
 <li><strong>스킬을 만들 경우</strong>: 지금 쓰는 업무 폴더에서 만듦.</li>
-<li><strong>앱을 만들 경우</strong>: 새 폴더를 만들어 작업함. 앱에는 코드 파일이 많이 들어가므로 업무 폴더와 섞지 않음. 홈 디렉터리의 <code>project</code> 폴더(사전 준비 안내 5번 참조) 안에 앱마다 폴더를 만듦.</li>
+<li><strong>앱을 만들 경우</strong>: 새 폴더를 만들어 작업함. 앱에는 코드 파일이 많이 들어가므로 업무 폴더와 섞지 않음. 홈 디렉터리의 <code>project</code> 폴더(<button type="button" class="ref" data-ref="g-5">설치와 환경 설정 5. 홈 디렉터리에 project 폴더 만들기</button> 참조) 안에 앱마다 폴더를 만듦.</li>
 <li>
-<p><strong>어느 폴더에서나 쓸 스킬</strong>: 스킬을 만들 때 아래처럼 덧붙여 요청함. 홈 디렉터리의 <code>.claude\skills</code> 폴더에 저장됨(1회차 실습 3 참조).</p>
+<p><strong>어느 폴더에서나 쓸 스킬</strong>: 스킬을 만들 때 아래처럼 덧붙여 요청함. 홈 디렉터리의 <code>.claude\skills</code> 폴더에 저장됨(1회차 실습 2 참조).</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>사용자 수준 스킬로 만들어 줘.
 </code></pre>
 </li>
@@ -2146,11 +2061,10 @@
 </li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-6">실습 준비: gh CLI 인증</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-6">실습 준비: gh CLI 인증 확인</button></h3>
 <div id="s4-panel-6" hidden>
-<h4>인증 상태 확인하기</h4>
 <ol>
-<li>업무 폴더에서 터미널을 열고 <code>claude</code>를 실행함(2회차 실습 7 참조).</li>
+<li>업무 폴더에서 터미널을 열고 <code>claude</code>를 실행함(2회차 실습 5 참조).</li>
 <li>
 <p>인증 상태 확인을 요청함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>gh CLI가 설치돼 있는지, 내 GitHub 계정으로 인증돼 있는지 확인해 줘. 인증이 안 돼 있으면 로그인은 시도하지 말고 상태만 알려 줘.
@@ -2161,54 +2075,11 @@
 </li>
 </ol>
 <ul>
-<li>인증을 마치지 않아도 이번 회차 실습은 진행할 수 있음.</li>
-<li>인증을 마치지 못했다면 4회차 전에 마쳐야 함.</li>
-</ul>
-<h4>직접 인증하기</h4>
-<ul>
-<li>인증은 Claude를 거치지 않고 터미널에 직접 입력하는 것이 가장 간단함.</li>
-</ul>
-<ol>
-<li>터미널에서 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+T</code>를 차례로 눌러 새 탭을 엶(1회차 [센스리더 팁] 참조). 터미널이 열려 있지 않으면 Windows 키를 누르고 <code>wt</code>를 입력해 엶. Claude를 실행하지 않은 PowerShell 상태에서 진행함.</li>
-<li>
-<p>아래 명령을 입력함.</p>
-<button type="button" class="copy" data-copy>복사</button><pre><code>gh auth login --clipboard
-</code></pre>
-</li>
-<li>
-<p>질문이 몇 가지 나오면 질문마다 아래 답을 고름. gh 버전에 따라 묻는 순서가 다를 수 있음. 대부분 이미 선택돼 있어 Enter만 누르면 됨.</p>
-<ul>
-<li>사용할 서비스: <code>GitHub.com</code></li>
-<li>Git 연결 방식: <code>HTTPS</code></li>
-<li>Git에도 GitHub 계정 인증을 쓸지: <code>Y</code></li>
-<li>로그인 방법: <code>Login with a web browser</code></li>
-</ul>
-</li>
-<li>터미널에 일회용 인증 코드가 나오고 클립보드에 복사됨. 메모장에 붙여넣어 코드를 확인해 둠.</li>
-<li>터미널에서 Enter를 누르면 브라우저에 GitHub 화면이 열림. 본인 계정을 확인하고 코드 입력란에 코드를 붙여넣은 뒤 접근 권한을 승인함.</li>
-<li>터미널로 돌아와 <code>gh auth status</code>를 입력해 로그인 상태를 확인함.</li>
-</ol>
-<ul>
-<li>단계별 자세한 설명은 사전 준비 안내 10번 「인증」에 있음.</li>
-</ul>
-<h4>인증에서 막히는 곳</h4>
-<ul>
-<li><strong>명령을 입력했는데 웹 검색 결과가 뜨는 경우</strong>: Windows 검색창에 입력한 경우임. Windows 검색창에는 <code>wt</code>만 입력하고, 설치와 인증 명령은 열린 PowerShell에 입력함.</li>
-<li><strong>설치했는데 <code>gh</code> 명령을 찾지 못하는 경우</strong>: 터미널을 닫고 새로 연 뒤 <code>gh --version</code>을 입력함.</li>
-<li><strong>PowerShell에 한국어 지시를 입력해 오류가 난 경우</strong>: 한국어 지시는 <code>claude</code>를 실행한 뒤 입력함. <code>gh auth login --clipboard</code>는 PowerShell에 직접 입력하는 명령임.</li>
-<li><strong>선택 항목이 읽히지 않는 경우</strong>: 센스리더 키패드로 화면을 읽고 일반 방향키로 항목을 옮김. 선택 표시가 읽히지 않으면 센스리더 구두점 읽기 토글(<code>Alt+Shift+Z</code>)을 「모두 읽기」라고 들릴 때까지 누름. 인증을 마치면 같은 키로 원래 설정으로 되돌림.</li>
-<li><strong>코드가 클립보드에 복사되지 않은 경우</strong>: 키패드로 코드가 있는 줄(<code>First copy your one-time code</code>)을 읽고 센스리더 <code>Insert+X</code>로 마지막 음성 출력 내용을 복사함. 메모장에 붙여넣어 코드만 남기고 다시 복사함.</li>
-<li><strong>GitHub에 로그인하지 않은 브라우저가 열린 경우</strong>: 로그인한 브라우저에 아래 주소를 직접 입력함.</li>
-</ul>
-<p><a href="https://github.com/login/device" target="_blank" rel="noopener">https://github.com/login/device</a></p>
-<ul>
-<li><strong>코드 입력란에 붙여넣기가 되지 않는 경우</strong>: 가상 커서를 끄고 첫 칸으로 이동해 붙여넣음. 나머지 칸이 채워지지 않으면 한 글자씩 입력함.</li>
-<li><strong>인증 코드 오류나 만료 메시지가 나온 경우</strong>: PowerShell에서 <code>Ctrl+C</code>로 취소하고 <code>gh auth login --clipboard</code>를 다시 실행해 새 코드를 받음.</li>
-<li><strong>Claude가 인증 대기 중 시간 초과를 알린 경우</strong>: 별도 PowerShell에서 직접 인증하고 <code>gh auth status</code>로 확인한 뒤 Claude로 돌아감.</li>
-<li><strong>어느 단계인지 알 수 없는 경우</strong>: <code>Alt+PrintScreen</code>으로 창을 캡처하고, 터미널 새 탭에서 <code>claude</code>를 실행해 입력창에 <code>Alt+V</code>로 붙여넣어 상황을 물음(2회차 「터미널 입력에서 자주 막히는 곳」 참조).</li>
+<li>인증이 안 돼 있으면 <button type="button" class="ref" data-ref="g-14">설치와 환경 설정 14. gh CLI 설치와 인증</button>에 따라 인증함.</li>
+<li>인증을 마치지 않아도 이번 회차 실습은 진행할 수 있으나 4회차 전에는 마쳐야 함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-7">실습 15: 업무 폴더에서 반복되는 일 찾기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-7">실습 12: 업무 폴더에서 반복되는 일 찾기</button></h3>
 <div id="s4-panel-7" hidden>
 <ul>
 <li>지시문의 대괄호는 본인의 내용으로 바꿔 입력함(2회차 「지시문의 대괄호 바꿔 넣기」 참조).</li>
@@ -2247,10 +2118,10 @@
 <li>개인정보가 들어간 파일을 다루는 일은 피함.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-8">실습 16: 매번 똑같은 처리를 스크립트로 만들기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-8">실습 13: 매번 똑같은 처리를 스크립트로 만들기</button></h3>
 <div id="s4-panel-8" hidden>
 <ul>
-<li>실습 15와 같은 Claude 대화에서 이어서 진행함.</li>
+<li>실습 12와 같은 Claude 대화에서 이어서 진행함.</li>
 <li><code>claude</code>를 다시 시작했다면 고른 일과 정리된 단계를 먼저 알려 줌.</li>
 </ul>
 <h4>1. 연습용 사본 만들기</h4>
@@ -2309,13 +2180,13 @@
 </ul>
 <h4>막히는 곳</h4>
 <ul>
-<li><strong>Python을 찾지 못한다는 오류가 나온 경우</strong>: Python 설치를 요청함(사전 준비 안내 4번 참조).</li>
+<li><strong>Python을 찾지 못한다는 오류가 나온 경우</strong>: Python 설치를 요청함(<button type="button" class="ref" data-ref="g-4">설치와 환경 설정 4. Node.js와 Python 설치</button> 참조).</li>
 <li><strong>스크립트가 원본 파일을 다루려는 경우</strong>: 실행을 허용하지 않고 연습 폴더의 파일만 쓰도록 다시 요청함.</li>
 <li><strong>실행할 때마다 결과가 달라지는 경우</strong>: 판단이 필요한 처리가 섞였거나 날짜·시각처럼 매번 바뀌는 값이 결과에 들어간 경우임. 판단이 필요한 단계는 스크립트에서 빼고 스킬에서 Claude가 맡게 함.</li>
 </ul>
 <p>스크립트에는 이름, 비밀번호, API 키를 적지 않아야 함.</p>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-9">실습 17: 스킬로 만들지 앱으로 만들지 정하기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s4-panel-9">실습 14: 스킬로 만들지 앱으로 만들지 정하기</button></h3>
 <div id="s4-panel-9" hidden>
 <ol>
 <li>
@@ -2349,8 +2220,8 @@
 <li><strong>4회차</strong>: 직무 맞춤형 AI 활용 실습2, 2026. 11. 18.(수) 18:30~20:30</li>
 </ul>
 <ol>
-<li>gh CLI 인증을 마치고 <code>gh auth status</code>로 확인함(사전 준비 안내 10번 참조).</li>
-<li>스킬과 앱 중 하나를 정해 만들기 시작함. 실습 15~17을 따라 <code>자동화 계획.md</code>를 먼저 만들어도 됨.</li>
+<li>gh CLI 인증을 마치고 <code>gh auth status</code>로 확인함(<button type="button" class="ref" data-ref="g-14">설치와 환경 설정 14. gh CLI 설치와 인증</button> 참조).</li>
+<li>스킬과 앱 중 하나를 정해 만들기 시작함. 실습 12~14를 따라 <code>자동화 계획.md</code>를 먼저 만들어도 됨.</li>
 <li>만들다 막힌 곳과 4회차에 다뤘으면 하는 내용을 과정 대화방에 남김.</li>
 </ol>
 <ul>
@@ -2383,8 +2254,8 @@
 <div id="s5-panel-2" hidden>
 <h4>준비 상태 확인하기</h4>
 <ul>
-<li><strong>gh CLI 인증</strong>: PowerShell에서 <code>gh auth status</code>를 입력해 본인 계정이 로그인 상태인지 확인함(3회차 「인증 상태 확인하기」 참조, 안 돼 있으면 「직접 인증하기」).</li>
-<li><strong>만들기 시작한 것</strong>: 스킬이나 앱 하나, 또는 <code>자동화 계획.md</code>(3회차 실습 17 참조).</li>
+<li><strong>gh CLI 인증</strong>: PowerShell에서 <code>gh auth status</code>를 입력해 본인 계정이 로그인 상태인지 확인함(안 돼 있으면 <button type="button" class="ref" data-ref="g-14">설치와 환경 설정 14. gh CLI 설치와 인증</button> 참조).</li>
+<li><strong>만들기 시작한 것</strong>: 스킬이나 앱 하나, 또는 <code>자동화 계획.md</code>(3회차 실습 14 참조).</li>
 <li><strong>작업 폴더</strong>: 스킬은 업무 폴더, 앱은 <code>project</code> 폴더 안의 앱 폴더(3회차 「작업할 폴더 정하기」 참조).</li>
 </ul>
 <h4>되짚을 개념</h4>
@@ -2497,11 +2368,11 @@
 <h4>소리와 음성</h4>
 <ul>
 <li><strong>효과음</strong>: Freesound처럼 API를 제공하는 효과음 사이트에서 Claude가 찾아 가져오게 함(Freesound도 API 키 발급이 필요함). 어울리는지는 직접 들어 보고 고르며, 이용 조건(라이선스)도 확인함.</li>
-<li><strong>음성 안내</strong>: <code>speech-toolkit</code>으로 문장을 음성 파일로 만들어 앱에 넣음(2회차 실습 13 참조).</li>
+<li><strong>음성 안내</strong>: <code>speech-toolkit</code>으로 문장을 음성 파일로 만들어 앱에 넣음(2회차 실습 10 참조).</li>
 <li>음성 생성 API는 본인의 API 키를 쓰며, 서비스마다 요금과 무료 한도가 다름.</li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s5-panel-7">실습 18: 결과를 고치고 스킬에 반영하기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s5-panel-7">실습 15: 결과를 고치고 스킬에 반영하기</button></h3>
 <div id="s5-panel-7" hidden>
 <ul>
 <li>3회차 이후 만든 스킬을 씀. 스킬이 없으면 1회차에 설치한 스킬을 이름을 바꿔 복사한 뒤 진행함(2회차 「고쳐 쓸 스킬은 이름을 바꿔 보관하기」 참조).</li>
@@ -2558,7 +2429,7 @@
 </ul>
 <h4>반영한 내용 직접 읽어 보기</h4>
 <ul>
-<li>스킬 폴더의 <code>SKILL.md</code>를 메모장 구문 보기로 열어 바뀐 부분을 읽음(1회차 실습 5 참조).</li>
+<li>스킬 폴더의 <code>SKILL.md</code>를 메모장 구문 보기로 열어 바뀐 부분을 읽음(1회차 실습 3 참조).</li>
 <li>바뀐 곳을 찾기 어려우면 Claude에게 물음.<button type="button" class="copy" data-copy>복사</button><pre><code>[스킬 이름] 스킬의 SKILL.md에서 방금 바꾼 부분만 읽어 줘.
 </code></pre>
 </li>
@@ -2570,10 +2441,10 @@
 </li>
 </ul>
 <hr />
-</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s5-panel-8">실습 19: 만든 HTML 앱을 주소로 공개하기</button></h3>
+</div><h3><button type="button" class="accordion-toggle" aria-expanded="false" aria-controls="s5-panel-8">실습 16: 만든 HTML 앱을 주소로 공개하기</button></h3>
 <div id="s5-panel-8" hidden>
 <ul>
-<li>gh CLI 인증을 마쳐야 함.</li>
+<li>gh CLI 인증을 마쳐야 함(<button type="button" class="ref" data-ref="g-14">설치와 환경 설정 14. gh CLI 설치와 인증</button> 참조).</li>
 <li>앱이 없으면 <code>project</code> 폴더 안에 연습용 폴더를 만들고 연습용 페이지로 진행함. 연습이 끝나면 공개를 멈추고 정리함.<button type="button" class="copy" data-copy>복사</button><pre><code>이 폴더에 제목, 소개 문단, 누르면 안내 문장이 나오는 버튼 하나가 있는 연습용 index.html을 만들어 줘. 개인정보와 업무 내용은 넣지 마.
 </code></pre>
 </li>
@@ -2630,7 +2501,7 @@
 <p><strong>이메일 공개 때문에 푸시가 거부되는 경우</strong>: GitHub의 noreply 주소를 커밋 이메일로 쓰도록 Claude에게 요청함.</p>
 </li>
 <li><strong>고친 내용이 보이지 않는 경우</strong>: 배포가 끝났는지 확인한 뒤 <code>F5</code>로 새로 고침.</li>
-<li><strong>인증 오류가 나는 경우</strong>: 3회차 「직접 인증하기」로 다시 인증함.</li>
+<li><strong>인증 오류가 나는 경우</strong>: <button type="button" class="ref" data-ref="g-14">설치와 환경 설정 14. gh CLI 설치와 인증</button>에 따라 다시 인증함.</li>
 <li>
 <p><strong>공개를 멈추려는 경우</strong>: Claude에게 요청함.</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>[저장소 이름] 저장소의 GitHub Pages 게시를 중단해 줘.
@@ -2656,7 +2527,7 @@
 <p><strong>화면이 어떤 상태인지 모를 때</strong>: 2회차 「터미널 입력에서 자주 막히는 곳」의 화면 캡처 방법을 씀.</p>
 </li>
 <li>
-<p><strong>결과가 매번 다를 때</strong>: 매번 똑같이 처리될 부분을 스크립트로 만듦(3회차 실습 16 참조).</p>
+<p><strong>결과가 매번 다를 때</strong>: 매번 똑같이 처리될 부분을 스크립트로 만듦(3회차 실습 13 참조).</p>
 <button type="button" class="copy" data-copy>복사</button><pre><code>이 작업에서 매번 똑같이 처리돼야 하는 부분을 스크립트로 만들어 줘.
 </code></pre>
 </li>
@@ -2741,7 +2612,7 @@
 </table></div>
 <h4>Q. 배운 내용을 잊어버리면 어디서 다시 보나.</h4>
 <ul>
-<li>이 강의자료에 1회차부터 4회차까지 원고가 있고 실습 1번부터 19번까지 순서대로 있음.</li>
+<li>이 강의자료에 1회차부터 4회차까지 원고가 있고 실습 1번부터 16번까지 순서대로 있음.</li>
 <li>Claude에게 직접 물어도 됨.</li>
 </ul>
 <hr />
@@ -2788,11 +2659,331 @@
 </article>
 <p id="say" class="sr-only" role="status" aria-live="polite"></p>
 </main>
+<dialog id="ref" aria-labelledby="ref-title">
+<button type="button" class="close" data-ref-close>닫기</button>
+<h2 id="ref-title" tabindex="-1"></h2>
+<div id="ref-body"></div>
+<button type="button" class="close" data-ref-close>닫기</button>
+</dialog>
+<template id="g-1" data-title="설치와 환경 설정 1. Claude 계정 로그인"><p>1회차 전에 마쳐 주세요.</p>
+<p>Claude Pro 계정으로 로그인합니다. <strong>무료 플랜에서는 실습에 쓸 Code 탭과 Claude Code가 열리지 않으므로</strong> 플랜을 먼저 확인해 주세요.</p></template>
+<template id="g-2" data-title="설치와 환경 설정 2. Claude Desktop 앱 설치"><p>1회차 전에 마쳐 주세요.</p>
+<p>아래 주소에서 Windows용 앱을 내려받아 설치합니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://claude.ai/download" target="_blank" rel="noopener">https://claude.ai/download</a>
+</code></pre>
+<p><strong>확인</strong>: 앱을 실행해 좌측 사이드바에 <strong>코드</strong> 항목이 있는지 봅니다. 코드 항목이 보이면 1번과 2번이 함께 확인된 것입니다.</p>
+<ul>
+<li><strong>Code 탭으로 이동</strong>: 사이드바에서 <strong>코드</strong>를 선택하고 <code>Enter</code>를 누릅니다. <code>F2</code>를 누르면 프롬프트 편집창으로 이동합니다.</li>
+<li><strong>앱 업데이트</strong>: 구버전은 메뉴나 권한 설정이 다를 수 있습니다. 앱 안에서 「업데이트」를 검색해 실행하세요. 처음 설치한 직후에는 업데이트를 여러 번 해야 할 수 있습니다.</li>
+</ul></template>
+<template id="g-3" data-title="설치와 환경 설정 3. Git 설치"><p>1회차 전에 마쳐 주세요.</p>
+<p>Code 탭을 처음 열면 <strong>Git 설치 안내 대화상자</strong>가 자동으로 뜹니다. 대화상자 안의 <strong>Git 다운로드</strong> 버튼을 누르고, 내려받은 설치 파일을 실행해 모든 화면에서 기본 설정 그대로 Next 또는 Install을 눌러 끝까지 설치합니다.</p>
+<p><strong>「나중에」 버튼을 누르지 마세요.</strong> Git 없이 진행되어 다음 단계가 막힙니다.</p>
+<ul>
+<li>안내가 뜨지 않으면 Git이 이미 설치된 것이므로 4번으로 넘어갑니다.</li>
+<li>다운로드가 진행되지 않으면 <strong>다운로드 페이지 열기</strong>를 누릅니다. 브라우저가 열리지 않으면 다운로드 폴더에 설치 파일이 있는지 확인해 실행합니다.</li>
+<li>Git을 설치하기 전에는 프롬프트 입력창이 비활성 상태입니다.</li>
+</ul>
+<p>설치가 끝나면 앱을 완전히 종료한 뒤 다시 실행합니다. <strong>Claude 앱은 창을 닫아도 백그라운드에 남으므로 작업 관리자로 끕니다.</strong></p>
+<ol>
+<li><code>Ctrl+Shift+Esc</code>로 작업 관리자를 엽니다.</li>
+<li>가상 커서를 해제하고 목록을 내려가 <code>Claude</code>를 찾습니다.</li>
+<li>팝업 키를 누르고 <code>Alt+E</code>를 눌러 작업을 끝냅니다.</li>
+<li>Windows 키를 눌러 검색창에 「클로드」를 입력하고 다시 실행합니다.</li>
+</ol>
+<p>작업 관리자 조작이 번거로우면 컴퓨터를 껐다 켜도 됩니다.</p>
+<p><strong>확인</strong>: 다시 실행한 뒤 Code 탭으로 돌아와 하단 입력창에 아래 문장을 그대로 붙여넣고 보냅니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Git 설치를 마쳤는데 제대로 설치된 것인지 확인해 줘.
+</code></pre>
+<p>Claude가 확인을 위해 PowerShell 명령을 실행하겠다며 권한을 묻습니다. <strong>항상 허용</strong>을 누르세요. 같은 종류의 명령을 다시 묻지 않는 설정입니다. 설치가 확인됐다는 답이 오면 된 것입니다.</p>
+<p>환경 변수를 설정해야 한다는 안내가 나오면(<code>CLAUDE_CODE_GIT_BASH_PATH</code> 등) 시스템 설정 창을 직접 건드리지 마시고 입력창에 아래 한 줄을 보내세요. 안내에 붙은 번호는 달라질 수 있으므로 번호 대신 방법 이름으로 지시합니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>PowerShell로 환경 변수를 영구 설정하는 방법으로 네가 바로 해 줘.
+</code></pre>
+<p>「현재 세션의 PATH에는 아직 반영되지 않았다」는 안내가 나와도 같은 방법으로 앱을 다시 실행합니다.</p>
+<p>환경 변수 설정이 끝나면 위와 같은 방법으로 앱을 한 번 더 종료하고 다시 실행합니다.</p>
+<p><strong>다른 에이전트로 Git을 이미 설치했는데 설치하라고 나오는 경우</strong>: 설치를 맡겼던 에이전트에 아래 문장을 보냅니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Claude를 쓰려는데 Git을 설치하라고 나와. Git이 전역으로 설치되어 있는지 확인해 줘.
+</code></pre>
+<p><strong>앱에서 키 조작이 반응하지 않는 경우</strong>: 라벨이 잘못 읽히거나 가상 커서를 해제해도 방향키가 듣지 않으면 아래 순서로 복구합니다.</p>
+<ol>
+<li><code>Esc</code>를 여러 번 눌러 열려 있는 목록을 닫습니다.</li>
+<li><code>F2</code>로 프롬프트 편집창으로 돌아갑니다.</li>
+<li><code>F5</code>로 화면을 새로 읽고 다시 탐색합니다.</li>
+<li>그래도 라벨이 어긋나면 위 방법으로 앱을 완전히 종료하고 다시 실행합니다.</li>
+</ol></template>
+<template id="g-4" data-title="설치와 환경 설정 4. Node.js와 Python 설치"><p>1회차 전에 마쳐 주세요.</p>
+<p>스킬 설치와 문서 변환에 필요합니다. 3번까지 마치셨으면 입력창에 아래를 그대로 붙여넣으세요.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 컴퓨터에 Node.js와 Python이 설치돼 있는지 확인하고, 없으면 설치해 줘. 설치가 끝나면 각각의 버전을 알려 줘.
+</code></pre>
+<p>도중에 권한 요청이 뜨면 내용을 읽고 허용합니다. 마지막에 두 프로그램의 버전이 나오면 설치된 것입니다.</p></template>
+<template id="g-5" data-title="설치와 환경 설정 5. 홈 디렉터리에 project 폴더 만들기"><p>1회차 전에 마쳐 주세요.</p>
+<p>홈 디렉터리에 폴더를 하나 만들고 이름을 「project」로 붙입니다. Windows에서 홈 디렉터리는 <code>C:\Users\&lt;본인 계정 이름&gt;</code>이며, 파일 탐색기에는 「사용자」 폴더 아래 본인 계정 이름으로 표시됩니다. 파일 탐색기에서 <code>Alt+D</code>로 주소창에 이동해 <code>%USERPROFILE%</code>을 입력하고 Enter를 누르면 바로 열립니다.</p>
+<p>project 폴더 안에는 다음 두 파일을 넣어 주세요.</p>
+<ul>
+<li>업무에서 받은 <strong>PDF 문서 한 개</strong>(공문, 안내문, 보고서 등)</li>
+<li>업무에서 다루는 <strong>한글 문서 한 개</strong>(한글 문서가 없으면 워드 문서)</li>
+</ul>
+<p><strong>이름·연락처·주민등록번호 같은 개인정보가 들어 있지 않은 문서</strong>로 골라 주세요.</p>
+<p>Claude에서 이 폴더를 처음 고르면 폴더를 신뢰할지 묻는 화면이 뜹니다. <strong>신뢰</strong> 버튼을 누르셔야 그 폴더의 파일을 읽습니다.</p>
+<p><strong>Desktop 앱에서 이 폴더로 작업하려면</strong>: 화면 확대가 익숙하시면 터미널 대신 Code 탭을 써도 됩니다.</p>
+<ol>
+<li>Code 탭에서 편집창 위쪽의 <strong>로컬 폴더</strong>를 고르고 <code>Enter</code>를 누릅니다.</li>
+<li>홈 디렉터리의 project 폴더로 이동해 <strong>폴더 선택</strong>을 누릅니다.</li>
+<li>입력창 상단에 project 폴더 이름이 표시되는지 확인합니다.</li>
+<li>신뢰를 물으면 본인이 준비한 폴더인지 확인하고 <strong>신뢰</strong>를 누릅니다.</li>
+<li>폴더 밖 접근이나 프로그램 설치처럼 승인을 묻는 작업은 대상 파일과 명령을 확인하고 응답합니다. 편집창 아래 <strong>편집 수락</strong> 메뉴에서 <strong>자동</strong>을 고르고 <strong>자동 모드 활성화</strong>를 누르면 승인 요청이 줄어듭니다. 자동 모드가 보이지 않으면 앱을 업데이트합니다.</li>
+</ol></template>
+<template id="g-6" data-title="설치와 환경 설정 6. Windows 터미널과 Claude Code 설치"><p>1회차 수업에서 함께 합니다.</p>
+<p>Desktop 앱 Code 탭이나 사용 중인 에이전트에 아래 두 문장을 차례로 보냅니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 컴퓨터에 Windows 터미널과 PowerShell 7이 설치돼 있는지 확인해 줘. 없으면 설치하고, Windows 터미널을 기본 터미널 앱으로 설정해 줘. Windows 터미널의 기본 프로필은 PowerShell 7로 바꿔 줘.
+</code></pre>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Claude Code CLI를 공식 네이티브 설치 방식으로 설치해 줘. 이미 설치돼 있으면 설치 방식과 실제 실행되는 경로를 확인해 줘.
+</code></pre>
+<p>중복 설치 안내가 나오면 실제로 실행되는 Claude의 설치 방식과 경로를 확인해 달라고 요청합니다.</p>
+<p>설치가 끝나면 터미널에서 처음 실행해 로그인합니다.</p>
+<ol>
+<li>Windows 키를 누르고 <code>wt</code>를 입력한 뒤 <code>Enter</code>를 누릅니다. 검색되지 않으면 <code>Windows Terminal</code>을 검색합니다.</li>
+<li>키패드로 시작 화면을 읽어 PowerShell 7인지 확인합니다. Windows PowerShell이면 에이전트에 기본 프로필 변경을 요청하고 터미널을 다시 엽니다.</li>
+<li><code>claude</code>를 입력하고 <code>Enter</code>를 누릅니다.</li>
+<li>테마 선택이 나오면 원하는 화면 색상을 고릅니다.</li>
+<li>Claude 구독 계정 로그인을 선택하고 브라우저에서 인증한 뒤 터미널로 돌아옵니다. 이미 인증했다면 로그인 화면이 생략될 수 있습니다.</li>
+</ol>
+<p><code>claude</code>를 찾지 못하면 터미널을 닫고 다시 엽니다. 그래도 안 되면 설치를 맡긴 에이전트에 오류 문구를 전달합니다.</p>
+<p><strong>확인</strong>: 터미널의 Claude에 한국어로 질문하고 답을 받으면 된 것입니다. 이후에는 Desktop 앱을 닫아도 됩니다.</p></template>
+<template id="g-7" data-title="설치와 환경 설정 7. 스크린 리더 모드 켜기"><p>1회차 수업에서 함께 합니다.</p>
+<p>터미널의 Claude 입력창에 아래 문장을 보냅니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>클로드 코드 설정에서 스크린 리더 모드 켜 줘.
+</code></pre>
+<p><strong>「클로드 코드 설정에서」까지 입력하세요.</strong> 생략하면 다른 접근성 설정과 혼동할 수 있습니다. 고르라는 목록이 뜨면 목록에서 고르지 말고 위 문장을 그대로 다시 보냅니다.</p>
+<p><strong>확인</strong>: 터미널을 다시 열고 <code>claude</code>를 실행합니다. 시작 화면에 스크린 리더 모드 안내가 나오고 장식 문자가 줄었으면 된 것입니다. 한 번 켜 두면 다른 폴더에서 실행해도 유지됩니다.</p></template>
+<template id="g-8" data-title="설치와 환경 설정 8. 시각장애인을 위한 스킬 번들 설치"><p>1회차 수업에서 함께 합니다.</p>
+<ol>
+<li>새 터미널에서 <code>cd ~</code>를 입력해 홈 디렉터리로 이동한 뒤 <code>claude</code>를 실행합니다.</li>
+<li>입력창에 아래 문장을 보냅니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들과 그 안의 다섯 스킬을 모두 설치해 줘. Claude Code에서 어느 작업 폴더를 열어도 쓸 수 있게 전역으로 설치해 줘. 이미 설치된 것은 상태를 확인하고 빠진 것만 설치해 줘.
+</code></pre>
+<ol start="3">
+<li>실행 승인을 물으면 키패드로 마지막 응답을 읽고 내용을 확인해 응답합니다.</li>
+<li>필요한 프로그램이 없다는 오류가 나오면 아래 문장을 보냅니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>스킬 설치에 필요한 무료 프로그램과 패키지를 확인해서 설치해 줘. 유료 서비스 가입이나 결제는 진행하지 마.
+</code></pre>
+<ol start="5">
+<li>파일 탐색기에서 홈 디렉터리의 <code>.claude\skills</code>를 열어 스킬 폴더를 확인합니다. <code>skills-for-the-blind</code>까지 여섯 폴더이며, 기존 스킬이 있으면 더 많을 수 있습니다.</li>
+<li><code>/exit</code>로 Claude를 종료하고 <code>claude</code>를 다시 실행한 뒤 아래 문장을 보냅니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>skills-for-the-blind에 포함된 다섯 스킬이 모두 설치돼 있는지 확인하고, 각각 어떤 일을 할 수 있는지 알려 줘.
+</code></pre>
+<p><strong>확인</strong>: 스킬 폴더가 있고 새 대화에서도 다섯 스킬을 찾으면 된 것입니다. 이미 설치하셨다면 최신 상태인지 점검을 요청하고, 직접 고친 파일이 있으면 다시 설치하기 전에 알려 주세요.</p></template>
+<template id="g-9" data-title="설치와 환경 설정 9. TTS 요약 설치"><p>2회차 수업에서 함께 합니다.</p>
+<p><code>agent-cli-tts-summary</code>는 Claude의 응답이 끝날 때마다 핵심 요약을 음성으로 들려줍니다. 기본값인 Windows 내장 음성은 API 키와 비용이 필요 없습니다.</p>
+<ol>
+<li>project 폴더에서 터미널을 열고 <code>claude</code>를 실행합니다.</li>
+<li>아래 문장으로 스킬 설치 상태를 확인합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>agent-cli-tts-summary 스킬이 설치돼 있는지 확인해 줘. 없으면 <a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 에서 해당 스킬을 설치해 줘.
+</code></pre>
+<ol start="3">
+<li>다운로드나 명령 실행 승인을 물으면 내용을 확인하고 <code>y</code>와 <code>Enter</code>를 누릅니다.</li>
+<li>같은 입력창에서 TTS 요약 설정을 요청합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이 스킬대로 TTS 요약 루프를 설정해 줘.
+</code></pre>
+<ol start="5">
+<li>요약 언어와 음성을 물으면 <strong>한국어</strong>와 <strong>Windows 내장 음성</strong>을 고릅니다. 묻지 않으면 기본값으로 설정됩니다.</li>
+<li>설정 중 권한 요청이 뜨면 내용을 확인하고 허용합니다.</li>
+<li>설정이 끝나면 <code>exit</code>로 나갔다가 <code>claude</code>를 다시 실행합니다. 설정은 새 대화부터 적용됩니다.</li>
+</ol>
+<p><strong>진행이 멈춘 것처럼 보이는 경우</strong></p>
+<ul>
+<li><strong>승인 대기</strong>: 마지막 응답의 요청 내용을 읽고, 허용하려면 <code>y</code>와 <code>Enter</code>를 누릅니다.</li>
+<li><strong>작업 중</strong>: 진행 줄이 계속 바뀌면 다른 창에서 기다립니다.</li>
+<li><strong>설치 실패</strong>: 「인식되지 않습니다」 같은 오류가 나오면 필요한 도구가 없는 것입니다. 설치에는 Node.js의 <code>npx</code>, 설정 점검에는 Python, 재생에는 Windows PowerShell과 내장 음성을 씁니다. 아래 문장으로 설치와 설정을 함께 맡깁니다.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code>이런 개발 환경 설정은 내가 잘 모르니, 필요한 건 네가 알아서 설치하고 설정까지 끝내 줘. 무료 프로그램만 설치하고, 설치 전에 무엇을 설치할지 알려 줘.
+</code></pre>
+<p><strong>스킬 이름을 찾지 못하는 경우</strong>: <code>skills-for-the-blind</code>는 다섯 스킬을 설치하는 번들이고 <code>agent-cli-tts-summary</code>는 그중 하나입니다. 번들에서 이 스킬만 설치해 달라고 요청합니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/Engccer/skills-for-the-blind" target="_blank" rel="noopener">https://github.com/Engccer/skills-for-the-blind</a> 스킬 번들에서 agent-cli-tts-summary 하나만 설치해 줘.
+</code></pre>
+<p><strong>확인</strong>: 간단한 작업을 지시했을 때 요약 음성이 나오면 된 것입니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>지금 이 폴더에 있는 파일 개수를 세어 줘.
+</code></pre></template>
+<template id="g-10" data-title="설치와 환경 설정 10. Gemini API 키 발급과 등록"><p>발급은 2회차 전에 마쳐 주세요. 등록은 2회차 수업에서 함께 합니다.</p>
+<p>문서 파싱과 음성 변환 실습에 씁니다. 결제 정보를 등록하지 않은 키는 무료 범위 안에서만 쓰이므로 요금이 나가지 않습니다.</p>
+<p><strong>키는 비밀번호와 같습니다.</strong> 다른 사람과 공유하지 마시고, 화면에 띄워 둔 채 자리를 비우지 마세요. Claude 입력창에도 붙여넣지 않습니다.</p>
+<p><strong>발급</strong></p>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">https://aistudio.google.com/apikey</a>
+</code></pre>
+<p>Google 계정으로 로그인한 뒤 API 키를 만들고, 발급된 키를 메모장 등에 복사해 둡니다.</p>
+<p><strong>등록</strong></p>
+<ol>
+<li>Windows 키를 누르고 「환경 변수」를 검색합니다.</li>
+<li><strong>계정의 환경 변수 편집</strong>을 고르고 <code>Enter</code>를 누릅니다. 검색되지 않으면 Claude에게 아래 문장을 보냅니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>계정의 환경 변수 편집 창을 열어 줘. 키 값은 내가 직접 입력할게.
+</code></pre>
+<ol start="3">
+<li>위쪽 <strong>사용자 변수</strong> 목록 아래의 <strong>새로 만들기</strong> 버튼을 누릅니다. 아래쪽 시스템 변수의 같은 이름 버튼과 혼동하지 않도록 <code>Tab</code>으로 위치를 확인합니다.</li>
+<li>변수 이름에 <code>GEMINI_API_KEY</code>를 입력합니다.</li>
+<li>변수 값에 복사해 둔 키를 붙여넣고 <strong>확인</strong>을 누릅니다.</li>
+<li>환경 변수 창의 <strong>확인</strong>을 눌러 닫습니다.</li>
+<li>터미널을 모두 닫고 project 폴더에서 다시 열어 <code>claude</code>를 실행합니다.</li>
+<li>키 값을 출력하지 않고 등록 여부만 확인해 달라고 요청합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>GEMINI_API_KEY 환경 변수가 등록돼 있는지 확인해 줘. 키 값은 화면에 출력하지 말고 있는지 없는지만 알려 줘.
+</code></pre>
+<p>등록을 마치면 메모장의 키를 지우고 저장하지 않고 닫습니다. 키가 대화에 노출됐다면 Google AI Studio에서 그 키를 삭제하고 새로 발급받으세요.</p>
+<p>다른 서비스의 API 키(ElevenLabs, Azure 등)도 같은 방법으로 등록합니다. 변수 이름만 다릅니다.</p></template>
+<template id="g-11" data-title="설치와 환경 설정 11. 업무 폴더 하나 정하기"><p>3회차 전에 마쳐 주세요.</p>
+<p>3회차부터는 project 폴더가 아니라 <strong>본인 업무 자료가 있는 폴더에서</strong> 실습합니다. 그 폴더 하나를 정해 주세요.</p>
+<ul>
+<li>업무 자료를 모아 두는 폴더면 가장 좋습니다. 정리가 안 돼 있어도 괜찮습니다.</li>
+<li><strong>USB 안의 폴더는 피해 주세요.</strong> 뽑으면 경로가 사라지고 드라이브 문자도 바뀝니다. C 드라이브로 옮겨 두고 쓰시는 편이 낫습니다.</li>
+<li>회사 컴퓨터에만 자료가 있으시면 실습에 쓸 컴퓨터의 문서 폴더 아래에 폴더를 하나 만들고, 개인정보가 없는 자료만 옮겨 주세요.</li>
+</ul>
+<p><strong>확인</strong>: 그 폴더의 경로를 적어 두시면 됩니다. 파일 탐색기에서 그 폴더에 포커스를 두고 <code>Ctrl+Shift+C</code>를 누르면 경로가 복사됩니다. 센스리더에서는 이 키가 센스리더 기능과 겹치므로 기능키 무시(<code>Ctrl+Shift+N</code>)를 한 번 누른 뒤 <code>Ctrl+Shift+C</code>를 누르세요.</p></template>
+<template id="g-12" data-title="설치와 환경 설정 12. 자동화하고 싶은 업무 하나 정하기"><p>3회차 전에 마쳐 주세요.</p>
+<p>매주 반복하거나 시간이 많이 드는 업무 하나를 골라 주세요. 그 업무에 쓰는 자료(개인정보가 없는 것)를 11번의 업무 폴더에 넣어 두시면 3회차에 그 자료로 실습합니다.</p></template>
+<template id="g-13" data-title="설치와 환경 설정 13. GitHub 계정 만들기"><p>3회차 전에 마쳐 주세요.</p>
+<p>GitHub는 코드와 파일을 올려 두는 서비스입니다. 3회차부터 만든 결과물을 보관하고 공유하는 데 씁니다.</p>
+<ol>
+<li>브라우저에서 아래 주소를 엽니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a>
+</code></pre>
+<ol start="2">
+<li>이메일, 비밀번호, 사용자 이름을 입력합니다. <strong>사용자 이름은 공개 주소에 그대로 들어가므로</strong> 영문 소문자로 짧게 지어 주세요.</li>
+<li>사람 확인 단계가 나오면 오디오 인증을 고릅니다. 음성 안내를 듣고 질문에 맞게 답을 입력합니다.</li>
+<li>이메일로 온 인증 번호를 입력합니다.</li>
+</ol>
+<p><strong>확인</strong>: 브라우저에서 GitHub에 로그인된 상태면 된 것입니다. 이 브라우저를 14번에서 다시 씁니다.</p></template>
+<template id="g-14" data-title="설치와 환경 설정 14. gh CLI 설치와 인증"><p>3회차 전에 마쳐 주세요. 3회차 실습은 인증 없이도 진행할 수 있지만, 4회차 전에는 마쳐야 합니다.</p>
+<p>gh CLI는 터미널에서 GitHub를 다루는 도구입니다. 한 번 인증해 두면 저장소를 만들고 파일을 올리는 일을 Claude가 대신합니다. <strong>브라우저에서 GitHub에 로그인했더라도 gh 인증은 따로 해야 합니다.</strong> 인증은 Claude를 거치지 않고 터미널에 직접 입력하는 것이 가장 간단합니다.</p>
+<p>Claude에게 설치와 인증 진행을 맡길 수도 있습니다(선택). 로그인과 코드 입력은 본인이 직접 합니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>GitHub CLI(gh)를 설치하고 내 GitHub 계정으로 인증하는 과정을 진행해 줘. 웹 브라우저 로그인이나 인증 코드 입력처럼 내가 직접 할 단계에서는 멈추고 알려 줘.
+</code></pre>
+<p><strong>설치</strong></p>
+<ol>
+<li>Windows 키를 누르고 <code>wt</code>를 입력한 뒤 Enter를 눌러 Windows Terminal을 엽니다. 이미 열려 있으면 <code>Ctrl+Shift+N</code>, <code>Ctrl+Shift+T</code>를 차례로 눌러 새 탭을 엽니다. Claude를 실행하지 않은 PowerShell 상태에서 진행합니다.</li>
+<li>아래 명령을 입력합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>winget install GitHub.cli
+</code></pre>
+<p>약관 동의를 물으면 <code>Y</code>를 입력하고 Enter를 누릅니다. 관리자 권한 확인 창이 뜨면 허용합니다. <code>winget</code>을 찾지 못한다는 오류가 나오면 아래 주소에서 Windows용 설치 파일을 내려받아 실행하세요.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://cli.github.com" target="_blank" rel="noopener">https://cli.github.com</a>
+</code></pre>
+<ol start="3">
+<li>설치가 끝나면 <code>exit</code>를 입력해 터미널을 닫고 새로 엽니다. 설치 전에 열어 둔 터미널은 <code>gh</code> 명령을 인식하지 못할 수 있습니다.</li>
+<li>아래 명령으로 설치를 확인합니다. 버전이 나오면 설치된 것입니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>gh --version
+</code></pre>
+<p><strong>인증</strong></p>
+<ol>
+<li>아래 명령을 입력합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>gh auth login --clipboard
+</code></pre>
+<ol start="2">
+<li>질문이 몇 가지 나옵니다. 묻는 순서는 gh 버전에 따라 다를 수 있으니 질문 내용을 듣고 아래 표에서 답을 찾으세요. 센스리더 키패드로 화면을 읽고, 일반 방향키로 항목을 고른 뒤 Enter로 확정하세요. 원하는 항목이 이미 선택돼 있으면 Enter만 누르면 됩니다. <code>Y</code>로 답하는 질문은 <code>Y</code>를 입력하고 Enter를 누릅니다.</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>질문</th>
+<th>고를 항목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>사용할 서비스</td>
+<td><code>GitHub.com</code></td>
+</tr>
+<tr>
+<td>Git 연결 방식</td>
+<td><code>HTTPS</code></td>
+</tr>
+<tr>
+<td>Git에도 GitHub 계정 인증을 쓸지</td>
+<td><code>Y</code></td>
+</tr>
+<tr>
+<td>로그인 방법</td>
+<td><code>Login with a web browser</code></td>
+</tr>
+</tbody>
+</table></div>
+<ol start="3">
+<li>터미널에 일회용 인증 코드가 나오고 클립보드에 자동으로 복사됩니다. 메모장에 붙여넣어 코드가 들어왔는지 확인해 두세요.</li>
+<li>터미널로 돌아와 Enter를 누르면 브라우저에 GitHub 화면이 열립니다.</li>
+<li>표시된 계정이 본인 계정인지 확인하고 계속 진행합니다.</li>
+<li>가상 커서를 끄고 코드 입력란의 첫 칸에 코드를 붙여넣습니다. 나머지 칸이 채워지지 않으면 한 글자씩 입력합니다.</li>
+<li>접근 권한을 승인합니다. 완료 메시지가 나오면 터미널로 돌아갑니다.</li>
+</ol>
+<p><strong>확인</strong>: 터미널에 아래 명령을 입력합니다. 본인 계정이 로그인 상태로 나오면 된 것입니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>gh auth status
+</code></pre>
+<p><strong>막히는 경우</strong></p>
+<ul>
+<li><strong>명령을 입력했는데 웹 검색 결과가 뜨는 경우</strong>: Windows 검색창에 입력한 것입니다. Windows 검색창에는 <code>wt</code>만 입력하고, 설치와 인증 명령은 열린 PowerShell에 입력합니다.</li>
+<li><strong>설치했는데 <code>gh</code> 명령을 찾지 못하는 경우</strong>: 터미널을 닫고 새로 연 뒤 <code>gh --version</code>을 입력합니다.</li>
+<li><strong>PowerShell에 한국어 지시를 입력해 오류가 난 경우</strong>: 한국어 지시는 <code>claude</code>를 실행한 뒤 입력합니다. <code>gh auth login --clipboard</code>는 PowerShell에 직접 입력하는 명령입니다.</li>
+<li><strong>선택 항목이 읽히지 않는 경우</strong>: 선택 표시가 읽히지 않으면 센스리더 구두점 읽기 토글(<code>Alt+Shift+Z</code>)을 「모두 읽기」라고 들릴 때까지 누릅니다. 인증을 마치면 같은 키로 원래 설정으로 되돌립니다.</li>
+<li><strong>코드가 클립보드에 복사되지 않은 경우</strong>: 키패드로 코드가 있는 줄(<code>First copy your one-time code</code>)을 읽고 센스리더 <code>Insert+X</code>로 마지막 음성 출력 내용을 복사합니다. 메모장에 붙여넣어 코드만 남기고 다시 복사합니다.</li>
+<li><strong>브라우저가 열리지 않거나 GitHub에 로그인하지 않은 브라우저가 열린 경우</strong>: 13번에서 로그인한 브라우저에 아래 주소를 직접 입력합니다.</li>
+</ul>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://github.com/login/device" target="_blank" rel="noopener">https://github.com/login/device</a>
+</code></pre>
+<ul>
+<li><strong>인증 코드 오류나 만료 메시지가 나온 경우</strong>: 터미널에서 <code>Ctrl+C</code>로 취소하고 <code>gh auth login --clipboard</code>부터 다시 해서 새 코드를 받습니다.</li>
+<li><strong>Claude가 인증 대기 중 시간 초과를 알린 경우</strong>: 별도 PowerShell에서 직접 인증하고 <code>gh auth status</code>로 확인한 뒤 Claude로 돌아갑니다.</li>
+<li><strong>어느 단계인지 알 수 없는 경우</strong>: <code>Alt+PrintScreen</code>으로 창을 캡처하고, 터미널 새 탭에서 <code>claude</code>를 실행해 입력창에 <code>Alt+V</code>로 붙여넣어 상황을 묻습니다.</li>
+</ul>
+<p>끝까지 되지 않으면 어디서 멈췄는지 적어 두셨다가 강의 시간에 알려 주세요.</p></template>
+<template id="g-15" data-title="설치와 환경 설정 15. 브라우저 자동화 연결"><p>선택 사항입니다. 3회차 전에 해 두시면 좋습니다.</p>
+<p>브라우저 자동화는 Claude가 크롬을 열어 사이트를 조작하는 기능입니다. API 키 발급 페이지 열기나 계정 설정에 씁니다. 두 가지 방법이 있습니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>도구</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude in Chrome</td>
+<td>평소 쓰는 크롬에 Claude를 연결하므로 로그인 상태를 유지한 채 작업합니다. 처음 연결에 시간이 걸립니다</td>
+</tr>
+<tr>
+<td>Playwright</td>
+<td>로그인 정보가 없는 새 브라우저를 열어 작업하므로 매번 직접 로그인합니다. 다른 에이전트도 함께 씁니다</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Claude in Chrome</strong></p>
+<ol>
+<li>크롬에 Claude in Chrome 확장을 설치하고 Claude 계정으로 로그인합니다. 확장 로그인은 본인이 직접 합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code><a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank" rel="noopener">https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn</a>
+</code></pre>
+<ol start="2">
+<li>크롬을 켠 상태에서 Claude를 다시 실행하고 연결을 확인합니다.</li>
+</ol>
+<button type="button" class="copy" data-copy>복사</button><pre><code>지금 열려 있는 크롬 탭 목록을 읽어 줘.
+</code></pre>
+<p><strong>Playwright</strong></p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>브라우저 자동화에 쓸 Playwright를 설치해 줘. 설치 전에 무엇을 설치할지 알려 줘.
+</code></pre>
+<p>연결한 뒤에는 API 키 발급 페이지를 여는 일도 맡길 수 있습니다. 키를 만들고 복사하는 일은 본인이 직접 합니다.</p>
+<button type="button" class="copy" data-copy>복사</button><pre><code>Google AI Studio의 API 키 페이지를 크롬으로 열어 줘. 키를 만들거나 읽지는 말고, 페이지가 열리면 멈춰 줘.
+</code></pre></template>
 <script>
 (function () {
   var menu = document.getElementById('menu');
   var opener = null;
-  var sfx = { open: new Audio('sfx/open.mp3'), close: new Audio('sfx/close.mp3') };
+  var sfx = { open: new Audio('sfx/open.mp3'), close: new Audio('sfx/close.mp3'),
+              refOpen: new Audio('sfx/dialog-open.mp3'), refClose: new Audio('sfx/dialog-close.mp3') };
   function play(name) { var a = sfx[name]; a.currentTime = 0; a.play().catch(function () {}); }
 
   function open(id, sound) {
@@ -2840,10 +3031,37 @@
     });
   }
 
+  // 안내 항목 대화상자. 모달이 열리면 바깥이 비활성이 되므로 하나뿐인 live region을
+  // 대화상자 안으로 옮겼다가 닫을 때 돌려놓는다(대화상자 안의 복사 안내가 들리도록).
+  var dlg = document.getElementById('ref');
+  var refTitle = document.getElementById('ref-title');
+  var refBody = document.getElementById('ref-body');
+  var refOpener = null;
+  function openRef(btn) {
+    var tpl = document.getElementById(btn.dataset.ref);
+    if (!tpl) return;
+    refOpener = btn;
+    refTitle.textContent = tpl.dataset.title;
+    refBody.innerHTML = '';
+    refBody.appendChild(tpl.content.cloneNode(true));
+    dlg.appendChild(say);
+    dlg.showModal();
+    dlg.scrollTop = 0;
+    play('refOpen');
+    refTitle.focus();
+  }
+  dlg.addEventListener('close', function () {
+    document.querySelector('main').appendChild(say);
+    play('refClose');
+    if (refOpener && refOpener.offsetParent) refOpener.focus();
+  });
+
   document.addEventListener('click', function (e) {
     var b = e.target.closest('button');
     if (!b) return;
-    if (b.dataset.open) open(b.dataset.open, true);
+    if (b.dataset.ref) openRef(b);
+    else if (b.hasAttribute('data-ref-close')) dlg.close();
+    else if (b.dataset.open) open(b.dataset.open, true);
     else if (b.hasAttribute('data-close')) close(true);
     else if (b.hasAttribute('data-copy')) copyBlock(b);
     else if (b.classList.contains('accordion-toggle')) {
@@ -2854,9 +3072,10 @@
     }
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && menu.hidden) close(true);
+    if (e.key === 'Escape' && !e.repeat && menu.hidden && !dlg.open) close(true);
   });
   window.addEventListener('popstate', function () {
+    if (dlg.open) { refOpener = null; dlg.close(); }
     var id = location.hash.slice(1);
     if (id) open(id, false); else close(false);
   });

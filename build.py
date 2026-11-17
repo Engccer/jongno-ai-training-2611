@@ -13,11 +13,12 @@ SRC = next((r / _REL for r in _ROOTS if (r / _REL).is_dir()), None)
 if SRC is None:
     raise SystemExit("원고 정본 폴더를 찾지 못했습니다. Google Drive가 마운트돼 있는지 확인하세요.")
 OUT = Path(__file__).with_name("index.html")
+GUIDE = SRC / "실습에 필요한 설치와 환경 설정.md"
 
 # (버튼 제목, 정본 파일, 게시 여부)
 SECTIONS = [
-    ("사전 준비 안내", SRC / "사전 준비 안내문.md", True),
-    ("1회차: 작업 환경 셋업", SRC / "2. 강의 원고/강의 원고 1회기 작업 환경 셋업.md", True),
+    ("실습에 필요한 설치와 환경 설정", GUIDE, True),
+    ("1회차: 터미널에서 Claude 시작하기", SRC / "2. 강의 원고/강의 원고 1회기 작업 환경 셋업.md", True),
     ("2회차: 스킬로 문서 읽고 쓰고 듣기", SRC / "2. 강의 원고/강의 원고 2회기 스킬로 문서 읽고 쓰고 듣기.md", True),
     ("3회차: 반복 업무를 스크립트, 스킬, 앱으로 만들기", SRC / "2. 강의 원고/강의 원고 3회기 반복 업무를 스크립트로 만들기.md", True),
     ("4회차: 만든 스킬과 앱을 다듬고 계속 쓰기", SRC / "2. 강의 원고/강의 원고 4회기 만든 스킬과 앱을 다듬고 계속 쓰기.md", True),
@@ -86,9 +87,7 @@ def add_accordions(body: str, sid: str) -> str:
     return "".join(result)
 
 
-def render(path: Path, sid: str) -> str:
-    text = path.read_text(encoding="utf-8")
-    text = re.sub(r"^# .*\n", "", text, count=1)          # 문서 제목은 버튼·h2가 대신함
+def render_md(text: str) -> str:
     # 원고는 번호 목록 아래 하위 항목을 3칸 들여쓰는데 Python-Markdown은 4칸부터 목록
     # 연속으로 본다. 그대로 두면 하위 불릿이 하이픈째 앞 문단에 붙는다. 정본은 그대로 둔다.
     text = re.sub(r"^ {3}(?=\S)", "    ", text, flags=re.M)
@@ -98,8 +97,48 @@ def render(path: Path, sid: str) -> str:
     for lv in (5, 4, 3, 2):                                 # 페이지 h1 아래로 한 단계씩 내림
         body = body.replace(f"<h{lv}>", f"<h{lv+1}>").replace(f"</h{lv}>", f"</h{lv+1}>")
     body = body.replace("<table>", '<div class="table-wrap"><table>').replace("</table>", "</table></div>")
-    body = linkify(body)
-    return add_accordions(body, sid)
+    return linkify(body)
+
+
+# 강의자료는 설치·설정 절차를 「설치와 환경 설정 N번」으로만 가리킨다. 표시 단계에서 이 말을
+# 버튼으로 바꾸고, 누르면 안내의 N번 항목을 대화상자로 띄운다. 정본 마크다운은 문장 그대로 둔다.
+GUIDE_ITEM = re.compile(r"^### (\d+)\. (.+?)\n(.*?)(?=^### |^## |^---)", re.M | re.S)
+REF = re.compile(r"설치와 환경 설정 (\d+)번")
+GUIDE_ITEMS = {n: (title, body) for n, title, body in GUIDE_ITEM.findall(GUIDE.read_text(encoding="utf-8"))}
+if list(GUIDE_ITEMS) != [str(i) for i in range(1, len(GUIDE_ITEMS) + 1)]:
+    raise SystemExit(f"안내 항목 번호가 1부터 이어지지 않습니다: {list(GUIDE_ITEMS)}")
+
+# 버튼은 문장 안에만 넣는다. 제목에 넣으면 아코디언 버튼 안에 버튼이 생기고,
+# 코드 블록에 넣으면 복사본에 버튼 글자가 섞인다.
+NO_REF_ZONE = re.compile(r"<(pre|h\d)\b.*?</\1>", re.S)
+
+def link_refs(body: str) -> str:
+    for zone in NO_REF_ZONE.finditer(body):
+        if REF.search(zone.group(0)):
+            raise SystemExit(f"제목이나 코드 블록 안에 안내 참조가 있습니다: {zone.group(0)[:80]}")
+    def repl(m):
+        n = m.group(1)
+        if n not in GUIDE_ITEMS:
+            raise SystemExit(f"설치와 환경 설정 {n}번 항목이 안내에 없습니다.")
+        return (f'<button type="button" class="ref" data-ref="g-{n}">'
+                f'설치와 환경 설정 {n}. {html.escape(GUIDE_ITEMS[n][0])}</button>')
+    body = REF.sub(repl, body)
+    left = re.findall(r"설치와 환경 설정\s+\d[^<]{0,10}", re.sub(r"<button[^>]*>.*?</button>", "", body))
+    if left:
+        print("경고: 버튼으로 바뀌지 않은 안내 참조:", left)
+    return body
+
+def ref_templates() -> str:
+    return "\n".join(
+        f'<template id="g-{n}" data-title="{html.escape(f"설치와 환경 설정 {n}. {title}")}">'
+        f'{render_md(body)}</template>'
+        for n, (title, body) in GUIDE_ITEMS.items())
+
+
+def render(path: Path, sid: str) -> str:
+    text = path.read_text(encoding="utf-8")
+    text = re.sub(r"^# .*\n", "", text, count=1)  # 문서 제목은 버튼·h2가 대신함
+    return add_accordions(link_refs(render_md(text)), sid)
 
 articles, buttons = [], []
 for i, (title, path, live) in enumerate(SECTIONS, 1):
@@ -114,5 +153,5 @@ for i, (title, path, live) in enumerate(SECTIONS, 1):
     )
 
 template = Path(__file__).with_name("template.html").read_text(encoding="utf-8")
-OUT.write_text(template.replace("{{BUTTONS}}", "\n".join(buttons)).replace("{{ARTICLES}}", "\n".join(articles)), encoding="utf-8")
+OUT.write_text(template.replace("{{BUTTONS}}", "\n".join(buttons)).replace("{{ARTICLES}}", "\n".join(articles)).replace("{{REFS}}", ref_templates()), encoding="utf-8")
 print("wrote", OUT, OUT.stat().st_size, "bytes")

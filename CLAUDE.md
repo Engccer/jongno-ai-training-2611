@@ -8,7 +8,7 @@
 
 - 저장소: https://github.com/Engccer/jongno-ai-training-2611
 - 배포 URL: https://engccer.github.io/jongno-ai-training-2611/
-- 콘텐츠 정본: `G:\내 드라이브\KHY\Lectures\2611 종로시각장애인복지관 재직자 AI 활용 직무향상과정\`의 `사전 준비 안내문.md`와 `2. 강의 원고\*.md`. 이 저장소는 그 내용을 옮긴 것이다. <!-- sanitize: allow 원고 정본 위치. 이 저장소의 존재 이유라 일반화 불가 -->
+- 콘텐츠 정본: `G:\내 드라이브\KHY\Lectures\2611 종로시각장애인복지관 재직자 AI 활용 직무향상과정\`의 `실습에 필요한 설치와 환경 설정.md`와 `2. 강의 원고\*.md`. 이 저장소는 그 내용을 옮긴 것이다. <!-- sanitize: allow 원고 정본 위치. 이 저장소의 존재 이유라 일반화 불가 -->
 
 ## 구조
 
@@ -17,6 +17,7 @@
 - `index.html`: 생성물. 직접 편집하지 않는다.
 - `AGENTS.md`: 머리말 4줄과 `SYNC-BODY-START` 표시줄 아래에 `CLAUDE.md` 본문을 그대로 붙인 형제 문서. 이 저장소에는 `sync_agent_docs.py`가 없으므로 **`CLAUDE.md`를 고치면 같은 방식으로 함께 갱신한다.**
 - `sfx/open.mp3`·`close.mp3`: 열기·닫기 효과음(0.6초, -25~26 LUFS로 맞춤).
+- `sfx/dialog-open.mp3`·`dialog-close.mp3`: 원고의 「설치와 환경 설정 N번」 버튼이 여는 대화상자의 열기·닫기 효과음(ElevenLabs 효과음 생성, 0.6초, 약 -25.5 LUFS).
 
 ### build.py의 표시 단계 변환
 

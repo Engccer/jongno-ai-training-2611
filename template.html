@@ -35,6 +35,10 @@
   blockquote { margin: 1rem 0; padding: .5rem 1rem; border-left: 4px solid var(--line); }
   hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
   .table-wrap { overflow-x: auto; }
+  .ref { display: inline; min-height: 0; padding: .05rem .4rem; border-width: 1px; text-decoration: underline; }
+  dialog { width: calc(100% - 2rem); max-width: 46rem; max-height: 90vh; max-height: 90dvh; overflow: auto; overscroll-behavior: contain; color: var(--fg); background: var(--bg); border: 2px solid var(--fg); border-radius: .5rem; padding: 1rem; box-sizing: border-box; }
+  dialog::backdrop { background: rgba(0, 0, 0, .6); }
+  body:has(dialog[open]) { overflow: hidden; }
 </style>
 </head>
 <body>
@@ -48,11 +52,19 @@
 {{ARTICLES}}
 <p id="say" class="sr-only" role="status" aria-live="polite"></p>
 </main>
+<dialog id="ref" aria-labelledby="ref-title">
+<button type="button" class="close" data-ref-close>닫기</button>
+<h2 id="ref-title" tabindex="-1"></h2>
+<div id="ref-body"></div>
+<button type="button" class="close" data-ref-close>닫기</button>
+</dialog>
+{{REFS}}
 <script>
 (function () {
   var menu = document.getElementById('menu');
   var opener = null;
-  var sfx = { open: new Audio('sfx/open.mp3'), close: new Audio('sfx/close.mp3') };
+  var sfx = { open: new Audio('sfx/open.mp3'), close: new Audio('sfx/close.mp3'),
+              refOpen: new Audio('sfx/dialog-open.mp3'), refClose: new Audio('sfx/dialog-close.mp3') };
   function play(name) { var a = sfx[name]; a.currentTime = 0; a.play().catch(function () {}); }
 
   function open(id, sound) {
@@ -100,10 +112,37 @@
     });
   }
 
+  // 안내 항목 대화상자. 모달이 열리면 바깥이 비활성이 되므로 하나뿐인 live region을
+  // 대화상자 안으로 옮겼다가 닫을 때 돌려놓는다(대화상자 안의 복사 안내가 들리도록).
+  var dlg = document.getElementById('ref');
+  var refTitle = document.getElementById('ref-title');
+  var refBody = document.getElementById('ref-body');
+  var refOpener = null;
+  function openRef(btn) {
+    var tpl = document.getElementById(btn.dataset.ref);
+    if (!tpl) return;
+    refOpener = btn;
+    refTitle.textContent = tpl.dataset.title;
+    refBody.innerHTML = '';
+    refBody.appendChild(tpl.content.cloneNode(true));
+    dlg.appendChild(say);
+    dlg.showModal();
+    dlg.scrollTop = 0;
+    play('refOpen');
+    refTitle.focus();
+  }
+  dlg.addEventListener('close', function () {
+    document.querySelector('main').appendChild(say);
+    play('refClose');
+    if (refOpener && refOpener.offsetParent) refOpener.focus();
+  });
+
   document.addEventListener('click', function (e) {
     var b = e.target.closest('button');
     if (!b) return;
-    if (b.dataset.open) open(b.dataset.open, true);
+    if (b.dataset.ref) openRef(b);
+    else if (b.hasAttribute('data-ref-close')) dlg.close();
+    else if (b.dataset.open) open(b.dataset.open, true);
     else if (b.hasAttribute('data-close')) close(true);
     else if (b.hasAttribute('data-copy')) copyBlock(b);
     else if (b.classList.contains('accordion-toggle')) {
@@ -114,9 +153,10 @@
     }
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && menu.hidden) close(true);
+    if (e.key === 'Escape' && !e.repeat && menu.hidden && !dlg.open) close(true);
   });
   window.addEventListener('popstate', function () {
+    if (dlg.open) { refOpener = null; dlg.close(); }
     var id = location.hash.slice(1);
     if (id) open(id, false); else close(false);
   });
